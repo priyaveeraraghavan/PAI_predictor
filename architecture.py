@@ -29,9 +29,14 @@ class CNN:
     return conv_layers
   
 
- class AttentionRNN:
+class AttentionRNN:
     ##probably don't need to use embedding bc only four amino acids, but may need to change this.
     def __init__(self, X, Y, rnn_params, num_encoder_symbols, num_hidden_units, rnn_params, feed_previous=False, **kwargs):
+      """rnn_params : { 'cells' : [hidden_1, hidden_2, ...],
+                      'attention' : ?,
+                      'prediction_layer' : tanh }
+              """
+      
       self.context_vector = ?
       self.multi_cell = self.build_cells(rnn_params) 
       self.outputs, self.state = self.build_rnn(....)
@@ -45,22 +50,44 @@ class CNN:
         """
         params = {'state_is_tuple': False, 'forget_bias': 1.0}
         cells = []
-        for hidden_size in rnn_params:
+        for hidden_size in rnn_params.get('cells'):
           cells.append(tf.contrib.rnn.BasicLSTMCell(hidden_size, **params))
         
         return tf.contrib.rnn.MultiRNNCell(cells, state_is_tuple = False)
         
       
-      def build_rnn(self, batch_size):
+      def build_rnn(self, batch_size, num_attention_heads):
         ## TODO FINISH THIS
         with variable_scope.variable_scope('attention_rnn'):
           # Encoder
           encoder_outputs, encoder_state = core_rnn.static_rnn(self.multi_cell, X) ## may need to slice X into a list of 1d tensors
           
           # concatenate encoder outputs; will put attention on these
-          top_states = array_ops.reshape(o, [-1, 1, self.multi_cell.output_size]) for o in encoder_outputs]
+          top_states = [array_ops.reshape(o, [-1, 1, self.multi_cell.output_size]) for o in encoder_outputs]
           attention_states = array_ops.concat(top_states, 1)
-         
           
-    
+          with variable_scope.variable_scope("attention_decoder", dtype=dtype) as scope:
+            batch_size = Y.get_shape()[0].value # array_ops.shape(Y)[0]  # Needed for reshaping.
+            attn_length = attention_states.get_shape()[1].value
+            if attn_length is None:
+              attn_length = array_ops.shape(attention_states)[1]
+            attn_size = attention_states.get_shape()[2].value
+            hidden_attention = array_ops.reshape(attention_states,
+                                                [-1, attn_length, 1, attn_size])
+            hidden_features = []
+            v = []
+            for a in xrange(num_attention_heads):
+              k = variable_scope.get_variable("AttnW_%d" % a,
+                                              [1, 1, attn_size, attn_size])
+              hidden_features.append(tf.nn.conv2d(hidden, k, [1, 1, 1, 1], "SAME"))
+              v.append(variable_scope.get_variable("AttnV_%d" % a [attn_size]))
+              ##TODO FINISH ATTENTION
+          ##perform some attention alignment
+          encoder_state = 
+          
+          W_pred = tf.Variable(tf.truncated_normal([encoder_state.shape[1], self.params['prediction_layer'][0]], stddev=0.1), name='W_pred')
+          b_pred = tf.Variable(tf.constant(0.1, shape=[self.params['prediction_layer][0]]), name="b_pred")
+       
+          return tf.nn.tanh(tf.add(tf.matmul(encoder_state, W_pred), b_pred))
+
     

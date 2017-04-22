@@ -63,7 +63,7 @@ input: genome
 output: randomly generated fragment from the input genome
 """
 def get_negative_data(seq_record):
-  start = randint(0, INPUT_SIZE)
+  start = randint(0, len(seq_record)-INPUT_SIZE)
   end = start+INPUT_SIZE
   frag = str(seq_record[start:end])
   return frag
@@ -91,7 +91,7 @@ with open(islandviewer_dir, 'rb') as file:
     starts.append(row[1])
     ends.append(row[2])
 
-#get positve dataset
+#get positive dataset
 for i in range(len(seq_ids)):
   fetch = fetch_id(seq_ids[i])
   start = starts[i]

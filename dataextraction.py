@@ -102,16 +102,21 @@ for i in range(len(seq_ids)):
     labels.append(1)
 
 #create negative dataset (is this right)
+seq_ids_to_add = []
 for i in range(len(seq_ids)):
   fetch = fetch_id(seq_ids[i])
+  seq_ids_to_add.append(seq_ids[i])
   seq = get_negative_data(fetch)
   seqs.append(seq)
   labels.append(0)
+seq_ids.append(seq_ids_to_add)
 
 #write to new csv file
 with open('database.csv', 'wb') as csvfile:
   filewriter = csv.writer(csvfile, delimiter=",")
   filewriter.writerow(['ID', 'Seq', 'Label'])
+  for i in range(len(seq_ids)):
+    filewriter.writerow([seq_ids[i], seqs[i], labels[i]])
 
 """
 if __name__ == "__main__":

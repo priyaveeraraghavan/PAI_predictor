@@ -44,14 +44,14 @@ def get_full_subseq(seq_record, start, stop):
 
   #take some amount of nt from the end and paste onto the front of the sequence
   if start < pad_size:
-    new_nt = randint(stop+2000, final_size)
-    add_to_front = str(seq_record[new_nt:final_size]) #nt to move to front
+    new_nt = randint(stop+pad_size, final_size+pad_size)
+    add_to_front = str(seq_record[new_nt:final_size+pad_size]) #nt to move to front
     ending = final_size - len(add_to_front) + 1
     rest_of_seq = str(seq_record[start:ending])
     seq = add_to_front + rest_of_seq
   else:
     start_seq = randint(start-pad_size, start) #start the sequence at a random integer before the pai start
-    end_pad = final_size - abs(stop-start_seq)
+    end_pad = final_size - (stop-start_seq)
     end_seq = end_pad+stop
     seq = str(seq_record[start_seq:end_seq])
 
@@ -83,7 +83,7 @@ with open(islandviewer_dir, 'rb') as file:
     ends.append(row[2])
 
 
-with open('database.csv', 'wb') as newfile:
+with open('database.csv', 'wb') as csvfile:
   filewriter = csv.writer(csvfile, delimiter=",")
   filewriter.writerow(['ID', 'Seq', 'Label'])
 

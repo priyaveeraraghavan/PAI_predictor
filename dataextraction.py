@@ -55,14 +55,24 @@ def get_full_subseq(seq_record, start, stop):
     end_pad = final_size - (stop-start_seq)
     end_seq = end_pad+stop
     seq = str(seq_record[start_seq:end_seq])
-
   return seq
 
+"""
+Function to generate random 22kb size fragment from particular genomes
+input: genome
+output: randomly generated fragment from the input genome
+"""
+def get_negative_data(seq_record):
+  start = randint(0, INPUT_SIZE)
+  end = start+INPUT_SIZE
+  frag = str(seq_record[start:end])
+  return frag
 
-seq_ids = []
-starts = []
-ends = []
-seqs = []
+
+seq_ids = [] #list of accession numbers
+starts = [] #start bp
+ends = [] #end bp
+seqs = [] #list of 22kb sequences (both positve and negative
 labels = [] # 1 for PAI, 0 otherwise
 
 """
@@ -81,6 +91,7 @@ with open(islandviewer_dir, 'rb') as file:
     starts.append(row[1])
     ends.append(row[2])
 
+#get positve dataset
 for i in range(len(seq_ids)):
   fetch = fetch_id(seq_ids[i])
   start = starts[i]
@@ -90,7 +101,14 @@ for i in range(len(seq_ids)):
     seqs.append(seq)
     labels.append(1)
 
+#create negative dataset (is this right)
+for i in range(len(seq_ids)):
+  fetch = fetch_id(seq_ids[i])
+  seq = get_negative_data(fetch)
+  seqs.append(seq)
+  labels.append(0)
 
+#write to new csv file
 with open('database.csv', 'wb') as csvfile:
   filewriter = csv.writer(csvfile, delimiter=",")
   filewriter.writerow(['ID', 'Seq', 'Label'])

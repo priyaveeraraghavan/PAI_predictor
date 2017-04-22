@@ -4,6 +4,8 @@ from random import randint
 import csv
 
 Entrez.email = 'eemartin14@gmail.com'
+#islandviewer_dir = '/Users/Liz/Downloads/all_gis_islandviewer_iv4.csv'
+islandviewer_dir = '/Users/Sharon/Documents/MIT/Senior\Year/6.802/Final\Project/all_gis_islandviewer_iv4.csv'
 
 '''
 Accesses a particular genomic sequence in NCBI
@@ -73,7 +75,7 @@ write list to csv file
 """
 
 #grab sequence ids, starts, and ends of pais from the file
-with open('/Users/Liz/Downloads/all_gis_islandviewer_iv4.csv', 'rb') as file:
+with open(islandviewer_dir, 'rb') as file:
   reader = csv.reader(file)
   for row in reader:
     seq_ids.append(row[0])

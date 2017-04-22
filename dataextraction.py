@@ -4,8 +4,8 @@ from random import randint
 import csv
 
 Entrez.email = 'eemartin14@gmail.com'
-#islandviewer_dir = '/Users/Liz/Downloads/all_gis_islandviewer_iv4.csv'
-islandviewer_dir = '/Users/Sharon/Documents/MIT/Senior\Year/6.802/Final\Project/all_gis_islandviewer_iv4.csv'
+islandviewer_dir = '/Users/Liz/Downloads/all_gis_islandviewer_iv4.csv'
+#islandviewer_dir = '/Users/Sharon/Documents/MIT/Senior\Year/6.802/Final\Project/all_gis_islandviewer_iv4.csv'
 
 '''
 Accesses a particular genomic sequence in NCBI

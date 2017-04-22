@@ -4,8 +4,9 @@ from random import randint
 import csv
 
 Entrez.email = 'eemartin14@gmail.com'
-islandviewer_dir = '/Users/Liz/Downloads/all_gis_islandviewer_iv4.csv'
-#islandviewer_dir = '/Users/Sharon/Documents/MIT/Senior\Year/6.802/Final\Project/all_gis_islandviewer_iv4.csv'
+#islandviewer_dir = '/Users/Liz/Downloads/all_gis_islandviewer_iv4.csv'
+islandviewer_dir = '/Users/Sharon/Documents/MIT/Senior\Year/6.802/Final\Project/all_gis_islandviewer_iv4.csv'
+INPUT_SIZE = 22000
 
 '''
 Accesses a particular genomic sequence in NCBI
@@ -38,7 +39,7 @@ amount of padding needed to ensure that the final sequence is 22kb
 case where start = 1
 '''
 def get_full_subseq(seq_record, start, stop):
-  final_size = 22000
+  final_size = INPUT_SIZE
   size = (stop-start) + 1 #size of pai region
   pad_size = final_size - size #the amount of total padding needed
 
@@ -57,14 +58,12 @@ def get_full_subseq(seq_record, start, stop):
 
   return seq
 
-fetch = fetch_id("NC_009665.1")
-get_full_subseq(fetch, 1, 2573)
 
 seq_ids = []
 starts = []
 ends = []
 seqs = []
-labels = []
+labels = [] # 1 for PAI, 0 otherwise
 
 """
 use fetch on the stream of ids
@@ -81,6 +80,15 @@ with open(islandviewer_dir, 'rb') as file:
     seq_ids.append(row[0])
     starts.append(row[1])
     ends.append(row[2])
+
+for i in range(len(seq_ids)):
+  fetch = fetch_id(seq_ids[i])
+  start = starts[i]
+  end = ends[i]
+  if end-start >= INPUT_SIZE:
+    seq = get_full_subseq(fetch, start, end)
+    seqs.append(seq)
+    labels.append(1)
 
 
 with open('database.csv', 'wb') as csvfile:

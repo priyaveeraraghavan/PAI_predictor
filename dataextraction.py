@@ -2,10 +2,11 @@ from Bio import Entrez
 from Bio import SeqIO
 from random import randint
 import csv
+import urllib2
 
 Entrez.email = 'eemartin14@gmail.com'
 #islandviewer_dir = '/Users/Liz/Downloads/all_gis_islandviewer_iv4.csv'
-islandviewer_dir = '/Users/Sharon/Documents/MIT/Senior\Year/6.802/Final\Project/all_gis_islandviewer_iv4.csv'
+islandviewer_dir = 'C:/Users/Sharon/Documents/MIT/Senior Year/6.802/Final Project/all_gis_islandviewer_iv4.csv'
 INPUT_SIZE = 22000
 
 '''
@@ -14,9 +15,13 @@ input: accession number of genome
 output: fasta file in NCBI database
 '''
 def fetch_id(id):
-  handle = Entrez.efetch(db='nucleotide', id=id, rettype='fasta', retmode='text')
-  data = SeqIO.read(handle, 'fasta')
-  return data.seq
+  try:
+    handle = Entrez.efetch(db='nucleotide', id=id, rettype='fasta', retmode='text')
+    data = SeqIO.read(handle, 'fasta')
+    return data.seq
+  except urllib2.HTTPError as e:
+    print e
+    print e.url
 
 '''
 Gets a set subsequence of the genome
@@ -91,11 +96,16 @@ with open(islandviewer_dir, 'rb') as file:
     starts.append(row[1])
     ends.append(row[2])
 
+#remove headers
+seq_ids.pop(0)
+starts.pop(0)
+ends.pop(0)
+
 #get positive dataset
 for i in range(len(seq_ids)):
   fetch = fetch_id(seq_ids[i])
-  start = starts[i]
-  end = ends[i]
+  start = int(starts[i])
+  end = int(ends[i])
   if end-start >= INPUT_SIZE:
     seq = get_full_subseq(fetch, start, end)
     seqs.append(seq)

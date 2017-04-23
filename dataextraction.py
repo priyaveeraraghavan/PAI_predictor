@@ -138,8 +138,8 @@ if __name__ == "__main__":
 
 """
 TODO:
-
-read in csv file correctly
-write to new csv file containing id, 22kb seq, positive or negative label
+fix get_full_subseq method - not getting random starting padding correctly
+(sometimes starting index > ending index)
+double check math?
 
 """

@@ -44,22 +44,24 @@ amount of padding needed to ensure that the final sequence is 22kb
 case where start = 1
 '''
 def get_full_subseq(seq_record, start, stop):
+  print 'Getting desired window of sequence...'
   final_size = INPUT_SIZE
   size = (stop-start) + 1 #size of pai region
   pad_size = final_size - size #the amount of total padding needed
 
   #take some amount of nt from the end and paste onto the front of the sequence
   if start < pad_size:
-    new_nt = randint(stop+pad_size, final_size+pad_size)
-    add_to_front = str(seq_record[new_nt:final_size+pad_size]) #nt to move to front
+    new_nt = randint((stop+pad_size), (final_size+pad_size))
+    add_to_front = str(seq_record[new_nt:(final_size+pad_size)]) #nt to move to front
     ending = final_size - len(add_to_front) + 1
     rest_of_seq = str(seq_record[start:ending])
     seq = add_to_front + rest_of_seq
   else:
-    start_seq = randint(start-pad_size, start) #start the sequence at a random integer before the pai start
+    start_seq = randint((start-pad_size), start) #start the sequence at a random integer before the pai start
     end_pad = final_size - (stop-start_seq)
     end_seq = end_pad+stop
     seq = str(seq_record[start_seq:end_seq])
+  print 'Set desired window!'
   return seq
 
 """
@@ -91,27 +93,35 @@ write list to csv file
 #grab sequence ids, starts, and ends of pais from the file
 with open(islandviewer_dir, 'rb') as file:
   reader = csv.reader(file)
+  print 'Reading IslandViewer file...'
   for row in reader:
     seq_ids.append(row[0])
     starts.append(row[1])
     ends.append(row[2])
 
+print 'Finished reading IslandViewer file.'
 #remove headers
 seq_ids.pop(0)
 starts.pop(0)
 ends.pop(0)
 
+print 'Starting positive data set curration...'
 #get positive dataset
 for i in range(len(seq_ids)):
+  print 'Sequence number: ' + str(i)
   fetch = fetch_id(seq_ids[i])
   start = int(starts[i])
   end = int(ends[i])
-  if end-start >= INPUT_SIZE:
+  if end-start <= INPUT_SIZE:
+    print 'Adding sequence to positive set...'
     seq = get_full_subseq(fetch, start, end)
     seqs.append(seq)
     labels.append(1)
+    print 'Added sequence!'
+print 'Finished positive data set curration.'
 
-#create negative dataset (is this right)
+print 'Starting negative data set curration...'
+#create negative dataset
 seq_ids_to_add = []
 for i in range(len(seq_ids)):
   fetch = fetch_id(seq_ids[i])
@@ -120,26 +130,23 @@ for i in range(len(seq_ids)):
   seqs.append(seq)
   labels.append(0)
 seq_ids.append(seq_ids_to_add)
+print 'Finished negative data set curration.'
 
 #write to new csv file
 with open('database.csv', 'wb') as csvfile:
+  print 'Starting writing data sets to file...'
   filewriter = csv.writer(csvfile, delimiter=",")
   filewriter.writerow(['ID', 'Seq', 'Label'])
   for i in range(len(seq_ids)):
     filewriter.writerow([seq_ids[i], seqs[i], labels[i]])
+print 'Finished writing data sets to file.'
 
-"""
-if __name__ == "__main__":
-  with open('all_gis_islandviewer_iv4.csv', 'rb') as file:
-    reader = csv.reader(file)
-    for row in reader:
-      fetch
-"""
+print 'Finished data curration!'
+
 
 """
 TODO:
 fix get_full_subseq method - not getting random starting padding correctly
 (sometimes starting index > ending index)
 double check math?
-
 """

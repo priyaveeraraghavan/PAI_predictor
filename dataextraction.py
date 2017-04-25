@@ -108,7 +108,7 @@ ends.pop(0)
 
 print 'Starting positive data set curration...'
 #get positive dataset
-for i in range(50):
+for i in range(len(acc)):
   print 'Sequence number: ' + str(i)
   fetch = fetch_id(acc[i])
   start = int(starts[i])
@@ -135,7 +135,7 @@ for i in range(len(seq_ids)):
   labels.append(0)
   print 'Added sequence!'
 for id in seq_ids_to_add:
-  seq_ids.append(seq_ids_to_add[i])
+  seq_ids.append(id)
 print 'Finished negative data set curration.'
 
 #write to new csv file
@@ -148,11 +148,3 @@ with open('database.csv', 'wb') as csvfile:
 print 'Finished writing data sets to file.'
 
 print 'Finished data curration!'
-
-
-"""
-TODO:
-fix get_full_subseq method - not getting random starting padding correctly
-(sometimes starting index > ending index)
-double check math?
-"""

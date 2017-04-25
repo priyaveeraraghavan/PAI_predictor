@@ -76,9 +76,10 @@ def get_negative_data(seq_record):
   return frag
 
 
-seq_ids = [] #list of accession numbers
-starts = [] #start bp
-ends = [] #end bp
+acc = [] #list of accession numbers of all sequences
+starts = [] #start bp of all sequences
+ends = [] #end bp of all sequences
+seq_ids = [] #list of accession numbers of 22kb sequences (to be used in data sets)
 seqs = [] #list of 22kb sequences (both positve and negative
 labels = [] # 1 for PAI, 0 otherwise
 
@@ -95,25 +96,26 @@ with open(islandviewer_dir, 'rb') as file:
   reader = csv.reader(file)
   print 'Reading IslandViewer file...'
   for row in reader:
-    seq_ids.append(row[0])
+    acc.append(row[0])
     starts.append(row[1])
     ends.append(row[2])
 
 print 'Finished reading IslandViewer file.'
 #remove headers
-seq_ids.pop(0)
+acc.pop(0)
 starts.pop(0)
 ends.pop(0)
 
 print 'Starting positive data set curration...'
 #get positive dataset
-for i in range(len(seq_ids)):
+for i in range(50):
   print 'Sequence number: ' + str(i)
-  fetch = fetch_id(seq_ids[i])
+  fetch = fetch_id(acc[i])
   start = int(starts[i])
   end = int(ends[i])
   if end-start <= INPUT_SIZE:
     print 'Adding sequence to positive set...'
+    seq_ids.append(acc[i])
     seq = get_full_subseq(fetch, start, end)
     seqs.append(seq)
     labels.append(1)
@@ -124,12 +126,16 @@ print 'Starting negative data set curration...'
 #create negative dataset
 seq_ids_to_add = []
 for i in range(len(seq_ids)):
+  print 'Sequence number: ' + str(i)
   fetch = fetch_id(seq_ids[i])
   seq_ids_to_add.append(seq_ids[i])
+  print 'Adding sequence to negative set...'
   seq = get_negative_data(fetch)
   seqs.append(seq)
   labels.append(0)
-seq_ids.append(seq_ids_to_add)
+  print 'Added sequence!'
+for id in seq_ids_to_add:
+  seq_ids.append(seq_ids_to_add[i])
 print 'Finished negative data set curration.'
 
 #write to new csv file

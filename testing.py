@@ -17,14 +17,17 @@ inp = np.loadtxt(data_file, delimiter=',', skiprows=1, dtype=str)
 print len(inp)
 
 
-
-lens = np.expand_dims(map(lambda x: int(len(x)), inp[:200,1]), axis=1)
-in2 = np.concatenate([inp[:200], lens], axis=1)
-filtered = in2[in2[:200,3] == '22000']
+lens = np.expand_dims(map(lambda x: int(len(x)), inp[:,1]), axis=1)
+in2 = np.concatenate([inp[:], lens], axis=1)
+filtered = in2[in2[:,3] == '22000']
+rand = np.random.randint(0, len(filtered), size=200)
+batch = filtered[rand,1]
+labels = filtered[rand,2]
 print len(filtered)
+print len(batch)
 
 getseq = lambda seq: np.expand_dims(np.concatenate([np.expand_dims(mapper[i], axis=0) for i in seq], axis=0), axis=0)
-all_seqs = np.expand_dims(np.concatenate([getseq(x) for x in filtered[:,1]], axis=0), axis=2)
+all_seqs = np.expand_dims(np.concatenate([getseq(x) for x in batch[:,1]], axis=0), axis=2)
 
 print all_seqs.shape
 

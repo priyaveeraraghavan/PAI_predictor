@@ -18,21 +18,6 @@ class RNN:
     """    
     
     def __init__(self, X, Y, size_params, **kwargs):
-        """
-        
-        Arguments:
-            X : the tf placeholder for the input data
-            Y : the tf placeholder for the labels 
-            size_params : dictionary that looks as follows
-                { 'unroll_length' : int64,
-                  'batch_size' : int64,
-                  'memory_dim' : int64,
-                  'hidden_fc' : int64,
-                  'out_classes' : int64
-                  }
-                  the input dimension 1 must be divisible by unroll_length for this to work!
-        """
-          
         self.X = tf.squeeze(X, [2])
         print "X", self.X
         self.Y = Y
@@ -44,11 +29,10 @@ class RNN:
                                            'initial_state')
         self.zero_state = self.cell.zero_state(self.batch_size, tf.float32)
         self.final_states = self.make_recurrent_graph()
-        self.logits = self.make_output_prediction(size_params['hidden_fc'], size_params['out_classes'])
-        
+        self.logits = self.make_output_prediction(size_params['hidden_fc'], size_params['out'])
+        self.keep_prob = tf.placeholder(tf.float32)
         
     def make_recurrent_graph(self):
-        
         x_seq_windows = int(self.X.shape[1])/self.unroll_length
         X_inp_list = [tf.split(axis=1, num_or_size_splits=self.unroll_length, value=lst) 
                       for lst in tf.split(axis=1, num_or_size_splits=x_seq_windows, value=self.X)]
@@ -70,12 +54,14 @@ class RNN:
                 all_outputs.append(outputs)
                 all_final_states.append(final_state)
                 scope.reuse_variables()
-
+        #outputs, final_state = tf.contrib.rnn.static_rnn(self.cell, X_inp_list_corrected,
+        #                                                initial_state=self.initial_state)
         self.final_state = final_state
         
         return tf.concat(axis=1, values=all_final_states)
-     
-
+        #return final_state
+    
+            
     def make_output_prediction(self, hidden_fc, out):
         print self.final_states.shape
         batch, h = self.final_states.shape
@@ -91,17 +77,23 @@ class RNN:
         
         out_layer = tf.add(tf.matmul(hidden1, W2), B2)
         self.fc_layers = [hidden1, out_layer]
+        self.classification_py = tf.nn.softmax(out_layer, name="classification_py")
         return out_layer
+    
+    def l2_loss(self):
+        return sum([tf.nn.l2_loss(x) for x in self.fc_layers])
+       
 
-  
-  class CNN:
+    
+class CNN:
 
-    def __init__(self, X, Y, keep_prob, size_params, **kwargs):
+    def __init__(self, X, Y, size_params, **kwargs):
         self.X = X
         self.Y = Y
-        self.keep_prob = keep_prob
+        self.keep_prob = tf.placeholder(tf.float32)
         self.conv_layers, self.pooled_layers, prev_layer= self.make_conv_layers(size_params['convolutional_size_params'])
         self.fc_layers = self.make_fc_layers(size_params['fc_size_params'], prev_layer)
+        self.classification_py = tf.nn.softmax(self.fc_layers[-1], name="classification_py")
         
     def make_conv_layers(self, convolutional_size_params):
         """ Takes size parameters for an arbitrary number of convolutional layers and returns properly connected conv layers.
@@ -134,6 +126,7 @@ class RNN:
             
         return conv_layers, pooled_layers, prev_layer
     
+    
     def make_fc_layers(self, fc_size_params, prev_layer):
         fc_layers = []
         last_pooled_layer = prev_layer
@@ -160,145 +153,39 @@ class RNN:
                 break
         
         return fc_layers
+    
+    def l2_loss(self):
+        return sum([tf.nn.l2_loss(x) for x in self.fc_layers] + 
+                           [tf.nn.l2_loss(y) for y in self.conv_layers])
+           
+        
+
         
 ## ========== FUNCTIONS ==========================================================      
 ##
 ## -----------MODEL DEFINITIONS------------
-def basic_CNN_model(X, Y, keep_prob, model_params):
+def basic_CNN_model(X, Y, model_params):
+    cnn = CNN(X, Y, model_params)
+    l2_loss = model_params['l2']*cnn.l2_loss()
+    total_loss = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(logits=cnn.fc_layers[-1], labels=Y))
     
-    cnn = CNN(X, Y, keep_prob, model_params)
-    l2_loss = model_params['l2']*sum([tf.nn.l2_loss(x) for x in cnn.fc_layers] + 
-                           [tf.nn.l2_loss(y) for y in cnn.conv_layers])
-    loss = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(logits=cnn.fc_layers[-1], labels=Y))
-    
-    return cnn, loss
-  
-  
+    return cnn, total_loss
+
 def basic_RNN_model(X, Y, model_params):
     rnn = RNN(X, Y, model_params)
-    l2_loss = model_params['l2']*sum([tf.nn.l2_loss(x) for x in rnn.fc_layers])
+    l2_loss = model_params['l2']*rnn.l2_loss()
     loss = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(logits=rnn.fc_layers[-1], labels=Y))
-    #correct_prediction = tf.equal(tf.argmax(rnn.fc_layers[-1],1), tf.argmax(Y,1))
-    #accuracy = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))
     return rnn, loss
   
+    
 def random_subset(trX, trY, subset_size):
     subset_idx = list(np.random.choice(len(trX), subset_size))
     subset_X = np.array([trX[idx] for idx in subset_idx])
     subset_Y = np.array([trY[idx] for idx in subset_idx])
     return subset_X, subset_Y
 
+
 def training(trX, trY, vaX, vaY, model_name, model_type, model_params, training_params):
-    """
-    Arguments:
-        model_name: the name of this model, where all checkpoints will be saved
-        model_type: the type of the model, in {'attention_RNN', 'basic_RNN', 'basic_CNN'}
-        model_params: dictionary with params for building model. See each model definition
-        training_params: dictionary with parameters to train.
-            { 'dropout_keep_prob' : float32,
-              'max_grad' : float32,
-              'valid_size' : int64,
-              'epochs' : 3
-              }
-    """
-    
-    # File and directory specifications
-    model_dir = os.path.join(".", model_name)
-    if not os.path.exists(model_dir):
-        os.mkdir(model_dir)
-    
-    model_file = os.path.join(model_dir, model_name)
-    best_model_file = os.path.join(model_dir, "".join([model_name, "_best.ckpt"]))
-    
-    # Define graph
-    tf.reset_default_graph()
-    
-    # Input and output
-    #X = {...}[model_type]
-    h, w, d = trX[0].shape
-    X = tf.placeholder("float", [None, int(h), int(w), int(d)])
-    Y = tf.placeholder("float", [None, 2])
-    keep_prob = tf.placeholder(tf.float32)
-    
-    # Model definition
-    # model is a list of tensors
-    model_function = {"attention_RNN" : attention_RNN_model,
-                      "basic_RNN" : basic_RNN_model,
-                      "basic_CNN" : basic_CNN_model}[model_type]
-    model, cost = model_function(X, Y, keep_prob, model_params)
-    ops = { "basic_RNN" : [model.final_state, cost],
-            "basic_CNN" : [cost]}[model_type]
-
-    # Training Procedure
-    global_step = tf.get_variable('global_step', [],
-                              initializer=tf.constant_initializer(0.0))
-    train_vars = tf.trainable_variables()
-    grads, _ = tf.clip_by_global_norm(tf.gradients(cost, train_vars), training_params['max_grad'])
-    optimizer = tf.train.RMSPropOptimizer(training_params['lr'], 0.9)
-    train_op = optimizer.apply_gradients(zip(grads, train_vars),
-                                     global_step=global_step)
-    
-    # Initialize variables
-    sess = tf.Session()
-    saver = tf.train.Saver(max_to_keep=1000000)
-    init = tf.global_variables_initializer()
-    sess.run(init)
-    print "Initializing variables..."
-    
-    feed_dict = {}
-    if model_type == "basic_RNN":
-        feed_dict[model.initial_state] = model.zero_state.eval(session=sess)
-    if model_type == "basic_CNN":
-        feed_dict[model.keep_prob] = training_params['dropout_keep_prob']
-        
-
-    
-    # Start training
-    #################################################
-    best_cost = float("Inf")
-    epochs = training_params['epochs']
-    batch_size = model_params['batch_size']
-    valid_size = model_params['valid_size']
-    for epoch in range(1, epochs+1):
-        epoch_cost = 0
-        
-        # shuffle training data
-        trX, trY = random_subset(trX, trY, len(trX))
-        
-        for batch_idx in range(0, len(trX), batch_size):
-            batch_x = trX[batch_idx: (batch_idx + batch_size), :]
-            batch_y = trY[batch_idx: (batch_idx + batch_size), :]
-            feed_dict[X] = batch_x
-            feed_dict[Y] = batch_y
-            
-            _, batch_cost, state = sess.run([train_op, cost, state],
-                                     feed_dict = feed_dict)
-            epoch_cost += batch_cost
-        
-        epoch_cost /= len(range(0, len(trX), batch_size))
-        
-        # evaluate validation set
-        valid_x, valid_y = random_subset(vaX, vaY, valid_size)
-        feed_dict[X] = valid_x
-        feed_dict[Y] = valid_y
-        if model.keep_prob:
-            feed_dict[keep_prob] = 1.0
-        valid_cost = sess.run(cost, feed_dict = initialization_dict)
-
-        
-        # check if this is a superior model
-        if valid_cost < best_cost:
-            tf.logging.info("Saving best model in %s" % best_model_file)
-            saver.save(sess, best_model_file)
-            best_cost = valid_cost
-            
-        # save all models
-        saver.save(sess, "".join([model_file, "_epoch", str(epoch), ".ckpt"]))
-        tf.logging.info("Epoch: %d - Training: %.3f - Validation %.3f - Best %.3f" % (epoch, epoch_cost, valid_cost, best_cost))
-        
-    return best_cost
-  
-def train_RNN(trX, trY, vaX, vaY, model_name, model_type, model_params, training_params):
         # File and directory specifications
     model_dir = os.path.join(".", model_name)
     if not os.path.exists(model_dir):
@@ -320,9 +207,13 @@ def train_RNN(trX, trY, vaX, vaY, model_name, model_type, model_params, training
     
     # Model definition
     # model is a list of tensors
-    model_function = {"attention_RNN" : attention_RNN_model,
-                      "basic_RNN" : basic_RNN_model,
+    model_function = {"basic_RNN" : basic_RNN_model,
                       "basic_CNN" : basic_CNN_model}[model_type]
+    if "RNN" in model_type:
+        rnn = True
+    else:
+        rnn = False
+        
     model, cost = model_function(X, Y, model_params)
 
     # Training Procedure
@@ -342,7 +233,16 @@ def train_RNN(trX, trY, vaX, vaY, model_name, model_type, model_params, training
     print "Initializing variables..."
     
     feed_dict = {}
-    feed_dict[model.initial_state] = model.zero_state.eval(session=sess)
+    if rnn:
+        feed_dict[model.initial_state] = model.zero_state.eval(session=sess)
+
+        
+    # check validation before any training
+    #valid_size = training_params['valid_size']
+    #valid_X, valid_Y = random_subset(vaX, vaY, valid_size)
+    #_, best_cost = sess.run([train_op, cost], feed_dict = { X: valid_X,
+                                                            #Y: valid_Y,
+                                                           # keep_prob: 1.0 })
     
     # Start training
     #################################################
@@ -350,7 +250,12 @@ def train_RNN(trX, trY, vaX, vaY, model_name, model_type, model_params, training
     epochs = training_params['epochs']
     batch_size = model_params['batch_size']
     valid_size = model_params['valid_size']
-    ops = [cost, model.final_state]
+    
+    ops = [cost]
+    if rnn:
+        ops += [model.final_state]
+    
+    
     for epoch in range(1, epochs+1):
         epoch_cost = 0
         
@@ -364,9 +269,15 @@ def train_RNN(trX, trY, vaX, vaY, model_name, model_type, model_params, training
                 continue
             feed_dict[X] = batch_x
             feed_dict[Y] = batch_y
-            batch_cost, state = sess.run(ops,
+            feed_dict[model.keep_prob] = training_params['dropout_keep_prob']
+            
+            if rnn:
+                batch_cost, state = sess.run(ops,
                                      feed_dict = feed_dict)
-            feed_dict[model.initial_state] = state
+                feed_dict[model.initial_state] = state
+            else:
+                [batch_cost] = sess.run(ops, feed_dict = feed_dict)
+                
             epoch_cost += batch_cost
 
         
@@ -376,8 +287,10 @@ def train_RNN(trX, trY, vaX, vaY, model_name, model_type, model_params, training
         valid_x, valid_y = random_subset(vaX, vaY, batch_size)
         feed_dict[X] = valid_x
         feed_dict[Y] = valid_y
-        feed_dict[model.initial_state] = model.zero_state.eval(session=sess)
-        valid_cost, py = sess.run([cost, model.fc_layers[-1]], feed_dict = feed_dict)
+        feed_dict[model.keep_prob] = 1.0
+        if rnn:
+            feed_dict[model.initial_state] = model.zero_state.eval(session=sess)
+        valid_cost, py = sess.run([cost, model.classification_py], feed_dict = feed_dict)
         print py
 
         
@@ -392,5 +305,7 @@ def train_RNN(trX, trY, vaX, vaY, model_name, model_type, model_params, training
         tf.logging.info("Epoch: %d - Training: %.3f - Validation %.3f - Best %.3f" % (epoch, epoch_cost, valid_cost, best_cost))
         
     return best_cost
+  
+
   
 

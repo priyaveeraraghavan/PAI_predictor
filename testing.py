@@ -27,7 +27,7 @@ print len(filtered)
 print len(batch)
 
 getseq = lambda seq: np.expand_dims(np.concatenate([np.expand_dims(mapper[i], axis=0) for i in seq], axis=0), axis=0)
-all_seqs = np.expand_dims(np.concatenate([getseq(x) for x in batch[:,1]], axis=0), axis=2)
+all_seqs = np.expand_dims(np.concatenate([getseq(x) for x in batch], axis=0), axis=2)
 
 print all_seqs.shape
 

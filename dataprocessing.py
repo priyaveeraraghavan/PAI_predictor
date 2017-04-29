@@ -6,7 +6,17 @@ mapper = {'A':[1,0,0,0],'C':[0,1,0,0],'G':[0,0,1,0],'T':[0,0,0,1],
           'N':[0,0,0,0],'R':[0,1,0,1],'Y':[1,0,1,0],'M':[1,1,0,0],
           'K':[0,0,1,1],'S':[0,1,1,0],'W':[1,0,0,1],'B':[0,1,1,1],
           'V':[1,1,1,0],'H':[1,1,0,1],'D':[1,0,1,1]}
+
 worddim = len(mapper['A'])
+
+"""Try this code"""
+# Run this line first
+for key, val in mapper.items():
+          mapper[key] = np.array(val)
+# Now run these 
+inp = np.loadtxt(fname, delimiter=',', skiprows=1, dtype=str)
+getseq = lambda seq: np.expand_dims(np.concatenate([np.expand_dims(mapper[i], axis=0) for i in seq], axis=0), axis=0)
+all_seqs = np.expand_dims(np.concatenate([getseq(x) for x in inp[:,1]], axis=0), axis=2)
 
 """
 Reading in sequences for positive and negative data sets

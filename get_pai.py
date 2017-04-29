@@ -13,7 +13,7 @@ import matplotlib.pyplot as plt
 
 Entrez.email = 'eemartin14@gmail.com'
 #islandviewer_dir = '/Users/Liz/Downloads/all_gis_islandviewer_iv4.csv'
-islandviewer_dir = 'C:/Users/Sharon/Documents/MIT/Senior Year/6.802/Final Project/all_gis_islandviewer_iv4.csv'
+#islandviewer_dir = 'C:/Users/Sharon/Documents/MIT/Senior Year/6.802/Final Project/all_gis_islandviewer_iv4.csv'
 islandviewer_dir = '/afs/csail.mit.edu/u/p/priyav/PAI_data/all_gis_islandviewer_iv4.csv'
 INPUT_SIZE = 22000
 

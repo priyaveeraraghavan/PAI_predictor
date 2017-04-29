@@ -22,7 +22,7 @@ INPUT_SIZE = 22000
 #parser.add_argument("outfile", type=str)
 
 islandviewer_file = sys.argv[1]
-outfile = sys.argv[2]
+outfile = 'C:/Users/Sharon/Documents/MIT/Senior Year/6.802/Final Project/dataset.csv'
 print "Input file: ", islandviewer_file
 print "Output file: ", outfile
 '''
@@ -135,7 +135,7 @@ with open(outfile, 'wb') as csvfile:
   #get positive dataset
   counter = 0
   for i in range(len(acc)):
-    #print 'Sequence number: ' + str(i)
+    print 'Sequence number: ' + str(i)
     fetch = fetch_id(acc[i])
     if not fetch:
       print "id or connection to NCBI was faulty", str(i), acc[i]

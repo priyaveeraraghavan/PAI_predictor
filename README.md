@@ -1,5 +1,7 @@
 # PAI_predictor
 
-Model Definitions :               architecture.py \n
-Batch Generation  :               batchhelper.py \n
-Training          :               training.py \n
+Model Definitions :               architecture.py 
+
+Batch Generation  :               batchhelper.py 
+
+Training          :               training.py 

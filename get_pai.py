@@ -20,6 +20,7 @@ INPUT_SIZE = 22000
 
 islandviewer_file = sys.argv[1]
 outfile = sys.argv[2]
+
 print "Input file: ", islandviewer_file
 print "Output file: ", outfile
 '''
@@ -104,6 +105,7 @@ grab seqs and put them in the list
 write list to csv file
 """
 
+
 with open(islandviewer_file, 'rb') as file:
   reader = csv.reader(file)
   print 'Reading IslandViewer file...'
@@ -128,7 +130,9 @@ with open(outfile, 'wb') as csvfile:
   #get positive dataset
   counter = 0
   for i in range(len(acc)):
-    #print 'Sequence number: ' + str(i)
+
+    print 'Sequence number: ' + str(i)
+
     fetch = fetch_id(acc[i])
     if not fetch:
       print "id or connection to NCBI was faulty", str(i), acc[i]
@@ -142,6 +146,7 @@ with open(outfile, 'wb') as csvfile:
       labels.append(1)
       filewriter.writerow([acc[i], seq, '1'])
       counter += 1
+
     if counter % 500 == 0:
       print "Sequences Processed so far: ", counter
   print 'Finished positive data set curation.'
@@ -179,6 +184,7 @@ with open(outfile, 'wb') as csvfile:
     labels.append(0)
     filewriter.writerow([seq_ids[i], seq, '0'])
     counter += 1
+
     if counter % 500 == 0:
       print "Negative Sequences Processed so far: ", counter
 
@@ -192,5 +198,6 @@ print 'Finished negative data set curation.'
 #  for i in range(len(seq_ids)):
 #    filewriter.writerow([seq_ids[i], seqs[i], labels[i]])
 #print 'Finished writing data sets to file.'
+
 
 print 'Finished data curation!'

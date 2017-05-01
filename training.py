@@ -1,6 +1,8 @@
 from batchhelper import BatchGenerator
 from architecture import basic_RNN_model
 from architecture import basic_CNN_model
+import os
+import tensorflow as tf
 
 def training(model_name, model_type, model_params, training_params):
     """Trains a model given the specifications.

@@ -1,4 +1,4 @@
-from ../training import training
+from training import training
 
 model_type = "basic_CNN"
 model_name = "CNN_v1"

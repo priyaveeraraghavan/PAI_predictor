@@ -17,12 +17,10 @@ Entrez.email = 'eemartin14@gmail.com'
 islandviewer_dir = '/afs/csail.mit.edu/u/p/priyav/PAI_data/all_gis_islandviewer_iv4.csv'
 INPUT_SIZE = 22000
 
-#parser = argparse.ArgumentParser()
-#parser.add_argument("csv", type=str)
-#parser.add_argument("outfile", type=str)
 
 islandviewer_file = sys.argv[1]
-outfile = 'C:/Users/Sharon/Documents/MIT/Senior Year/6.802/Final Project/dataset.csv'
+outfile = sys.argv[2]
+
 print "Input file: ", islandviewer_file
 print "Output file: ", outfile
 '''
@@ -107,9 +105,6 @@ grab seqs and put them in the list
 write list to csv file
 """
 
-#grab sequence ids, starts, and ends of pais from the file
-#args = parser.parse_args()
-#islandviewer_file = args.csv
 
 with open(islandviewer_file, 'rb') as file:
   reader = csv.reader(file)
@@ -135,7 +130,9 @@ with open(outfile, 'wb') as csvfile:
   #get positive dataset
   counter = 0
   for i in range(len(acc)):
+
     print 'Sequence number: ' + str(i)
+
     fetch = fetch_id(acc[i])
     if not fetch:
       print "id or connection to NCBI was faulty", str(i), acc[i]
@@ -149,9 +146,10 @@ with open(outfile, 'wb') as csvfile:
       labels.append(1)
       filewriter.writerow([acc[i], seq, '1'])
       counter += 1
-    if counter % 500:
+
+    if counter % 500 == 0:
       print "Sequences Processed so far: ", counter
-    print 'Finished positive data set curation.'
+  print 'Finished positive data set curation.'
 
   ## Find the distribution of lengths of the positive lengths
   lengths = np.array([len(x) for x in seqs])
@@ -186,11 +184,10 @@ with open(outfile, 'wb') as csvfile:
     labels.append(0)
     filewriter.writerow([seq_ids[i], seq, '0'])
     counter += 1
-    if counter % 500:
+
+    if counter % 500 == 0:
       print "Negative Sequences Processed so far: ", counter
 
-#for id in seq_ids_to_add:
-#  seq_ids.append(id)
 print 'Finished negative data set curation.'
 
 #write to new csv file
@@ -202,4 +199,5 @@ print 'Finished negative data set curation.'
 #    filewriter.writerow([seq_ids[i], seqs[i], labels[i]])
 #print 'Finished writing data sets to file.'
 
-print 'Finished data curration!'
+
+print 'Finished data curation!'

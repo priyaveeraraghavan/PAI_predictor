@@ -1,3 +1,5 @@
+import numpy as np
+
 class BatchGenerator:
     
     def __init__(self, batch_size, filenames):

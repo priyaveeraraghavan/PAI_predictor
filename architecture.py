@@ -1,5 +1,7 @@
 ## Priya Veeraraghavan, Liz Martin, Sharon Wu 2017
 ## Defines helper functions for PAI predictor architecture construction
+import tensorflow as tf
+import numpy as np
 
 class RNN:
     """A RNN model.

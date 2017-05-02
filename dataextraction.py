@@ -5,8 +5,8 @@ import csv
 import urllib2
 
 Entrez.email = 'eemartin14@gmail.com'
-#islandviewer_dir = '/Users/Liz/Downloads/all_gis_islandviewer_iv4.csv'
-islandviewer_dir = 'C:/Users/Sharon/Documents/MIT/Senior Year/6.802/Final Project/all_gis_islandviewer_iv4.csv'
+islandviewer_dir = '/Users/Liz/Downloads/all_gis_islandviewer_iv4.csv'
+#islandviewer_dir = 'C:/Users/Sharon/Documents/MIT/Senior Year/6.802/Final Project/all_gis_islandviewer_iv4.csv'
 INPUT_SIZE = 22000
 
 '''
@@ -22,6 +22,8 @@ def fetch_id(id):
   except urllib2.HTTPError as e:
     print e
     print e.url
+  except ValueError as err:
+    print 'not in ncbi'
 
 '''
 Gets a set subsequence of the genome
@@ -44,7 +46,7 @@ amount of padding needed to ensure that the final sequence is 22kb
 case where start = 1
 '''
 def get_full_subseq(seq_record, start, stop):
-  print 'Getting desired window of sequence...'
+  #print 'Getting desired window of sequence...'
   final_size = INPUT_SIZE
   size = (stop-start) + 1 #size of pai region
   pad_size = final_size - size #the amount of total padding needed
@@ -61,7 +63,7 @@ def get_full_subseq(seq_record, start, stop):
     end_pad = final_size - (stop-start_seq)
     end_seq = end_pad+stop
     seq = str(seq_record[start_seq:end_seq])
-  print 'Set desired window!'
+  #print 'Set desired window!'
   return seq
 
 """
@@ -92,21 +94,21 @@ write list to csv file
 """
 
 #grab sequence ids, starts, and ends of pais from the file
-with open(islandviewer_dir, 'rb') as file:
+with open(islandviewer_dir, 'rU') as file:
   reader = csv.reader(file)
-  print 'Reading IslandViewer file...'
+  #print 'Reading IslandViewer file...'
   for row in reader:
     acc.append(row[0])
     starts.append(row[1])
     ends.append(row[2])
 
-print 'Finished reading IslandViewer file.'
+#print 'Finished reading IslandViewer file.'
 #remove headers
 acc.pop(0)
 starts.pop(0)
 ends.pop(0)
 
-print 'Starting positive data set curration...'
+#print 'Starting positive data set curation...'
 #get positive dataset
 for i in range(len(acc)):
   print 'Sequence number: ' + str(i)
@@ -120,9 +122,9 @@ for i in range(len(acc)):
     seqs.append(seq)
     labels.append(1)
     print 'Added sequence!'
-print 'Finished positive data set curration.'
+print 'Finished positive data set curation.'
 
-print 'Starting negative data set curration...'
+print 'Starting negative data set curation...'
 #create negative dataset
 seq_ids_to_add = []
 for i in range(len(seq_ids)):
@@ -136,7 +138,7 @@ for i in range(len(seq_ids)):
   print 'Added sequence!'
 for id in seq_ids_to_add:
   seq_ids.append(id)
-print 'Finished negative data set curration.'
+print 'Finished negative data set curation.'
 
 #write to new csv file
 with open('database.csv', 'wb') as csvfile:
@@ -147,4 +149,4 @@ with open('database.csv', 'wb') as csvfile:
     filewriter.writerow([seq_ids[i], seqs[i], labels[i]])
 print 'Finished writing data sets to file.'
 
-print 'Finished data curration!'
+print 'Finished data curation!'

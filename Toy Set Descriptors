@@ -1,0 +1,6 @@
+Toy Set Descriptors:
+2200 bases long each
+run with a COPY of toy_model.py
+'toy_stupid_{train, validation}.csv' : AAAAAs and TTTTTTs only
+'toy_stupid_{train, validation}_2.csv' : AAAAAAAs and random
+'toy_large_motif_{train, valid}.csv' : random-AAAAAA-random and random

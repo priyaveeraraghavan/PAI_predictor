@@ -7,6 +7,7 @@ class RNN:
     """A RNN model.
         
     Attributes:
+        name: string name no spaces of this component of the model
         X : the tf placeholder for the input data
         Y : the tf placeholder for the labels 
         unroll_length : the number of characters on which to backprop each time
@@ -30,9 +31,11 @@ class RNN:
                                            [self.batch_size, size_params['memory_dim']],
                                            'initial_state')
         self.zero_state = self.cell.zero_state(self.batch_size, tf.float32)
-        self.final_states = self.make_recurrent_graph()
+        self.final_state = self.make_recurrent_graph()
         self.logits = self.make_output_prediction(size_params['hidden_fc'], size_params['out'])
         self.keep_prob = tf.placeholder(tf.float32)
+        
+        tf.add_to_collection(name+'_final_states', self.final_state)
         
     def make_recurrent_graph(self):
         x_seq_windows = int(self.X.shape[1])/self.unroll_length
@@ -65,8 +68,8 @@ class RNN:
     
             
     def make_output_prediction(self, hidden_fc, out):
-        print self.final_states.shape
-        batch, h = self.final_states.shape
+        print self.final_state.shape
+        batch, h = self.final_state.shape
         rnn_out_size = int(h)
         
         flattened_out_states = tf.reshape(self.final_states, [-1, rnn_out_size])
@@ -80,6 +83,8 @@ class RNN:
         out_layer = tf.add(tf.matmul(hidden1, W2), B2)
         self.fc_layers = [hidden1, out_layer]
         self.classification_py = tf.nn.softmax(out_layer, name="classification_py")
+        tf.add_to_collection(name+'_hidden_outlayer', out_layer)
+        tf.add_to_collection(name+'_classification_py', self.classification_py)
         return out_layer
     
     def l2_loss(self):
@@ -93,10 +98,16 @@ class CNN:
         self.X = X
         self.Y = Y
         self.keep_prob = tf.placeholder(tf.float32)
+        self.model_name = size_params['model_name']
+        print "made keep prob"
         self.conv_layers, self.pooled_layers, prev_layer= self.make_conv_layers(size_params['convolutional_size_params'])
+        print "made conv layers"
         self.fc_layers = self.make_fc_layers(size_params['fc_size_params'], prev_layer)
+        print "made fc layers", self.fc_layers
         self.classification_py = tf.nn.softmax(self.fc_layers[-1], name="classification_py")
-        
+        tf.add_to_collection("_".join([self.model_name, '_py']), self.classification_py)
+        print "made classification layer"
+
     def make_conv_layers(self, convolutional_size_params):
         """ Takes size parameters for an arbitrary number of convolutional layers and returns properly connected conv layers.
     
@@ -113,18 +124,19 @@ class CNN:
         for name, filter_params, pool_or_conv in convolutional_size_params:
             if pool_or_conv == "conv":
                 [filter_height, filter_width, num_filters] = filter_params
-                print int(prev_layer.shape[2])
                 W_conv = tf.Variable(tf.truncated_normal([filter_height, filter_width, int(prev_layer.shape[3]), num_filters], stddev=0.1), name="W" + name)
                 b_conv = tf.Variable(tf.constant(0.1, shape=[num_filters]), name="b" + name)
                 h_conv = tf.nn.relu(tf.nn.conv2d(prev_layer, W_conv, strides=[1, 1, 1, 1], padding='SAME') + b_conv, name=name)
                 conv_layers.append(h_conv)
                 prev_layer = h_conv
+                tf.add_to_collection("_".join([self.model_name, name]), h_conv)
             else:
                 [filter_size, filter_size, stride, stride] = filter_params
                 h_pool = tf.nn.max_pool(h_conv, ksize=[1, filter_size, filter_size, 1],
                         strides=[1, stride, stride, 1], padding='SAME')
                 pooled_layers.append(h_pool)
                 prev_layer = h_pool
+                tf.add_to_collection("_".join([self.model_name, name]), h_pool)
             
         return conv_layers, pooled_layers, prev_layer
     
@@ -133,9 +145,6 @@ class CNN:
         fc_layers = []
         last_pooled_layer = prev_layer
         _, h, w, d = last_pooled_layer.shape
-        print int(h)
-        print w
-        print d
         prev_out = int(h)*int(w)*int(d)
         prev_layer = tf.reshape(last_pooled_layer, [-1, prev_out])
 
@@ -147,11 +156,14 @@ class CNN:
             fc_layers.append(h_dropout)
             prev_layer = h_dropout
             prev_out = out_channel
+            tf.add_to_collection("_".join([self.model_name, name]), h_fc)
             if name == 'out':
                 W_out = tf.Variable(tf.truncated_normal([prev_out, out_channel], stddev=0.1), name="W_out")
                 b_out = tf.Variable(tf.constant(0.1, shape=[out_channel]), name="b_out")
                 h_out = tf.matmul(prev_layer, W_out) + b_out
                 fc_layers.append(h_out)
+                self.logits = h_out
+                tf.add_to_collection("_".join([self.model_name, "out"]), h_out)
                 break
         
         return fc_layers
@@ -170,7 +182,7 @@ class CNN:
 def basic_CNN_model(X, Y, model_params):
     cnn = CNN(X, Y, model_params)
     l2_loss = model_params['l2']*cnn.l2_loss()
-    total_loss = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(logits=cnn.fc_layers[-1], labels=Y))
+    total_loss = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(logits=cnn.logits, labels=Y)) + l2_loss
     
     return cnn, total_loss
 

@@ -3,6 +3,7 @@ from architecture import basic_RNN_model
 from architecture import basic_CNN_model
 import os
 import tensorflow as tf
+import numpy as np
 
 def training(model_name, model_type, model_params, training_params):
     """Trains a model given the specifications.
@@ -46,6 +47,7 @@ def training(model_name, model_type, model_params, training_params):
     model_dir = os.path.join(".", model_name)
     if not os.path.exists(model_dir):
         os.mkdir(model_dir)
+    print "Saving model in ", model_dir
     
     model_file = os.path.join(model_dir, model_name)
     best_model_file = os.path.join(model_dir, "".join([model_name, "_best.ckpt"]))
@@ -56,6 +58,9 @@ def training(model_name, model_type, model_params, training_params):
     # Input and output
     #X = {...}[model_type]
     h, w, d = model_params['input_shape']
+    print "Input shape: [%d, %d, %d]" % (h, w, d)
+    splits = model_params['splits']
+    h = int(h)/splits
     X = tf.placeholder("float", [None, int(h), int(w), int(d)])
     print "X placeholder", X
     Y = tf.placeholder("float", [None, 2])
@@ -69,17 +74,20 @@ def training(model_name, model_type, model_params, training_params):
         rnn = True
     else:
         rnn = False
-        
+    
+    #with tf.device('/gpu:0'): TODO put this actually on a GPU
     model, cost = model_function(X, Y, model_params)
-
+    print "Model", model.model_name
     # Training Procedure
-    global_step = tf.get_variable('global_step', [],
-                              initializer=tf.constant_initializer(0.0))
-    train_vars = tf.trainable_variables()
-    grads, _ = tf.clip_by_global_norm(tf.gradients(cost, train_vars), training_params['max_grad'])
-    optimizer = tf.train.RMSPropOptimizer(training_params['lr'], 0.9)
-    train_op = optimizer.apply_gradients(zip(grads, train_vars),
-                                     global_step=global_step)
+    #global_step = tf.get_variable('global_step', [],
+    #initializer=tf.constant_initializer(0.0))
+    #train_vars = tf.trainable_variables()
+    train_op = tf.train.RMSPropOptimizer(training_params['lr'], 0.9).minimize(cost)
+    print "Optimizer created"
+    #grads, _ = tf.gradients(cost, train_vars), training_params['max_grad'])
+    #optimizer = tf.train.RMSPropOptimizer(training_params['lr'], 0.9)
+    #train_op = optimizer.apply_gradients(zip(grads, train_vars),
+    #                                     global_step=global_step)
     
     # Initialize variables
     sess = tf.Session()
@@ -106,12 +114,14 @@ def training(model_name, model_type, model_params, training_params):
     epochs = training_params['epochs']
     batch_size = model_params['batch_size']
     trainfiles = training_params['train_files']
-    train_batch_generator = BatchGenerator(batch_size, trainfiles)
+    input_length = model_params['input_shape'][0]
+    num_splits = model_params['splits']
+    train_batch_generator = BatchGenerator(batch_size, trainfiles, input_length, num_splits)
     valid_size = model_params['valid_size']
     validfiles = training_params['valid_files']
-    valid_batch_generator = BatchGenerator(valid_size, validfiles)
+    valid_batch_generator = BatchGenerator(valid_size, validfiles, input_length, num_splits)
     
-    ops = [cost]
+    ops = [train_op, cost]
     if rnn:
         ops += [model.final_state]
     
@@ -130,27 +140,25 @@ def training(model_name, model_type, model_params, training_params):
         while True:
             try:
                 batch_x, batch_y = train_batch_generator.next_batch()
-                print "running next batch..."
                 #if batch_x.shape[0] != batch_size:
                 #    continue
-                feed_dict[X] = batch_x
-                feed_dict[Y] = batch_y
+                feed_dict[model.X] = batch_x
+                feed_dict[model.Y] = batch_y
                 feed_dict[model.keep_prob] = training_params['dropout_keep_prob']
             
                 if rnn:
-                    batch_cost, state = sess.run(ops,
+                    _, batch_cost, state = sess.run(ops,
                                      feed_dict = feed_dict)
                     feed_dict[model.initial_state] = state
                 else:
-                    [batch_cost] = sess.run(ops, feed_dict = feed_dict)
+                    _, batch_cost = sess.run(ops, feed_dict = feed_dict)
                 
                 epoch_cost += batch_cost
                 iterations += 1
             except StopIteration:
-                print "end of epoch!"
                 break
 
-        
+        print "Iterations", iterations
         #epoch_cost /= len(range(0, len(trX), batch_size))
         epoch_cost /= iterations
         
@@ -160,11 +168,20 @@ def training(model_name, model_type, model_params, training_params):
         #feed_dict[Y] = valid_y
         valid_batch_generator.reset()
         valid_x, valid_y = valid_batch_generator.next_batch()
+        feed_dict[model.X] = valid_x
+        feed_dict[model.Y] = valid_y
         feed_dict[model.keep_prob] = 1.0
         if rnn:
             feed_dict[model.initial_state] = model.zero_state.eval(session=sess)
         valid_cost, py = sess.run([cost, model.classification_py], feed_dict = feed_dict)
-        print py
+        #print py, valid_y
+        outcomes = [int(round(x)) for x in py[:,0]]
+        outcome_errors = np.abs(outcomes - valid_y[:,0])
+        outcome_correctness = np.multiply(py, valid_y)
+        print outcome_correctness
+        correctness = np.sum(outcome_correctness)
+        print correctness
+        error_rate = float(sum(outcome_errors))/len(outcome_errors)
 
         
         # check if this is a superior model
@@ -175,6 +192,7 @@ def training(model_name, model_type, model_params, training_params):
             
         # save all models
         saver.save(sess, "".join([model_file, "_epoch", str(epoch), ".ckpt"]))
-        tf.logging.info("Epoch: %d - Training: %.3f - Validation %.3f - Best %.3f" % (epoch, epoch_cost, valid_cost, best_cost))
+        print "Epoch: %d - Training: %.3f - Validation %.3f - Best %.3f - Error Rate %.3f - Correctness %.3f" % (epoch, epoch_cost, valid_cost, best_cost, error_rate, correctness)
+        #tf.logging.info("Epoch: %d - Training: %.3f - Validation %.3f - Best %.3f" % (epoch, epoch_cost, valid_cost, best_cost))
         
     return best_cost

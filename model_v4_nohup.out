@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "model_v4.py", line 1, in <module>
+    from training import training
+  File "/afs/csail.mit.edu/u/p/priyav/PAI_data/PAI_predictor/training.py", line 78
+    initializer=tf.constant_initializer(0.0))
+    ^
+IndentationError: unexpected indent

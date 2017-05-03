@@ -1,0 +1,20 @@
+2017-05-02 12:11:10.686042: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.1 instructions, but these are available on your machine and could speed up CPU computations.
+2017-05-02 12:11:10.686136: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.2 instructions, but these are available on your machine and could speed up CPU computations.
+2017-05-02 12:11:10.686159: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX instructions, but these are available on your machine and could speed up CPU computations.
+1.1.0
+X placeholder Tensor("Placeholder:0", shape=(?, 22000, 1, 4), dtype=float32)
+made keep prob
+made conv layers
+made fc layers
+made classification layer
+Initializing variables...
+Epoch: 1 - Training: 0.706 - Validation 0.708 - Best 0.708
+Epoch: 2 - Training: 0.706 - Validation 0.688 - Best 0.688
+Epoch: 3 - Training: 0.706 - Validation 0.706 - Best 0.688
+Epoch: 4 - Training: 0.706 - Validation 0.712 - Best 0.688
+Epoch: 5 - Training: 0.706 - Validation 0.709 - Best 0.688
+Epoch: 6 - Training: 0.706 - Validation 0.722 - Best 0.688
+Epoch: 7 - Training: 0.706 - Validation 0.724 - Best 0.688
+Epoch: 8 - Training: 0.706 - Validation 0.711 - Best 0.688
+Epoch: 9 - Training: 0.706 - Validation 0.694 - Best 0.688
+Epoch: 10 - Training: 0.706 - Validation 0.712 - Best 0.688

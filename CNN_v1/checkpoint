@@ -1,0 +1,6 @@
+model_checkpoint_path: "CNN_v1_epoch4.ckpt"
+all_model_checkpoint_paths: "CNN_v1_epoch1.ckpt"
+all_model_checkpoint_paths: "CNN_v1_epoch2.ckpt"
+all_model_checkpoint_paths: "CNN_v1_epoch3.ckpt"
+all_model_checkpoint_paths: "CNN_v1_best.ckpt"
+all_model_checkpoint_paths: "CNN_v1_epoch4.ckpt"

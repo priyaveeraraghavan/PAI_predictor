@@ -1,7 +1,9 @@
 import csv
 import numpy as np
+import pandas as pd
 
-data_file = "C:/Users/Sharon/Downloads/all_gis_islandviewer_iv4aa_data.csv"
+data_file = '/Users/Liz/Downloads/all_gis_islandviewer_iv4aa_data.csv'
+#data_file = "C:/Users/Sharon/Downloads/all_gis_islandviewer_iv4aa_data.csv"
 mapper = {'A':[1,0,0,0],'C':[0,1,0,0],'G':[0,0,1,0],'T':[0,0,0,1],
           'N':[0,0,0,0],'R':[0,1,0,1],'Y':[1,0,1,0],'M':[1,1,0,0],
           'K':[0,0,1,1],'S':[0,1,1,0],'W':[1,0,0,1],'B':[0,1,1,1],
@@ -22,23 +24,66 @@ all_seqs = np.expand_dims(np.concatenate([getseq(x) for x in inp[:,1]], axis=0),
 Reading in sequences for positive and negative data sets
 """
 with open(data_file) as fi1e:
-    seqdata = np.asarray([list(x.strip().split(',')[1]) for x in fi1e])
-print 'Finished reading data file.'
+    seqdata = np.array([list(x.strip().split(',')[1]) for x in fi1e])
 seqdata = np.delete(seqdata, (0), axis=0)
+#print 'Finished reading data file.'
+
+
+data = []
+for l in seqdata:
+    bases = []
+    for char in l:
+        n = mapper[char]
+        bases.append(n)
+    data.append(bases)
+
+print len(data[0])
+data = np.asarray(data)
+print data.shape
+"""
+#print len(seqdata[1])
+#print len(seqdata)
+#print seqdata.shape
+
+
+#Reading in labels for positive and negative data sets
+
+with open(data_file) as fi1e:
+    labels = np.array([list(x.strip().split(',')[2]) for x in fi1e])
+#print 'Finished reading label file.'
+labels = np.delete(labels, (0), axis=0)
+
+"""
+seqdata = []
+labels = []
+with open(data_file, 'rb') as file:
+  reader = csv.reader(file)
+  for row in reader:
+    seqdata.append(row[1])
+    labels.append(row[2])
+
+seqdata.pop(0)
+labels.pop(0)
+
+for i in seqdata:
+    new_seq = ','.join(map(str, i))
+    seqdata.remove(i)
+    #print new_seq
+    seqdata.append(new_seq)
+    #for char in i:
+
+#print seqdata[0]
+print len(seqdata)
+seqdata = np.asarray(seqdata)
+seqdata.shape = (4064, 1)
+labels = np.asarray(labels)
 print seqdata.shape
 
 """
-Reading in labels for positive and negative data sets
-"""
-with open(data_file) as fi1e:
-    labels = np.asarray([list(x.strip().split(',')[2]) for x in fi1e])
-print 'Finished reading label file.'
-labels = np.delete(labels, (0), axis=0)
-print labels.shape
-"""
+
 Turn sequences into one-hot encodings
 """
-# Function to embed sequences [batch size, seq length, one hot, ???]
+# Function to embed sequences [batch size, seq length, 1, one hot]
 def seq2feature(data, mapper, worddim):
   ################################################################################
   # a function that transforms DNA sequences to matrices of shape
@@ -49,10 +94,27 @@ def seq2feature(data, mapper, worddim):
   # - wordim: the size of the vector each nucleotide character is embedded to
   # - to return: a embedded array of shape (samplesize,1,seqlength,worddim)
   ################################################################################
-  seqdata_transformed = np.asarray(map(lambda i: bp_mappings(i, mapper), data))
-  print 'shape:' + str(seqdata_transformed.shape)
+    def embed(seq,mapper,worddim):
+        return np.asarray([mapper[element] if element in mapper else np.random.rand(worddim)*2-1 for element in seq])
+
+
+    new_array = np.asarray([   [embed(seq,mapper,worddim)] for seq in data])
+    new_array.shape = (len(data), len(data[1]), 1, worddim)
+    print new_array.shape
+    return new_array
+
+
+"""
+  seqdata_transformed = map(lambda i: bp_mappings(i, mapper), data)
+
   print seqdata_transformed[1]
-  return np.asarray(np.reshape(seqdata_transformed, (len(data), len(data[1]), worddim, 1)))
+  print len(data)
+  print len(data[1])
+  print worddim
+  new_array = np.ndarray.reshape(seqdata_transformed, (len(data))) #, len(data[1]), 1, worddim))
+  print new_array.shape
+  return np.asarray(new_array)
+"""
 
 
 def bp_mappings(sample, mapper):

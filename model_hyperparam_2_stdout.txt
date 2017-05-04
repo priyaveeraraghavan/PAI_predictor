@@ -1,0 +1,711 @@
+Initializing variables...
+INFO:tensorflow:Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+Epoch: 1 - Training: 10220.749 - Validation 17.815 - Best 17.815 - Error Rate 0.580 - Correctness 49.746
+INFO:tensorflow:Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+Epoch: 2 - Training: 103.886 - Validation 4.731 - Best 4.731 - Error Rate 0.580 - Correctness 49.540
+INFO:tensorflow:Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+Epoch: 3 - Training: 3.622 - Validation 0.882 - Best 0.882 - Error Rate 0.180 - Correctness 53.564
+INFO:tensorflow:Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+Epoch: 4 - Training: 1.091 - Validation 0.697 - Best 0.697 - Error Rate 0.500 - Correctness 50.000
+Epoch: 5 - Training: 0.700 - Validation 0.708 - Best 0.697 - Error Rate 0.580 - Correctness 49.426
+('dropout_keep:', 0.001, 'l2 coef:', 0.001, 'lr:', 0.1, 'Best val loss', 0.69711655)
+Saving model in  ./CNN_hyperparams_2
+Input shape: [22000, 1, 4]
+X placeholder Tensor("Placeholder:0", shape=(?, 2200, 1, 4), dtype=float32)
+made keep prob
+made conv layers
+made fc layers [<tf.Tensor 'dropout/mul:0' shape=(?, 128) dtype=float32>, <tf.Tensor 'dropout_1/mul:0' shape=(?, 2) dtype=float32>, <tf.Tensor 'add_4:0' shape=(?, 2) dtype=float32>]
+made classification layer
+Model CNN_v2
+Optimizer created
+Initializing variables...
+INFO:tensorflow:Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+Epoch: 1 - Training: 218.380 - Validation 32.623 - Best 32.623 - Error Rate 0.420 - Correctness 50.060
+INFO:tensorflow:Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+Epoch: 2 - Training: 14.924 - Validation 5.442 - Best 5.442 - Error Rate 0.500 - Correctness 50.000
+INFO:tensorflow:Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+Epoch: 3 - Training: 3.264 - Validation 1.699 - Best 1.699 - Error Rate 0.580 - Correctness 49.934
+INFO:tensorflow:Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+Epoch: 4 - Training: 1.462 - Validation 1.109 - Best 1.109 - Error Rate 0.660 - Correctness 49.878
+INFO:tensorflow:Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+Epoch: 5 - Training: 1.045 - Validation 0.890 - Best 0.890 - Error Rate 0.580 - Correctness 49.932
+('dropout_keep:', 0.001, 'l2 coef:', 0.001, 'lr:', 0.001, 'Best val loss', 0.89028686)
+Saving model in  ./CNN_hyperparams_2
+Input shape: [22000, 1, 4]
+X placeholder Tensor("Placeholder:0", shape=(?, 2200, 1, 4), dtype=float32)
+made keep prob
+made conv layers
+made fc layers [<tf.Tensor 'dropout/mul:0' shape=(?, 128) dtype=float32>, <tf.Tensor 'dropout_1/mul:0' shape=(?, 2) dtype=float32>, <tf.Tensor 'add_4:0' shape=(?, 2) dtype=float32>]
+made classification layer
+Model CNN_v2
+Optimizer created
+Initializing variables...
+INFO:tensorflow:Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+Epoch: 1 - Training: 1526.080 - Validation 67.244 - Best 67.244 - Error Rate 0.284 - Correctness 50.049
+INFO:tensorflow:Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+Epoch: 2 - Training: 6921.171 - Validation 66.917 - Best 66.917 - Error Rate 0.580 - Correctness 49.981
+INFO:tensorflow:Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+Epoch: 3 - Training: 1446.720 - Validation 66.463 - Best 66.463 - Error Rate 0.420 - Correctness 50.028
+INFO:tensorflow:Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+Epoch: 4 - Training: 4066.867 - Validation 65.878 - Best 65.878 - Error Rate 0.356 - Correctness 50.049
+INFO:tensorflow:Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+Epoch: 5 - Training: 767.689 - Validation 65.220 - Best 65.220 - Error Rate 0.260 - Correctness 50.079
+('dropout_keep:', 0.001, 'l2 coef:', 0.001, 'lr:', 1e-05, 'Best val loss', 65.220016)
+Saving model in  ./CNN_hyperparams_2
+Input shape: [22000, 1, 4]
+X placeholder Tensor("Placeholder:0", shape=(?, 2200, 1, 4), dtype=float32)
+made keep prob
+made conv layers
+made fc layers [<tf.Tensor 'dropout/mul:0' shape=(?, 128) dtype=float32>, <tf.Tensor 'dropout_1/mul:0' shape=(?, 2) dtype=float32>, <tf.Tensor 'add_4:0' shape=(?, 2) dtype=float32>]
+made classification layer
+Model CNN_v2
+Optimizer created
+Initializing variables...
+INFO:tensorflow:Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+Epoch: 1 - Training: 2459.003 - Validation 3.882 - Best 3.882 - Error Rate 0.260 - Correctness 50.396
+INFO:tensorflow:Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+Epoch: 2 - Training: 3.211 - Validation 0.684 - Best 0.684 - Error Rate 0.340 - Correctness 50.480
+Epoch: 3 - Training: 0.699 - Validation 0.712 - Best 0.684 - Error Rate 0.500 - Correctness 50.000
+Epoch: 4 - Training: 0.699 - Validation 0.695 - Best 0.684 - Error Rate 0.500 - Correctness 50.000
+Epoch: 5 - Training: 0.699 - Validation 0.684 - Best 0.684 - Error Rate 0.420 - Correctness 51.523
+('dropout_keep:', 0.001, 'l2 coef:', 1e-06, 'lr:', 0.1, 'Best val loss', 0.68409181)
+Saving model in  ./CNN_hyperparams_2
+Input shape: [22000, 1, 4]
+X placeholder Tensor("Placeholder:0", shape=(?, 2200, 1, 4), dtype=float32)
+made keep prob
+made conv layers
+made fc layers [<tf.Tensor 'dropout/mul:0' shape=(?, 128) dtype=float32>, <tf.Tensor 'dropout_1/mul:0' shape=(?, 2) dtype=float32>, <tf.Tensor 'add_4:0' shape=(?, 2) dtype=float32>]
+made classification layer
+Model CNN_v2
+Optimizer created
+Initializing variables...
+INFO:tensorflow:Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+Epoch: 1 - Training: 314.865 - Validation 38.336 - Best 38.336 - Error Rate 0.500 - Correctness 50.001
+INFO:tensorflow:Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+Epoch: 2 - Training: 37.601 - Validation 32.993 - Best 32.993 - Error Rate 0.500 - Correctness 50.000
+INFO:tensorflow:Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+Epoch: 3 - Training: 19.298 - Validation 6.583 - Best 6.583 - Error Rate 0.580 - Correctness 49.945
+INFO:tensorflow:Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+Epoch: 4 - Training: 3.276 - Validation 1.698 - Best 1.698 - Error Rate 0.340 - Correctness 50.084
+INFO:tensorflow:Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+Epoch: 5 - Training: 1.429 - Validation 1.052 - Best 1.052 - Error Rate 0.580 - Correctness 49.991
+('dropout_keep:', 0.001, 'l2 coef:', 1e-06, 'lr:', 0.001, 'Best val loss', 1.0518121)
+Saving model in  ./CNN_hyperparams_2
+Input shape: [22000, 1, 4]
+X placeholder Tensor("Placeholder:0", shape=(?, 2200, 1, 4), dtype=float32)
+made keep prob
+made conv layers
+made fc layers [<tf.Tensor 'dropout/mul:0' shape=(?, 128) dtype=float32>, <tf.Tensor 'dropout_1/mul:0' shape=(?, 2) dtype=float32>, <tf.Tensor 'add_4:0' shape=(?, 2) dtype=float32>]
+made classification layer
+Model CNN_v2
+Optimizer created
+Initializing variables...
+INFO:tensorflow:Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+Epoch: 1 - Training: 1535.895 - Validation 79.766 - Best 79.766 - Error Rate 0.340 - Correctness 50.087
+INFO:tensorflow:Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+Epoch: 2 - Training: 1359.305 - Validation 78.719 - Best 78.719 - Error Rate 0.580 - Correctness 49.960
+INFO:tensorflow:Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+Epoch: 3 - Training: 1141.788 - Validation 77.950 - Best 77.950 - Error Rate 0.660 - Correctness 49.935
+INFO:tensorflow:Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+Epoch: 4 - Training: 890.485 - Validation 77.063 - Best 77.063 - Error Rate 0.340 - Correctness 50.056
+INFO:tensorflow:Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+Epoch: 5 - Training: 1397.482 - Validation 76.601 - Best 76.601 - Error Rate 0.420 - Correctness 50.026
+('dropout_keep:', 0.001, 'l2 coef:', 1e-06, 'lr:', 1e-05, 'Best val loss', 76.601074)
+Saving model in  ./CNN_hyperparams_2
+Input shape: [22000, 1, 4]
+X placeholder Tensor("Placeholder:0", shape=(?, 2200, 1, 4), dtype=float32)
+made keep prob
+made conv layers
+made fc layers [<tf.Tensor 'dropout/mul:0' shape=(?, 128) dtype=float32>, <tf.Tensor 'dropout_1/mul:0' shape=(?, 2) dtype=float32>, <tf.Tensor 'add_4:0' shape=(?, 2) dtype=float32>]
+made classification layer
+Model CNN_v2
+Optimizer created
+Initializing variables...
+INFO:tensorflow:Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+Epoch: 1 - Training: 5427.226 - Validation 5.258 - Best 5.258 - Error Rate 0.500 - Correctness 50.000
+INFO:tensorflow:Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+Epoch: 2 - Training: 2.892 - Validation 0.899 - Best 0.899 - Error Rate 0.820 - Correctness 48.613
+INFO:tensorflow:Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+Epoch: 3 - Training: 1.064 - Validation 0.688 - Best 0.688 - Error Rate 0.420 - Correctness 50.285
+Epoch: 4 - Training: 0.696 - Validation 0.719 - Best 0.688 - Error Rate 0.580 - Correctness 49.102
+Epoch: 5 - Training: 0.698 - Validation 0.688 - Best 0.688 - Error Rate 0.420 - Correctness 51.839
+('dropout_keep:', 0.001, 'l2 coef:', 0.0, 'lr:', 0.1, 'Best val loss', 0.68820965)
+Saving model in  ./CNN_hyperparams_2
+Input shape: [22000, 1, 4]
+X placeholder Tensor("Placeholder:0", shape=(?, 2200, 1, 4), dtype=float32)
+made keep prob
+made conv layers
+made fc layers [<tf.Tensor 'dropout/mul:0' shape=(?, 128) dtype=float32>, <tf.Tensor 'dropout_1/mul:0' shape=(?, 2) dtype=float32>, <tf.Tensor 'add_4:0' shape=(?, 2) dtype=float32>]
+made classification layer
+Model CNN_v2
+Optimizer created
+Initializing variables...
+INFO:tensorflow:Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+Epoch: 1 - Training: 199.888 - Validation 27.037 - Best 27.037 - Error Rate 0.580 - Correctness 49.917
+INFO:tensorflow:Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+Epoch: 2 - Training: 13.062 - Validation 4.309 - Best 4.309 - Error Rate 0.420 - Correctness 50.045
+INFO:tensorflow:Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+Epoch: 3 - Training: 2.848 - Validation 1.693 - Best 1.693 - Error Rate 0.660 - Correctness 49.740
+INFO:tensorflow:Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+Epoch: 4 - Training: 1.483 - Validation 1.124 - Best 1.124 - Error Rate 0.820 - Correctness 49.685
+INFO:tensorflow:Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+Epoch: 5 - Training: 1.090 - Validation 0.988 - Best 0.988 - Error Rate 0.340 - Correctness 50.032
+('dropout_keep:', 0.001, 'l2 coef:', 0.0, 'lr:', 0.001, 'Best val loss', 0.98826945)
+Saving model in  ./CNN_hyperparams_2
+Input shape: [22000, 1, 4]
+X placeholder Tensor("Placeholder:0", shape=(?, 2200, 1, 4), dtype=float32)
+made keep prob
+made conv layers
+made fc layers [<tf.Tensor 'dropout/mul:0' shape=(?, 128) dtype=float32>, <tf.Tensor 'dropout_1/mul:0' shape=(?, 2) dtype=float32>, <tf.Tensor 'add_4:0' shape=(?, 2) dtype=float32>]
+made classification layer
+Model CNN_v2
+Optimizer created
+Initializing variables...
+INFO:tensorflow:Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+Epoch: 1 - Training: 1895.998 - Validation 81.193 - Best 81.193 - Error Rate 0.580 - Correctness 49.898
+INFO:tensorflow:Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+Epoch: 2 - Training: 2468.783 - Validation 80.567 - Best 80.567 - Error Rate 0.500 - Correctness 50.000
+INFO:tensorflow:Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+Epoch: 3 - Training: 1072.340 - Validation 79.872 - Best 79.872 - Error Rate 0.420 - Correctness 50.109
+INFO:tensorflow:Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+Epoch: 4 - Training: 927.409 - Validation 79.180 - Best 79.180 - Error Rate 0.580 - Correctness 49.884
+INFO:tensorflow:Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+Epoch: 5 - Training: 736.133 - Validation 78.191 - Best 78.191 - Error Rate 0.260 - Correctness 50.412
+('dropout_keep:', 0.001, 'l2 coef:', 0.0, 'lr:', 1e-05, 'Best val loss', 78.19101)
+Saving model in  ./CNN_hyperparams_2
+Input shape: [22000, 1, 4]
+X placeholder Tensor("Placeholder:0", shape=(?, 2200, 1, 4), dtype=float32)
+made keep prob
+made conv layers
+made fc layers [<tf.Tensor 'dropout/mul:0' shape=(?, 128) dtype=float32>, <tf.Tensor 'dropout_1/mul:0' shape=(?, 2) dtype=float32>, <tf.Tensor 'add_4:0' shape=(?, 2) dtype=float32>]
+made classification layer
+Model CNN_v2
+Optimizer created
+Initializing variables...
+INFO:tensorflow:Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+Epoch: 1 - Training: 1.450 - Validation 0.663 - Best 0.663 - Error Rate 0.340 - Correctness 51.976
+Epoch: 2 - Training: 0.699 - Validation 0.711 - Best 0.663 - Error Rate 0.580 - Correctness 49.312
+Epoch: 3 - Training: 0.700 - Validation 0.700 - Best 0.663 - Error Rate 0.660 - Correctness 49.656
+Epoch: 4 - Training: 0.700 - Validation 0.693 - Best 0.663 - Error Rate 0.500 - Correctness 50.000
+Epoch: 5 - Training: 0.702 - Validation 0.699 - Best 0.663 - Error Rate 0.500 - Correctness 50.000
+('dropout_keep:', 0.2, 'l2 coef:', 0.001, 'lr:', 0.1, 'Best val loss', 0.66265005)
+Saving model in  ./CNN_hyperparams_2
+Input shape: [22000, 1, 4]
+X placeholder Tensor("Placeholder:0", shape=(?, 2200, 1, 4), dtype=float32)
+made keep prob
+made conv layers
+made fc layers [<tf.Tensor 'dropout/mul:0' shape=(?, 128) dtype=float32>, <tf.Tensor 'dropout_1/mul:0' shape=(?, 2) dtype=float32>, <tf.Tensor 'add_4:0' shape=(?, 2) dtype=float32>]
+made classification layer
+Model CNN_v2
+Optimizer created
+Initializing variables...
+INFO:tensorflow:Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+Epoch: 1 - Training: 22.482 - Validation 2.862 - Best 2.862 - Error Rate 0.580 - Correctness 49.994
+INFO:tensorflow:Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+Epoch: 2 - Training: 1.059 - Validation 0.694 - Best 0.694 - Error Rate 0.500 - Correctness 50.000
+Epoch: 3 - Training: 0.694 - Validation 0.701 - Best 0.694 - Error Rate 0.740 - Correctness 49.629
+INFO:tensorflow:Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+Epoch: 4 - Training: 0.694 - Validation 0.694 - Best 0.694 - Error Rate 0.500 - Correctness 50.000
+INFO:tensorflow:Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+Epoch: 5 - Training: 0.694 - Validation 0.693 - Best 0.693 - Error Rate 0.420 - Correctness 50.015
+('dropout_keep:', 0.2, 'l2 coef:', 0.001, 'lr:', 0.001, 'Best val loss', 0.69333768)
+Saving model in  ./CNN_hyperparams_2
+Input shape: [22000, 1, 4]
+X placeholder Tensor("Placeholder:0", shape=(?, 2200, 1, 4), dtype=float32)
+made keep prob
+made conv layers
+made fc layers [<tf.Tensor 'dropout/mul:0' shape=(?, 128) dtype=float32>, <tf.Tensor 'dropout_1/mul:0' shape=(?, 2) dtype=float32>, <tf.Tensor 'add_4:0' shape=(?, 2) dtype=float32>]
+made classification layer
+Model CNN_v2
+Optimizer created
+Initializing variables...
+INFO:tensorflow:Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+Epoch: 1 - Training: 89.486 - Validation 82.718 - Best 82.718 - Error Rate 0.436 - Correctness 50.004
+INFO:tensorflow:Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+Epoch: 2 - Training: 82.906 - Validation 79.214 - Best 79.214 - Error Rate 0.444 - Correctness 50.014
+INFO:tensorflow:Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+Epoch: 3 - Training: 78.467 - Validation 76.628 - Best 76.628 - Error Rate 0.340 - Correctness 50.081
+INFO:tensorflow:Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+Epoch: 4 - Training: 75.415 - Validation 74.048 - Best 74.048 - Error Rate 0.500 - Correctness 49.994
+INFO:tensorflow:Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+Epoch: 5 - Training: 72.822 - Validation 71.493 - Best 71.493 - Error Rate 0.420 - Correctness 50.117
+('dropout_keep:', 0.2, 'l2 coef:', 0.001, 'lr:', 1e-05, 'Best val loss', 71.493423)
+Saving model in  ./CNN_hyperparams_2
+Input shape: [22000, 1, 4]
+X placeholder Tensor("Placeholder:0", shape=(?, 2200, 1, 4), dtype=float32)
+made keep prob
+made conv layers
+made fc layers [<tf.Tensor 'dropout/mul:0' shape=(?, 128) dtype=float32>, <tf.Tensor 'dropout_1/mul:0' shape=(?, 2) dtype=float32>, <tf.Tensor 'add_4:0' shape=(?, 2) dtype=float32>]
+made classification layer
+Model CNN_v2
+Optimizer created
+Initializing variables...
+INFO:tensorflow:Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+Epoch: 1 - Training: 1.555 - Validation 0.657 - Best 0.657 - Error Rate 0.180 - Correctness 51.938
+Epoch: 2 - Training: 0.700 - Validation 0.720 - Best 0.657 - Error Rate 0.580 - Correctness 49.061
+Epoch: 3 - Training: 0.699 - Validation 0.696 - Best 0.657 - Error Rate 0.660 - Correctness 49.870
+Epoch: 4 - Training: 0.699 - Validation 0.697 - Best 0.657 - Error Rate 0.580 - Correctness 49.802
+Epoch: 5 - Training: 0.701 - Validation 0.705 - Best 0.657 - Error Rate 0.500 - Correctness 50.000
+('dropout_keep:', 0.2, 'l2 coef:', 1e-06, 'lr:', 0.1, 'Best val loss', 0.65654975)
+Saving model in  ./CNN_hyperparams_2
+Input shape: [22000, 1, 4]
+X placeholder Tensor("Placeholder:0", shape=(?, 2200, 1, 4), dtype=float32)
+made keep prob
+made conv layers
+made fc layers [<tf.Tensor 'dropout/mul:0' shape=(?, 128) dtype=float32>, <tf.Tensor 'dropout_1/mul:0' shape=(?, 2) dtype=float32>, <tf.Tensor 'add_4:0' shape=(?, 2) dtype=float32>]
+made classification layer
+Model CNN_v2
+Optimizer created
+Initializing variables...
+INFO:tensorflow:Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+Epoch: 1 - Training: 18.082 - Validation 1.924 - Best 1.924 - Error Rate 0.644 - Correctness 49.971
+INFO:tensorflow:Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+Epoch: 2 - Training: 0.895 - Validation 0.695 - Best 0.695 - Error Rate 0.580 - Correctness 49.991
+INFO:tensorflow:Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+Epoch: 3 - Training: 0.695 - Validation 0.693 - Best 0.693 - Error Rate 0.340 - Correctness 50.058
+Epoch: 4 - Training: 0.694 - Validation 0.694 - Best 0.693 - Error Rate 0.740 - Correctness 49.966
+Epoch: 5 - Training: 0.694 - Validation 0.694 - Best 0.693 - Error Rate 0.500 - Correctness 50.000
+('dropout_keep:', 0.2, 'l2 coef:', 1e-06, 'lr:', 0.001, 'Best val loss', 0.69266099)
+Saving model in  ./CNN_hyperparams_2
+Input shape: [22000, 1, 4]
+X placeholder Tensor("Placeholder:0", shape=(?, 2200, 1, 4), dtype=float32)
+made keep prob
+made conv layers
+made fc layers [<tf.Tensor 'dropout/mul:0' shape=(?, 128) dtype=float32>, <tf.Tensor 'dropout_1/mul:0' shape=(?, 2) dtype=float32>, <tf.Tensor 'add_4:0' shape=(?, 2) dtype=float32>]
+made classification layer
+Model CNN_v2
+Optimizer created
+Initializing variables...
+INFO:tensorflow:Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+Epoch: 1 - Training: 79.350 - Validation 67.523 - Best 67.523 - Error Rate 0.260 - Correctness 50.314
+INFO:tensorflow:Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+Epoch: 2 - Training: 70.273 - Validation 64.087 - Best 64.087 - Error Rate 0.260 - Correctness 50.144
+INFO:tensorflow:Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+Epoch: 3 - Training: 64.195 - Validation 61.209 - Best 61.209 - Error Rate 0.420 - Correctness 50.036
+INFO:tensorflow:Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+Epoch: 4 - Training: 60.367 - Validation 58.695 - Best 58.695 - Error Rate 0.420 - Correctness 50.025
+INFO:tensorflow:Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+Epoch: 5 - Training: 57.619 - Validation 56.610 - Best 56.610 - Error Rate 0.340 - Correctness 50.032
+('dropout_keep:', 0.2, 'l2 coef:', 1e-06, 'lr:', 1e-05, 'Best val loss', 56.61031)
+Saving model in  ./CNN_hyperparams_2
+Input shape: [22000, 1, 4]
+X placeholder Tensor("Placeholder:0", shape=(?, 2200, 1, 4), dtype=float32)
+made keep prob
+made conv layers
+made fc layers [<tf.Tensor 'dropout/mul:0' shape=(?, 128) dtype=float32>, <tf.Tensor 'dropout_1/mul:0' shape=(?, 2) dtype=float32>, <tf.Tensor 'add_4:0' shape=(?, 2) dtype=float32>]
+made classification layer
+Model CNN_v2
+Optimizer created
+Initializing variables...
+INFO:tensorflow:Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+Epoch: 1 - Training: 1.686 - Validation 0.700 - Best 0.700 - Error Rate 0.660 - Correctness 49.672
+INFO:tensorflow:Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+Epoch: 2 - Training: 0.701 - Validation 0.693 - Best 0.693 - Error Rate 0.500 - Correctness 50.000
+Epoch: 3 - Training: 0.698 - Validation 0.694 - Best 0.693 - Error Rate 0.500 - Correctness 50.000
+Epoch: 4 - Training: 0.700 - Validation 0.694 - Best 0.693 - Error Rate 0.500 - Correctness 50.000
+INFO:tensorflow:Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+Epoch: 5 - Training: 0.701 - Validation 0.693 - Best 0.693 - Error Rate 0.500 - Correctness 50.000
+('dropout_keep:', 0.2, 'l2 coef:', 0.0, 'lr:', 0.1, 'Best val loss', 0.69315076)
+Saving model in  ./CNN_hyperparams_2
+Input shape: [22000, 1, 4]
+X placeholder Tensor("Placeholder:0", shape=(?, 2200, 1, 4), dtype=float32)
+made keep prob
+made conv layers
+made fc layers [<tf.Tensor 'dropout/mul:0' shape=(?, 128) dtype=float32>, <tf.Tensor 'dropout_1/mul:0' shape=(?, 2) dtype=float32>, <tf.Tensor 'add_4:0' shape=(?, 2) dtype=float32>]
+made classification layer
+Model CNN_v2
+Optimizer created
+Initializing variables...
+INFO:tensorflow:Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+Epoch: 1 - Training: 21.030 - Validation 2.433 - Best 2.433 - Error Rate 0.660 - Correctness 49.787
+INFO:tensorflow:Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+Epoch: 2 - Training: 0.971 - Validation 0.692 - Best 0.692 - Error Rate 0.260 - Correctness 50.153
+Epoch: 3 - Training: 0.694 - Validation 0.695 - Best 0.692 - Error Rate 0.660 - Correctness 49.929
+Epoch: 4 - Training: 0.694 - Validation 0.694 - Best 0.692 - Error Rate 0.500 - Correctness 50.000
+Epoch: 5 - Training: 0.694 - Validation 0.693 - Best 0.692 - Error Rate 0.420 - Correctness 50.017
+('dropout_keep:', 0.2, 'l2 coef:', 0.0, 'lr:', 0.001, 'Best val loss', 0.69201577)
+Saving model in  ./CNN_hyperparams_2
+Input shape: [22000, 1, 4]
+X placeholder Tensor("Placeholder:0", shape=(?, 2200, 1, 4), dtype=float32)
+made keep prob
+made conv layers
+made fc layers [<tf.Tensor 'dropout/mul:0' shape=(?, 128) dtype=float32>, <tf.Tensor 'dropout_1/mul:0' shape=(?, 2) dtype=float32>, <tf.Tensor 'add_4:0' shape=(?, 2) dtype=float32>]
+made classification layer
+Model CNN_v2
+Optimizer created
+Initializing variables...
+INFO:tensorflow:Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+Epoch: 1 - Training: 71.346 - Validation 66.031 - Best 66.031 - Error Rate 0.500 - Correctness 50.004
+INFO:tensorflow:Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+Epoch: 2 - Training: 66.451 - Validation 63.320 - Best 63.320 - Error Rate 0.500 - Correctness 50.016
+INFO:tensorflow:Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+Epoch: 3 - Training: 62.789 - Validation 61.036 - Best 61.036 - Error Rate 0.500 - Correctness 49.997
+INFO:tensorflow:Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+Epoch: 4 - Training: 60.150 - Validation 58.699 - Best 58.699 - Error Rate 0.660 - Correctness 49.736
+INFO:tensorflow:Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+Epoch: 5 - Training: 57.996 - Validation 56.747 - Best 56.747 - Error Rate 0.500 - Correctness 50.002
+('dropout_keep:', 0.2, 'l2 coef:', 0.0, 'lr:', 1e-05, 'Best val loss', 56.746582)
+Saving model in  ./CNN_hyperparams_2
+Input shape: [22000, 1, 4]
+X placeholder Tensor("Placeholder:0", shape=(?, 2200, 1, 4), dtype=float32)
+made keep prob
+made conv layers
+made fc layers [<tf.Tensor 'dropout/mul:0' shape=(?, 128) dtype=float32>, <tf.Tensor 'dropout_1/mul:0' shape=(?, 2) dtype=float32>, <tf.Tensor 'add_4:0' shape=(?, 2) dtype=float32>]
+made classification layer
+Model CNN_v2
+Optimizer created
+Initializing variables...
+INFO:tensorflow:Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+Epoch: 1 - Training: 1.482 - Validation 0.666 - Best 0.666 - Error Rate 0.340 - Correctness 51.698
+Epoch: 2 - Training: 0.703 - Validation 0.691 - Best 0.666 - Error Rate 0.420 - Correctness 50.088
+Epoch: 3 - Training: 0.699 - Validation 0.705 - Best 0.666 - Error Rate 0.580 - Correctness 49.525
+Epoch: 4 - Training: 0.697 - Validation 0.703 - Best 0.666 - Error Rate 0.500 - Correctness 50.000
+Epoch: 5 - Training: 0.698 - Validation 0.833 - Best 0.666 - Error Rate 0.740 - Correctness 44.648
+('dropout_keep:', 0.5, 'l2 coef:', 0.001, 'lr:', 0.1, 'Best val loss', 0.6658628)
+Saving model in  ./CNN_hyperparams_2
+Input shape: [22000, 1, 4]
+X placeholder Tensor("Placeholder:0", shape=(?, 2200, 1, 4), dtype=float32)
+made keep prob
+made conv layers
+made fc layers [<tf.Tensor 'dropout/mul:0' shape=(?, 128) dtype=float32>, <tf.Tensor 'dropout_1/mul:0' shape=(?, 2) dtype=float32>, <tf.Tensor 'add_4:0' shape=(?, 2) dtype=float32>]
+made classification layer
+Model CNN_v2
+Optimizer created
+Initializing variables...
+INFO:tensorflow:Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+Epoch: 1 - Training: 23.333 - Validation 2.924 - Best 2.924 - Error Rate 0.420 - Correctness 50.060
+INFO:tensorflow:Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+Epoch: 2 - Training: 1.057 - Validation 0.693 - Best 0.693 - Error Rate 0.420 - Correctness 50.047
+Epoch: 3 - Training: 0.694 - Validation 0.693 - Best 0.693 - Error Rate 0.420 - Correctness 50.019
+Epoch: 4 - Training: 0.694 - Validation 0.694 - Best 0.693 - Error Rate 0.500 - Correctness 50.000
+Epoch: 5 - Training: 0.694 - Validation 0.697 - Best 0.693 - Error Rate 0.660 - Correctness 49.830
+('dropout_keep:', 0.5, 'l2 coef:', 0.001, 'lr:', 0.001, 'Best val loss', 0.69342852)
+Saving model in  ./CNN_hyperparams_2
+Input shape: [22000, 1, 4]
+X placeholder Tensor("Placeholder:0", shape=(?, 2200, 1, 4), dtype=float32)
+made keep prob
+made conv layers
+made fc layers [<tf.Tensor 'dropout/mul:0' shape=(?, 128) dtype=float32>, <tf.Tensor 'dropout_1/mul:0' shape=(?, 2) dtype=float32>, <tf.Tensor 'add_4:0' shape=(?, 2) dtype=float32>]
+made classification layer
+Model CNN_v2
+Optimizer created
+Initializing variables...
+INFO:tensorflow:Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+Epoch: 1 - Training: 77.502 - Validation 73.370 - Best 73.370 - Error Rate 0.500 - Correctness 49.998
+INFO:tensorflow:Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+Epoch: 2 - Training: 72.791 - Validation 70.019 - Best 70.019 - Error Rate 0.532 - Correctness 50.002
+INFO:tensorflow:Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+Epoch: 3 - Training: 69.053 - Validation 67.254 - Best 67.254 - Error Rate 0.420 - Correctness 50.012
+INFO:tensorflow:Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+Epoch: 4 - Training: 66.110 - Validation 64.744 - Best 64.744 - Error Rate 0.420 - Correctness 50.020
+INFO:tensorflow:Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+Epoch: 5 - Training: 63.722 - Validation 62.533 - Best 62.533 - Error Rate 0.436 - Correctness 50.010
+('dropout_keep:', 0.5, 'l2 coef:', 0.001, 'lr:', 1e-05, 'Best val loss', 62.532845)
+Saving model in  ./CNN_hyperparams_2
+Input shape: [22000, 1, 4]
+X placeholder Tensor("Placeholder:0", shape=(?, 2200, 1, 4), dtype=float32)
+made keep prob
+made conv layers
+made fc layers [<tf.Tensor 'dropout/mul:0' shape=(?, 128) dtype=float32>, <tf.Tensor 'dropout_1/mul:0' shape=(?, 2) dtype=float32>, <tf.Tensor 'add_4:0' shape=(?, 2) dtype=float32>]
+made classification layer
+Model CNN_v2
+Optimizer created
+Initializing variables...
+INFO:tensorflow:Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+Epoch: 1 - Training: 1.572 - Validation 0.678 - Best 0.678 - Error Rate 0.340 - Correctness 50.833
+INFO:tensorflow:Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+Epoch: 2 - Training: 0.701 - Validation 0.675 - Best 0.675 - Error Rate 0.340 - Correctness 51.005
+Epoch: 3 - Training: 0.697 - Validation 0.698 - Best 0.675 - Error Rate 0.580 - Correctness 49.772
+Epoch: 4 - Training: 0.697 - Validation 0.698 - Best 0.675 - Error Rate 0.580 - Correctness 49.768
+Epoch: 5 - Training: 0.701 - Validation 0.683 - Best 0.675 - Error Rate 0.420 - Correctness 51.175
+('dropout_keep:', 0.5, 'l2 coef:', 1e-06, 'lr:', 0.1, 'Best val loss', 0.67538995)
+Saving model in  ./CNN_hyperparams_2
+Input shape: [22000, 1, 4]
+X placeholder Tensor("Placeholder:0", shape=(?, 2200, 1, 4), dtype=float32)
+made keep prob
+made conv layers
+made fc layers [<tf.Tensor 'dropout/mul:0' shape=(?, 128) dtype=float32>, <tf.Tensor 'dropout_1/mul:0' shape=(?, 2) dtype=float32>, <tf.Tensor 'add_4:0' shape=(?, 2) dtype=float32>]
+made classification layer
+Model CNN_v2
+Optimizer created
+Initializing variables...
+INFO:tensorflow:Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+Epoch: 1 - Training: 20.816 - Validation 2.308 - Best 2.308 - Error Rate 0.420 - Correctness 50.020
+INFO:tensorflow:Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+Epoch: 2 - Training: 0.941 - Validation 0.697 - Best 0.697 - Error Rate 0.580 - Correctness 49.901
+INFO:tensorflow:Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+Epoch: 3 - Training: 0.694 - Validation 0.691 - Best 0.691 - Error Rate 0.420 - Correctness 50.152
+Epoch: 4 - Training: 0.694 - Validation 0.694 - Best 0.691 - Error Rate 0.500 - Correctness 50.000
+Epoch: 5 - Training: 0.694 - Validation 0.695 - Best 0.691 - Error Rate 0.740 - Correctness 49.930
+('dropout_keep:', 0.5, 'l2 coef:', 1e-06, 'lr:', 0.001, 'Best val loss', 0.69109046)
+Saving model in  ./CNN_hyperparams_2
+Input shape: [22000, 1, 4]
+X placeholder Tensor("Placeholder:0", shape=(?, 2200, 1, 4), dtype=float32)
+made keep prob
+made conv layers
+made fc layers [<tf.Tensor 'dropout/mul:0' shape=(?, 128) dtype=float32>, <tf.Tensor 'dropout_1/mul:0' shape=(?, 2) dtype=float32>, <tf.Tensor 'add_4:0' shape=(?, 2) dtype=float32>]
+made classification layer
+Model CNN_v2
+Optimizer created
+Initializing variables...
+INFO:tensorflow:Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+Epoch: 1 - Training: 73.994 - Validation 71.549 - Best 71.549 - Error Rate 0.660 - Correctness 49.268
+INFO:tensorflow:Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+Epoch: 2 - Training: 70.669 - Validation 68.682 - Best 68.682 - Error Rate 0.580 - Correctness 49.842
+INFO:tensorflow:Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+Epoch: 3 - Training: 67.788 - Validation 66.345 - Best 66.345 - Error Rate 0.580 - Correctness 49.958
+INFO:tensorflow:Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+Epoch: 4 - Training: 65.380 - Validation 64.040 - Best 64.040 - Error Rate 0.636 - Correctness 49.974
+INFO:tensorflow:Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+Epoch: 5 - Training: 63.248 - Validation 62.293 - Best 62.293 - Error Rate 0.740 - Correctness 49.915
+('dropout_keep:', 0.5, 'l2 coef:', 1e-06, 'lr:', 1e-05, 'Best val loss', 62.293217)
+Saving model in  ./CNN_hyperparams_2
+Input shape: [22000, 1, 4]
+X placeholder Tensor("Placeholder:0", shape=(?, 2200, 1, 4), dtype=float32)
+made keep prob
+made conv layers
+made fc layers [<tf.Tensor 'dropout/mul:0' shape=(?, 128) dtype=float32>, <tf.Tensor 'dropout_1/mul:0' shape=(?, 2) dtype=float32>, <tf.Tensor 'add_4:0' shape=(?, 2) dtype=float32>]
+made classification layer
+Model CNN_v2
+Optimizer created
+Initializing variables...
+INFO:tensorflow:Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+Epoch: 1 - Training: 1.396 - Validation 0.712 - Best 0.712 - Error Rate 0.740 - Correctness 49.090
+INFO:tensorflow:Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+Epoch: 2 - Training: 0.702 - Validation 0.701 - Best 0.701 - Error Rate 0.500 - Correctness 50.000
+INFO:tensorflow:Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+Epoch: 3 - Training: 0.701 - Validation 0.655 - Best 0.655 - Error Rate 0.340 - Correctness 52.853
+Epoch: 4 - Training: 0.700 - Validation 0.693 - Best 0.655 - Error Rate 0.420 - Correctness 50.008
+INFO:tensorflow:Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+Epoch: 5 - Training: 0.697 - Validation 0.635 - Best 0.635 - Error Rate 0.260 - Correctness 53.560
+('dropout_keep:', 0.5, 'l2 coef:', 0.0, 'lr:', 0.1, 'Best val loss', 0.63477111)
+Saving model in  ./CNN_hyperparams_2
+Input shape: [22000, 1, 4]
+X placeholder Tensor("Placeholder:0", shape=(?, 2200, 1, 4), dtype=float32)
+made keep prob
+made conv layers
+made fc layers [<tf.Tensor 'dropout/mul:0' shape=(?, 128) dtype=float32>, <tf.Tensor 'dropout_1/mul:0' shape=(?, 2) dtype=float32>, <tf.Tensor 'add_4:0' shape=(?, 2) dtype=float32>]
+made classification layer
+Model CNN_v2
+Optimizer created
+Initializing variables...
+INFO:tensorflow:Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+Epoch: 1 - Training: 18.323 - Validation 1.874 - Best 1.874 - Error Rate 0.524 - Correctness 49.986
+INFO:tensorflow:Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+Epoch: 2 - Training: 0.894 - Validation 0.695 - Best 0.695 - Error Rate 0.580 - Correctness 49.985
+INFO:tensorflow:Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+Epoch: 3 - Training: 0.694 - Validation 0.694 - Best 0.694 - Error Rate 0.420 - Correctness 50.004
+Epoch: 4 - Training: 0.694 - Validation 0.694 - Best 0.694 - Error Rate 0.580 - Correctness 49.982
+INFO:tensorflow:Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+Epoch: 5 - Training: 0.694 - Validation 0.689 - Best 0.689 - Error Rate 0.260 - Correctness 50.257
+('dropout_keep:', 0.5, 'l2 coef:', 0.0, 'lr:', 0.001, 'Best val loss', 0.68857372)
+Saving model in  ./CNN_hyperparams_2
+Input shape: [22000, 1, 4]
+X placeholder Tensor("Placeholder:0", shape=(?, 2200, 1, 4), dtype=float32)
+made keep prob
+made conv layers
+made fc layers [<tf.Tensor 'dropout/mul:0' shape=(?, 128) dtype=float32>, <tf.Tensor 'dropout_1/mul:0' shape=(?, 2) dtype=float32>, <tf.Tensor 'add_4:0' shape=(?, 2) dtype=float32>]
+made classification layer
+Model CNN_v2
+Optimizer created
+Initializing variables...
+INFO:tensorflow:Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+Epoch: 1 - Training: 78.320 - Validation 75.411 - Best 75.411 - Error Rate 0.500 - Correctness 49.993
+INFO:tensorflow:Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+Epoch: 2 - Training: 74.456 - Validation 72.239 - Best 72.239 - Error Rate 0.420 - Correctness 50.002
+INFO:tensorflow:Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+Epoch: 3 - Training: 71.174 - Validation 69.736 - Best 69.736 - Error Rate 0.580 - Correctness 49.999
+INFO:tensorflow:Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+Epoch: 4 - Training: 68.527 - Validation 67.116 - Best 67.116 - Error Rate 0.508 - Correctness 50.001
+INFO:tensorflow:Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+Epoch: 5 - Training: 66.167 - Validation 65.217 - Best 65.217 - Error Rate 0.260 - Correctness 50.108
+('dropout_keep:', 0.5, 'l2 coef:', 0.0, 'lr:', 1e-05, 'Best val loss', 65.21682)
+Saving model in  ./CNN_hyperparams_2
+Input shape: [22000, 1, 4]
+X placeholder Tensor("Placeholder:0", shape=(?, 2200, 1, 4), dtype=float32)
+made keep prob
+made conv layers
+made fc layers [<tf.Tensor 'dropout/mul:0' shape=(?, 128) dtype=float32>, <tf.Tensor 'dropout_1/mul:0' shape=(?, 2) dtype=float32>, <tf.Tensor 'add_4:0' shape=(?, 2) dtype=float32>]
+made classification layer
+Model CNN_v2
+Optimizer created
+Initializing variables...
+INFO:tensorflow:Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+Epoch: 1 - Training: 1.513 - Validation 0.706 - Best 0.706 - Error Rate 0.660 - Correctness 49.395
+Epoch: 2 - Training: 0.700 - Validation 0.707 - Best 0.706 - Error Rate 0.500 - Correctness 50.000
+INFO:tensorflow:Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+Epoch: 3 - Training: 0.699 - Validation 0.643 - Best 0.643 - Error Rate 0.260 - Correctness 52.984
+Epoch: 4 - Training: 0.700 - Validation 0.683 - Best 0.643 - Error Rate 0.420 - Correctness 51.345
+Epoch: 5 - Training: 0.699 - Validation 0.697 - Best 0.643 - Error Rate 0.500 - Correctness 50.000
+('dropout_keep:', 0.8, 'l2 coef:', 0.001, 'lr:', 0.1, 'Best val loss', 0.64250392)
+Saving model in  ./CNN_hyperparams_2
+Input shape: [22000, 1, 4]
+X placeholder Tensor("Placeholder:0", shape=(?, 2200, 1, 4), dtype=float32)
+made keep prob
+made conv layers
+made fc layers [<tf.Tensor 'dropout/mul:0' shape=(?, 128) dtype=float32>, <tf.Tensor 'dropout_1/mul:0' shape=(?, 2) dtype=float32>, <tf.Tensor 'add_4:0' shape=(?, 2) dtype=float32>]
+made classification layer
+Model CNN_v2
+Optimizer created
+Initializing variables...
+INFO:tensorflow:Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+Epoch: 1 - Training: 17.365 - Validation 2.164 - Best 2.164 - Error Rate 0.340 - Correctness 50.188
+INFO:tensorflow:Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+Epoch: 2 - Training: 0.936 - Validation 0.695 - Best 0.695 - Error Rate 0.580 - Correctness 49.981
+INFO:tensorflow:Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+Epoch: 3 - Training: 0.694 - Validation 0.689 - Best 0.689 - Error Rate 0.340 - Correctness 50.249
+Epoch: 4 - Training: 0.694 - Validation 0.694 - Best 0.689 - Error Rate 0.580 - Correctness 49.976
+Epoch: 5 - Training: 0.694 - Validation 0.695 - Best 0.689 - Error Rate 0.660 - Correctness 49.944
+('dropout_keep:', 0.8, 'l2 coef:', 0.001, 'lr:', 0.001, 'Best val loss', 0.68909007)
+Saving model in  ./CNN_hyperparams_2
+Input shape: [22000, 1, 4]
+X placeholder Tensor("Placeholder:0", shape=(?, 2200, 1, 4), dtype=float32)
+made keep prob
+made conv layers
+made fc layers [<tf.Tensor 'dropout/mul:0' shape=(?, 128) dtype=float32>, <tf.Tensor 'dropout_1/mul:0' shape=(?, 2) dtype=float32>, <tf.Tensor 'add_4:0' shape=(?, 2) dtype=float32>]
+made classification layer
+Model CNN_v2
+Optimizer created
+Initializing variables...
+INFO:tensorflow:Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+Epoch: 1 - Training: 64.617 - Validation 62.916 - Best 62.916 - Error Rate 0.660 - Correctness 50.000
+INFO:tensorflow:Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+Epoch: 2 - Training: 61.779 - Validation 60.089 - Best 60.089 - Error Rate 0.580 - Correctness 49.999
+INFO:tensorflow:Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+Epoch: 3 - Training: 59.091 - Validation 57.759 - Best 57.759 - Error Rate 0.340 - Correctness 50.001
+INFO:tensorflow:Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+Epoch: 4 - Training: 56.869 - Validation 55.687 - Best 55.687 - Error Rate 0.532 - Correctness 50.000
+INFO:tensorflow:Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+Epoch: 5 - Training: 54.821 - Validation 53.656 - Best 53.656 - Error Rate 0.580 - Correctness 49.994
+('dropout_keep:', 0.8, 'l2 coef:', 0.001, 'lr:', 1e-05, 'Best val loss', 53.655949)
+Saving model in  ./CNN_hyperparams_2
+Input shape: [22000, 1, 4]
+X placeholder Tensor("Placeholder:0", shape=(?, 2200, 1, 4), dtype=float32)
+made keep prob
+made conv layers
+made fc layers [<tf.Tensor 'dropout/mul:0' shape=(?, 128) dtype=float32>, <tf.Tensor 'dropout_1/mul:0' shape=(?, 2) dtype=float32>, <tf.Tensor 'add_4:0' shape=(?, 2) dtype=float32>]
+made classification layer
+Model CNN_v2
+Optimizer created
+Initializing variables...
+INFO:tensorflow:Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+Epoch: 1 - Training: 1.677 - Validation 0.650 - Best 0.650 - Error Rate 0.340 - Correctness 53.982
+Epoch: 2 - Training: 0.699 - Validation 0.684 - Best 0.650 - Error Rate 0.420 - Correctness 50.666
+Epoch: 3 - Training: 0.702 - Validation 0.685 - Best 0.650 - Error Rate 0.420 - Correctness 50.574
+Epoch: 4 - Training: 0.698 - Validation 0.685 - Best 0.650 - Error Rate 0.180 - Correctness 50.395
+Epoch: 5 - Training: 0.698 - Validation 0.731 - Best 0.650 - Error Rate 0.580 - Correctness 48.790
+('dropout_keep:', 0.8, 'l2 coef:', 1e-06, 'lr:', 0.1, 'Best val loss', 0.650231)
+Saving model in  ./CNN_hyperparams_2
+Input shape: [22000, 1, 4]
+X placeholder Tensor("Placeholder:0", shape=(?, 2200, 1, 4), dtype=float32)
+made keep prob
+made conv layers
+made fc layers [<tf.Tensor 'dropout/mul:0' shape=(?, 128) dtype=float32>, <tf.Tensor 'dropout_1/mul:0' shape=(?, 2) dtype=float32>, <tf.Tensor 'add_4:0' shape=(?, 2) dtype=float32>]
+made classification layer
+Model CNN_v2
+Optimizer created
+Initializing variables...
+INFO:tensorflow:Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+Epoch: 1 - Training: 22.306 - Validation 2.840 - Best 2.840 - Error Rate 0.580 - Correctness 49.958
+INFO:tensorflow:Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+Epoch: 2 - Training: 1.069 - Validation 0.693 - Best 0.693 - Error Rate 0.420 - Correctness 50.073
+Epoch: 3 - Training: 0.694 - Validation 0.696 - Best 0.693 - Error Rate 0.580 - Correctness 49.913
+Epoch: 4 - Training: 0.694 - Validation 0.695 - Best 0.693 - Error Rate 0.580 - Correctness 49.922
+Epoch: 5 - Training: 0.694 - Validation 0.694 - Best 0.693 - Error Rate 0.580 - Correctness 49.979
+('dropout_keep:', 0.8, 'l2 coef:', 1e-06, 'lr:', 0.001, 'Best val loss', 0.69321102)
+Saving model in  ./CNN_hyperparams_2
+Input shape: [22000, 1, 4]
+X placeholder Tensor("Placeholder:0", shape=(?, 2200, 1, 4), dtype=float32)
+made keep prob
+made conv layers
+made fc layers [<tf.Tensor 'dropout/mul:0' shape=(?, 128) dtype=float32>, <tf.Tensor 'dropout_1/mul:0' shape=(?, 2) dtype=float32>, <tf.Tensor 'add_4:0' shape=(?, 2) dtype=float32>]
+made classification layer
+Model CNN_v2
+Optimizer created
+Initializing variables...
+INFO:tensorflow:Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+Epoch: 1 - Training: 64.085 - Validation 62.880 - Best 62.880 - Error Rate 0.340 - Correctness 50.305
+INFO:tensorflow:Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+Epoch: 2 - Training: 61.175 - Validation 60.173 - Best 60.173 - Error Rate 0.740 - Correctness 49.735
+INFO:tensorflow:Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+Epoch: 3 - Training: 58.619 - Validation 57.618 - Best 57.618 - Error Rate 0.500 - Correctness 50.000
+INFO:tensorflow:Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+Epoch: 4 - Training: 56.446 - Validation 55.605 - Best 55.605 - Error Rate 0.420 - Correctness 50.052
+INFO:tensorflow:Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+Epoch: 5 - Training: 54.505 - Validation 53.800 - Best 53.800 - Error Rate 0.420 - Correctness 50.053
+('dropout_keep:', 0.8, 'l2 coef:', 1e-06, 'lr:', 1e-05, 'Best val loss', 53.800091)
+Saving model in  ./CNN_hyperparams_2
+Input shape: [22000, 1, 4]
+X placeholder Tensor("Placeholder:0", shape=(?, 2200, 1, 4), dtype=float32)
+made keep prob
+made conv layers
+made fc layers [<tf.Tensor 'dropout/mul:0' shape=(?, 128) dtype=float32>, <tf.Tensor 'dropout_1/mul:0' shape=(?, 2) dtype=float32>, <tf.Tensor 'add_4:0' shape=(?, 2) dtype=float32>]
+made classification layer
+Model CNN_v2
+Optimizer created
+Initializing variables...
+INFO:tensorflow:Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+Epoch: 1 - Training: 1.595 - Validation 0.697 - Best 0.697 - Error Rate 0.580 - Correctness 49.810
+INFO:tensorflow:Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+Epoch: 2 - Training: 0.698 - Validation 0.693 - Best 0.693 - Error Rate 0.420 - Correctness 50.015
+INFO:tensorflow:Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+Epoch: 3 - Training: 0.702 - Validation 0.683 - Best 0.683 - Error Rate 0.420 - Correctness 50.759
+Epoch: 4 - Training: 0.702 - Validation 0.704 - Best 0.683 - Error Rate 0.580 - Correctness 49.566
+Epoch: 5 - Training: 0.701 - Validation 0.693 - Best 0.683 - Error Rate 0.500 - Correctness 50.000
+('dropout_keep:', 0.8, 'l2 coef:', 0.0, 'lr:', 0.1, 'Best val loss', 0.68334883)
+Saving model in  ./CNN_hyperparams_2
+Input shape: [22000, 1, 4]
+X placeholder Tensor("Placeholder:0", shape=(?, 2200, 1, 4), dtype=float32)
+made keep prob
+made conv layers
+made fc layers [<tf.Tensor 'dropout/mul:0' shape=(?, 128) dtype=float32>, <tf.Tensor 'dropout_1/mul:0' shape=(?, 2) dtype=float32>, <tf.Tensor 'add_4:0' shape=(?, 2) dtype=float32>]
+made classification layer
+Model CNN_v2
+Optimizer created
+Initializing variables...
+INFO:tensorflow:Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+Epoch: 1 - Training: 16.851 - Validation 1.835 - Best 1.835 - Error Rate 0.580 - Correctness 49.967
+INFO:tensorflow:Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+Epoch: 2 - Training: 0.861 - Validation 0.697 - Best 0.697 - Error Rate 0.660 - Correctness 49.883
+INFO:tensorflow:Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+Epoch: 3 - Training: 0.694 - Validation 0.692 - Best 0.692 - Error Rate 0.340 - Correctness 50.083
+Epoch: 4 - Training: 0.694 - Validation 0.694 - Best 0.692 - Error Rate 0.500 - Correctness 50.000
+INFO:tensorflow:Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+Epoch: 5 - Training: 0.694 - Validation 0.691 - Best 0.691 - Error Rate 0.260 - Correctness 50.108
+('dropout_keep:', 0.8, 'l2 coef:', 0.0, 'lr:', 0.001, 'Best val loss', 0.69148117)
+Saving model in  ./CNN_hyperparams_2
+Input shape: [22000, 1, 4]
+X placeholder Tensor("Placeholder:0", shape=(?, 2200, 1, 4), dtype=float32)
+made keep prob
+made conv layers
+made fc layers [<tf.Tensor 'dropout/mul:0' shape=(?, 128) dtype=float32>, <tf.Tensor 'dropout_1/mul:0' shape=(?, 2) dtype=float32>, <tf.Tensor 'add_4:0' shape=(?, 2) dtype=float32>]
+made classification layer
+Model CNN_v2
+Optimizer created
+Initializing variables...
+INFO:tensorflow:Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+Epoch: 1 - Training: 85.534 - Validation 83.082 - Best 83.082 - Error Rate 0.500 - Correctness 49.997
+INFO:tensorflow:Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+Epoch: 2 - Training: 81.235 - Validation 79.147 - Best 79.147 - Error Rate 0.500 - Correctness 49.997
+INFO:tensorflow:Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+Epoch: 3 - Training: 77.550 - Validation 76.088 - Best 76.088 - Error Rate 0.580 - Correctness 49.901
+INFO:tensorflow:Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+Epoch: 4 - Training: 74.575 - Validation 73.295 - Best 73.295 - Error Rate 0.420 - Correctness 50.053
+INFO:tensorflow:Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+Epoch: 5 - Training: 71.959 - Validation 70.800 - Best 70.800 - Error Rate 0.420 - Correctness 50.012
+('dropout_keep:', 0.8, 'l2 coef:', 0.0, 'lr:', 1e-05, 'Best val loss', 70.800034)
+                       val_loss                      
+l2_coeff               0.000000   0.000001   0.001000
+dropout_keep lr                                      
+0.001        0.00001  78.191010  76.601074  65.220016
+             0.00100   0.988269   1.051812   0.890287
+             0.10000   0.688210   0.684092   0.697117
+0.200        0.00001  56.746582  56.610310  71.493423
+             0.00100   0.692016   0.692661   0.693338
+             0.10000   0.693151   0.656550   0.662650
+0.500        0.00001  65.216820  62.293217  62.532845
+             0.00100   0.688574   0.691090   0.693429
+             0.10000   0.634771   0.675390   0.665863
+0.800        0.00001  70.800034  53.800091  53.655949
+             0.00100   0.691481   0.693211   0.689090
+             0.10000   0.683349   0.650231   0.642504

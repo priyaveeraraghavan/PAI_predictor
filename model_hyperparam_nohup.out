@@ -1,0 +1,30 @@
+2017-05-03 23:48:39.237864: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.1 instructions, but these are available on your machine and could speed up CPU computations.
+2017-05-03 23:48:39.237935: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.2 instructions, but these are available on your machine and could speed up CPU computations.
+2017-05-03 23:48:39.237948: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX instructions, but these are available on your machine and could speed up CPU computations.
+1.1.0
+Saving model in  ./CNN_hyperparams
+Input shape: [22000, 1, 4]
+X placeholder Tensor("Placeholder:0", shape=(?, 2200, 1, 4), dtype=float32)
+made keep prob
+made conv layers
+made fc layers [<tf.Tensor 'dropout/mul:0' shape=(?, 128) dtype=float32>, <tf.Tensor 'dropout_1/mul:0' shape=(?, 2) dtype=float32>, <tf.Tensor 'add_4:0' shape=(?, 2) dtype=float32>]
+made classification layer
+Model CNN_v2
+Optimizer created
+Initializing variables...
+Traceback (most recent call last):
+  File "model_hyperparam.py", line 35, in <module>
+    _best_cost = training(model_name, model_type, model_params, training_params)
+  File "/afs/csail.mit.edu/u/p/priyav/PAI_data/PAI_predictor/training.py", line 155, in training
+    _, batch_cost = sess.run(ops, feed_dict = feed_dict)
+  File "/afs/csail.mit.edu/u/p/priyav/.local/lib/python2.7/site-packages/tensorflow/python/client/session.py", line 778, in run
+    run_metadata_ptr)
+  File "/afs/csail.mit.edu/u/p/priyav/.local/lib/python2.7/site-packages/tensorflow/python/client/session.py", line 982, in _run
+    feed_dict_string, options, run_metadata)
+  File "/afs/csail.mit.edu/u/p/priyav/.local/lib/python2.7/site-packages/tensorflow/python/client/session.py", line 1032, in _do_run
+    target_list, options, run_metadata)
+  File "/afs/csail.mit.edu/u/p/priyav/.local/lib/python2.7/site-packages/tensorflow/python/client/session.py", line 1039, in _do_call
+    return fn(*args)
+  File "/afs/csail.mit.edu/u/p/priyav/.local/lib/python2.7/site-packages/tensorflow/python/client/session.py", line 1021, in _run_fn
+    status, run_metadata)
+KeyboardInterrupt

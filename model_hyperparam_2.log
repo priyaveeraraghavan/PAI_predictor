@@ -1,0 +1,171 @@
+05-04 11:19 Started module.
+05-04 11:19 basic_CNN
+05-04 11:19 CNN_hyperparams_2
+05-04 11:20 Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+05-04 11:22 Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+05-04 11:23 Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+05-04 11:25 Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+05-04 11:26 ('dropout_keep:', 0.001, 'l2 coef:', 0.001, 'lr:', 0.1, 'Best val loss', 0.69711655)
+05-04 11:28 Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+05-04 11:29 Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+05-04 11:30 Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+05-04 11:32 Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+05-04 11:33 Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+05-04 11:33 ('dropout_keep:', 0.001, 'l2 coef:', 0.001, 'lr:', 0.001, 'Best val loss', 0.89028686)
+05-04 11:34 Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+05-04 11:36 Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+05-04 11:37 Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+05-04 11:38 Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+05-04 11:40 Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+05-04 11:40 ('dropout_keep:', 0.001, 'l2 coef:', 0.001, 'lr:', 1e-05, 'Best val loss', 65.220016)
+05-04 11:41 Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+05-04 11:42 Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+05-04 11:46 ('dropout_keep:', 0.001, 'l2 coef:', 1e-06, 'lr:', 0.1, 'Best val loss', 0.68409181)
+05-04 11:47 Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+05-04 11:49 Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+05-04 11:50 Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+05-04 11:52 Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+05-04 11:53 Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+05-04 11:53 ('dropout_keep:', 0.001, 'l2 coef:', 1e-06, 'lr:', 0.001, 'Best val loss', 1.0518121)
+05-04 11:55 Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+05-04 11:56 Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+05-04 11:58 Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+05-04 11:59 Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+05-04 12:01 Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+05-04 12:01 ('dropout_keep:', 0.001, 'l2 coef:', 1e-06, 'lr:', 1e-05, 'Best val loss', 76.601074)
+05-04 12:02 Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+05-04 12:04 Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+05-04 12:05 Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+05-04 12:08 ('dropout_keep:', 0.001, 'l2 coef:', 0.0, 'lr:', 0.1, 'Best val loss', 0.68820965)
+05-04 12:10 Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+05-04 12:11 Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+05-04 12:13 Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+05-04 12:14 Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+05-04 12:16 Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+05-04 12:16 ('dropout_keep:', 0.001, 'l2 coef:', 0.0, 'lr:', 0.001, 'Best val loss', 0.98826945)
+05-04 12:17 Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+05-04 12:19 Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+05-04 12:20 Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+05-04 12:22 Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+05-04 12:23 Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+05-04 12:23 ('dropout_keep:', 0.001, 'l2 coef:', 0.0, 'lr:', 1e-05, 'Best val loss', 78.19101)
+05-04 12:25 Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+05-04 12:30 ('dropout_keep:', 0.2, 'l2 coef:', 0.001, 'lr:', 0.1, 'Best val loss', 0.66265005)
+05-04 12:32 Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+05-04 12:33 Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+05-04 12:36 Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+05-04 12:38 Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+05-04 12:38 ('dropout_keep:', 0.2, 'l2 coef:', 0.001, 'lr:', 0.001, 'Best val loss', 0.69333768)
+05-04 12:39 Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+05-04 12:41 Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+05-04 12:42 Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+05-04 12:44 Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+05-04 12:45 Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+05-04 12:45 ('dropout_keep:', 0.2, 'l2 coef:', 0.001, 'lr:', 1e-05, 'Best val loss', 71.493423)
+05-04 12:47 Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+05-04 12:52 ('dropout_keep:', 0.2, 'l2 coef:', 1e-06, 'lr:', 0.1, 'Best val loss', 0.65654975)
+05-04 12:53 Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+05-04 12:55 Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+05-04 12:56 Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+05-04 12:59 ('dropout_keep:', 0.2, 'l2 coef:', 1e-06, 'lr:', 0.001, 'Best val loss', 0.69266099)
+05-04 13:00 Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+05-04 13:01 Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+05-04 13:03 Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+05-04 13:04 Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+05-04 13:05 Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+05-04 13:05 ('dropout_keep:', 0.2, 'l2 coef:', 1e-06, 'lr:', 1e-05, 'Best val loss', 56.61031)
+05-04 13:07 Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+05-04 13:08 Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+05-04 13:12 Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+05-04 13:12 ('dropout_keep:', 0.2, 'l2 coef:', 0.0, 'lr:', 0.1, 'Best val loss', 0.69315076)
+05-04 13:13 Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+05-04 13:14 Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+05-04 13:18 ('dropout_keep:', 0.2, 'l2 coef:', 0.0, 'lr:', 0.001, 'Best val loss', 0.69201577)
+05-04 13:20 Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+05-04 13:21 Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+05-04 13:22 Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+05-04 13:23 Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+05-04 13:25 Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+05-04 13:25 ('dropout_keep:', 0.2, 'l2 coef:', 0.0, 'lr:', 1e-05, 'Best val loss', 56.746582)
+05-04 13:27 Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+05-04 13:32 ('dropout_keep:', 0.5, 'l2 coef:', 0.001, 'lr:', 0.1, 'Best val loss', 0.6658628)
+05-04 13:33 Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+05-04 13:34 Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+05-04 13:38 ('dropout_keep:', 0.5, 'l2 coef:', 0.001, 'lr:', 0.001, 'Best val loss', 0.69342852)
+05-04 13:39 Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+05-04 13:40 Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+05-04 13:42 Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+05-04 13:43 Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+05-04 13:44 Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+05-04 13:44 ('dropout_keep:', 0.5, 'l2 coef:', 0.001, 'lr:', 1e-05, 'Best val loss', 62.532845)
+05-04 13:46 Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+05-04 13:47 Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+05-04 13:51 ('dropout_keep:', 0.5, 'l2 coef:', 1e-06, 'lr:', 0.1, 'Best val loss', 0.67538995)
+05-04 13:52 Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+05-04 13:54 Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+05-04 13:55 Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+05-04 13:58 ('dropout_keep:', 0.5, 'l2 coef:', 1e-06, 'lr:', 0.001, 'Best val loss', 0.69109046)
+05-04 14:00 Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+05-04 14:01 Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+05-04 14:03 Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+05-04 14:04 Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+05-04 14:05 Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+05-04 14:05 ('dropout_keep:', 0.5, 'l2 coef:', 1e-06, 'lr:', 1e-05, 'Best val loss', 62.293217)
+05-04 14:07 Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+05-04 14:08 Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+05-04 14:10 Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+05-04 14:13 Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+05-04 14:13 ('dropout_keep:', 0.5, 'l2 coef:', 0.0, 'lr:', 0.1, 'Best val loss', 0.63477111)
+05-04 14:14 Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+05-04 14:16 Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+05-04 14:17 Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+05-04 14:20 Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+05-04 14:20 ('dropout_keep:', 0.5, 'l2 coef:', 0.0, 'lr:', 0.001, 'Best val loss', 0.68857372)
+05-04 14:22 Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+05-04 14:23 Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+05-04 14:25 Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+05-04 14:26 Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+05-04 14:28 Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+05-04 14:28 ('dropout_keep:', 0.5, 'l2 coef:', 0.0, 'lr:', 1e-05, 'Best val loss', 65.21682)
+05-04 14:29 Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+05-04 14:32 Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+05-04 14:35 ('dropout_keep:', 0.8, 'l2 coef:', 0.001, 'lr:', 0.1, 'Best val loss', 0.64250392)
+05-04 14:36 Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+05-04 14:38 Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+05-04 14:39 Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+05-04 14:42 ('dropout_keep:', 0.8, 'l2 coef:', 0.001, 'lr:', 0.001, 'Best val loss', 0.68909007)
+05-04 14:44 Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+05-04 14:45 Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+05-04 14:47 Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+05-04 14:48 Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+05-04 14:49 Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+05-04 14:49 ('dropout_keep:', 0.8, 'l2 coef:', 0.001, 'lr:', 1e-05, 'Best val loss', 53.655949)
+05-04 14:51 Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+05-04 14:56 ('dropout_keep:', 0.8, 'l2 coef:', 1e-06, 'lr:', 0.1, 'Best val loss', 0.650231)
+05-04 14:58 Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+05-04 14:59 Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+05-04 15:04 ('dropout_keep:', 0.8, 'l2 coef:', 1e-06, 'lr:', 0.001, 'Best val loss', 0.69321102)
+05-04 15:05 Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+05-04 15:06 Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+05-04 15:08 Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+05-04 15:09 Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+05-04 15:11 Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+05-04 15:11 ('dropout_keep:', 0.8, 'l2 coef:', 1e-06, 'lr:', 1e-05, 'Best val loss', 53.800091)
+05-04 15:12 Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+05-04 15:14 Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+05-04 15:15 Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+05-04 15:18 ('dropout_keep:', 0.8, 'l2 coef:', 0.0, 'lr:', 0.1, 'Best val loss', 0.68334883)
+05-04 15:19 Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+05-04 15:21 Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+05-04 15:22 Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+05-04 15:25 Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+05-04 15:25 ('dropout_keep:', 0.8, 'l2 coef:', 0.0, 'lr:', 0.001, 'Best val loss', 0.69148117)
+05-04 15:26 Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+05-04 15:28 Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+05-04 15:29 Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+05-04 15:30 Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+05-04 15:32 Saving best model in ./CNN_hyperparams_2/CNN_hyperparams_2_best.ckpt
+05-04 15:32 ('dropout_keep:', 0.8, 'l2 coef:', 0.0, 'lr:', 1e-05, 'Best val loss', 70.800034)
+05-04 15:32 Finished with iterations.
+05-04 15:32 Writing to csv
+05-04 15:32 Finished

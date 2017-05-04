@@ -137,6 +137,7 @@ def training(model_name, model_type, model_params, training_params):
             #batch_x = trX[batch_idx: (batch_idx + batch_size), :]
             #batch_y = trY[batch_idx: (batch_idx + batch_size), :]
         iterations = 0
+        num_examples_so_far = 0
         while True:
             try:
                 batch_x, batch_y = train_batch_generator.next_batch()
@@ -155,10 +156,12 @@ def training(model_name, model_type, model_params, training_params):
                 
                 epoch_cost += batch_cost
                 iterations += 1
+                num_examples_so_far += batch_size*num_splits
+                if num_examples_so_far > training_params['max_examples']:
+                    raise StopIteration
             except StopIteration:
                 break
 
-        print "Iterations", iterations
         #epoch_cost /= len(range(0, len(trX), batch_size))
         epoch_cost /= iterations
         
@@ -176,11 +179,12 @@ def training(model_name, model_type, model_params, training_params):
         valid_cost, py = sess.run([cost, model.classification_py], feed_dict = feed_dict)
         #print py, valid_y
         outcomes = [int(round(x)) for x in py[:,0]]
+        #split_outcomes = [sum(outcomes[i:i+h])/ for i in xrange(0, input_length, h)]
         outcome_errors = np.abs(outcomes - valid_y[:,0])
         outcome_correctness = np.multiply(py, valid_y)
-        print outcome_correctness
+        #print outcome_correctness
         correctness = np.sum(outcome_correctness)
-        print correctness
+        #print correctness
         error_rate = float(sum(outcome_errors))/len(outcome_errors)
 
         

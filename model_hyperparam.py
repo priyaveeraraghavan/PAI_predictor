@@ -1,19 +1,19 @@
+import tensorflow as tf
 from training import training
 import pandas as pd
 import numpy as np
-import tensorflow as tf
 print tf.__version__
 import logging
 
 logging.basicConfig(level=logging.DEBUG,
                     format='%(asctime)s %(message)s',
                     datefmt='%m-%d %H:%M',
-                    filename='/afs/csail.mit.edu/u/p/priyav/PAI_data/PAI_predictor/model_hyperparam_2.log',
+                    filename='~/model_hyperparam_gpu.log',
                     filemode='w')
 logging.info('Started module.')
 
 model_type = "basic_CNN"
-model_name = "CNN_hyperparams_2"
+model_name = "CNN_hyperparams_gpu"
 logging.info(model_type)
 logging.info(model_name)
 model_params = { 'model_name' : 'CNN_v2',
@@ -33,16 +33,16 @@ training_params =  { 'dropout_keep_prob' : 1.0,
                      'max_examples' : 10000,
                       'epochs' : 5,
                       'lr' : 0.01, 
-                      'train_files' : ['/afs/csail.mit.edu/u/p/priyav/PAI_data/final_data/all_gis_islandviewer_iv4aa_data.csv.gz'],
-                      'valid_files' : ['/afs/csail.mit.edu/u/p/priyav/PAI_data/final_data/all_gis_islandviewer_iv4ag_data.csv.gz']}
+                      'train_files' : ['~/all_gis_islandviewer_iv4aa_data.csv.gz'],
+                      'valid_files' : ['~/all_gis_islandviewer_iv4ag_data.csv.gz']}
 
 perform=[]
 
-for _dropout_keep in [1e-3,0.2,0.5,0.8]:
+for _dropout_keep in [0.2,0.5,0.8]:
     training_params['dropout_keep_prob'] = _dropout_keep
     for _l2_coef in [1e-03,1e-06,0.0]:
         training_params['l2'] = _l2_coef
-        for _lr in [1e-1,1e-3,1e-5]:
+        for _lr in [1e-1,1e-3]:
             training_params['lr'] = _lr
             _best_cost = training(model_name, model_type, model_params, training_params)
             msg = 'dropout_keep:',_dropout_keep, 'l2 coef:',_l2_coef, 'lr:', _lr, 'Best val loss',_best_cost
@@ -55,5 +55,5 @@ p =  pd.DataFrame(perform, columns=['dropout_keep','l2_coeff','lr','val_loss']).
 
 print p
 logging.info('Writing to csv')
-p.to_csv('/afs/csail.mit.edu/u/p/priyav/PAI_data/PAI_predictor/model_hyperparams_2.csv')
+p.to_csv('~/model_hyperparams_gpu.csv')
 logging.info('Finished')

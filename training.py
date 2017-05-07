@@ -75,19 +75,19 @@ def training(model_name, model_type, model_params, training_params):
     else:
         rnn = False
     
-    #with tf.device('/gpu:0'): TODO put this actually on a GPU
-    model, cost = model_function(X, Y, model_params)
-    print "Model", model.model_name
-    # Training Procedure
-    #global_step = tf.get_variable('global_step', [],
-    #initializer=tf.constant_initializer(0.0))
-    #train_vars = tf.trainable_variables()
-    train_op = tf.train.RMSPropOptimizer(training_params['lr'], 0.9).minimize(cost)
-    print "Optimizer created"
-    #grads, _ = tf.gradients(cost, train_vars), training_params['max_grad'])
-    #optimizer = tf.train.RMSPropOptimizer(training_params['lr'], 0.9)
-    #train_op = optimizer.apply_gradients(zip(grads, train_vars),
-    #                                     global_step=global_step)
+    with tf.device('/gpu:0'):
+        model, cost = model_function(X, Y, model_params)
+        print "Model", model.model_name
+        # Training Procedure
+        #global_step = tf.get_variable('global_step', [],
+        #initializer=tf.constant_initializer(0.0))
+        #train_vars = tf.trainable_variables()
+        train_op = tf.train.RMSPropOptimizer(training_params['lr'], 0.9).minimize(cost)
+        print "Optimizer created"
+        #grads, _ = tf.gradients(cost, train_vars), training_params['max_grad'])
+        #optimizer = tf.train.RMSPropOptimizer(training_params['lr'], 0.9)
+        #train_op = optimizer.apply_gradients(zip(grads, train_vars),
+        #                                     global_step=global_step)
     
     # Initialize variables
     sess = tf.Session()

@@ -57,7 +57,7 @@ test_file = '/afs/csail.mit.edu/u/p/priyav/PAI_data/final_data/all_gis_islandvie
 _best_model_file = join('CNN_v4_epoch2.ckpt')
 
 # Load the data
-full_samples = np.loadtxt(test_file, delimiter=',', skiprows=1, dtype=str)
+full_samples = np.loadtxt(test_file, delimiter=',', skiprows=1, dtype=str)[0:10]
 test_batch_generator = BatchGenerator(_batch_size, [], _input_length, _num_splits)
 _teX, _teY = test_batch_generator.next_batch()
 print(_teX.shape)

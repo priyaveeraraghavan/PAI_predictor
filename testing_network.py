@@ -33,7 +33,7 @@ def testing(teX, teY, best_model_file):
         new_saver.restore(sess, tf.train.latest_checkpoint(dirname(best_model_file)))
         X = tf.get_collection('X')[0]
         Y = tf.get_collection('Y')[0]
-        py = tf.get_collection('py')[0]
+        py = tf.get_collection('_CNN_v4_py')[0]
         cost = tf.get_collection('cost')[0]
 
         teX_cost, teX_prob = sess.run([cost, py], feed_dict={X: teX, Y: teY})

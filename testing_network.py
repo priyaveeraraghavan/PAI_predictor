@@ -47,25 +47,25 @@ def testing(teX, teY, best_model_file):
 
     return teX_cost, teX_prob
 
-_batch_size = 1
-_epochs = 10
-_input_length = 1000
-_num_splits = 10
-test_file = '/afs/csail.mit.edu/u/p/priyav/PAI_data/final_data/all_gis_islandviewer_iv4aa_data.csv.gz'
+batch_size = 1
+epochs = 10
+input_length = 1000
+num_splits = 10
+test_file = 'first_ten_out.csv'
 
 # Load in best model file
-_best_model_file = join('CNN_v4_best.ckpt')
+best_model_file = join('CNN_v4_best.ckpt')
 
 # Load the data
 full_samples = np.loadtxt(test_file, delimiter=',', skiprows=1, dtype=str)[0:10]
-test_batch_generator = BatchGenerator(_batch_size, [], _input_length, _num_splits)
-_teX, _teY = test_batch_generator.next_batch()
-print(_teX.shape)
+test_batch_generator = BatchGenerator(batch_size, test_file, input_length, num_splits)
+teX, teY = test_batch_generator.next_batch(test_file)
+print(teX.shape)
 
 # Evaluate the performance
-teX_cost, teX_prob  = testing(_teX, _teY, _best_model_file)
-print('test acc', np.mean(np.argmax(_teY, axis=1) == np.argmax(teX_prob, axis=1)),
-    'test auROC', roc_auc_score(_teY, teX_prob))
+teX_cost, teX_prob  = testing(teX, teY, best_model_file)
+print('test acc', np.mean(np.argmax(teY, axis=1) == np.argmax(teX_prob, axis=1)),
+    'test auROC', roc_auc_score(teY, teX_prob))
 
 # Evaluating the performance based on majority
 true_label = full_samples[0][2]

@@ -54,7 +54,7 @@ _num_splits = 10
 test_file = '/afs/csail.mit.edu/u/p/priyav/PAI_data/final_data/all_gis_islandviewer_iv4aa_data.csv.gz'
 
 # Load in best model file
-_best_model_file = join('CNN_v4_epoch2.ckpt')
+_best_model_file = join('CNN_v4_best.ckpt')
 
 # Load the data
 full_samples = np.loadtxt(test_file, delimiter=',', skiprows=1, dtype=str)[0:10]

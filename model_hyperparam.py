@@ -8,7 +8,7 @@ import logging
 logging.basicConfig(level=logging.DEBUG,
                     format='%(asctime)s %(message)s',
                     datefmt='%m-%d %H:%M',
-                    filename='~/model_hyperparam_gpu.log',
+                    filename='~model_hyperparam_cloud.log',
                     filemode='w')
 logging.info('Started module.')
 
@@ -33,8 +33,8 @@ training_params =  { 'dropout_keep_prob' : 1.0,
                      'max_examples' : 10000,
                       'epochs' : 5,
                       'lr' : 0.01, 
-                      'train_files' : ['~/all_gis_islandviewer_iv4aa_data.csv.gz'],
-                      'valid_files' : ['~/all_gis_islandviewer_iv4ag_data.csv.gz']}
+                      'train_files' : ['/home/Liz/all_gis_islandviewer_iv4aa_data.csv.gz'],
+                      'valid_files' : ['/home/Liz/all_gis_islandviewer_iv4ag_data.csv.gz']}
 
 perform=[]
 
@@ -55,5 +55,5 @@ p =  pd.DataFrame(perform, columns=['dropout_keep','l2_coeff','lr','val_loss']).
 
 print p
 logging.info('Writing to csv')
-p.to_csv('~/model_hyperparams_gpu.csv')
+p.to_csv('~model_hyperparams_cloud.csv')
 logging.info('Finished')

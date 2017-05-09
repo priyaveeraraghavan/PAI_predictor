@@ -75,7 +75,7 @@ def training(model_name, model_type, model_params, training_params):
     else:
         rnn = False
     
-    #with tf.device('/gpu:0'): TODO put this actually on a GPU
+    #with tf.device('/gpu:0'):
     model, cost = model_function(X, Y, model_params)
     print "Model", model.model_name
     # Training Procedure

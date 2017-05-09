@@ -1,0 +1,67 @@
+05-08 20:50 Started module.
+05-08 20:50 basic_CNN
+05-08 20:50 CNN_hyperparams_gpu
+05-08 20:52 Saving best model in ./CNN_hyperparams_gpu/CNN_hyperparams_gpu_best.ckpt
+05-08 20:56 ('dropout_keep:', 0.2, 'l2 coef:', 0.001, 'lr:', 0.1, 'Best val loss', 0.70313692)
+05-08 20:57 Saving best model in ./CNN_hyperparams_gpu/CNN_hyperparams_gpu_best.ckpt
+05-08 20:58 Saving best model in ./CNN_hyperparams_gpu/CNN_hyperparams_gpu_best.ckpt
+05-08 21:02 ('dropout_keep:', 0.2, 'l2 coef:', 0.001, 'lr:', 0.001, 'Best val loss', 0.74479282)
+05-08 21:03 Saving best model in ./CNN_hyperparams_gpu/CNN_hyperparams_gpu_best.ckpt
+05-08 21:08 ('dropout_keep:', 0.2, 'l2 coef:', 1e-06, 'lr:', 0.1, 'Best val loss', 0.63146067)
+05-08 21:09 Saving best model in ./CNN_hyperparams_gpu/CNN_hyperparams_gpu_best.ckpt
+05-08 21:10 Saving best model in ./CNN_hyperparams_gpu/CNN_hyperparams_gpu_best.ckpt
+05-08 21:13 Saving best model in ./CNN_hyperparams_gpu/CNN_hyperparams_gpu_best.ckpt
+05-08 21:13 ('dropout_keep:', 0.2, 'l2 coef:', 1e-06, 'lr:', 0.001, 'Best val loss', 0.59724778)
+05-08 21:15 Saving best model in ./CNN_hyperparams_gpu/CNN_hyperparams_gpu_best.ckpt
+05-08 21:18 Saving best model in ./CNN_hyperparams_gpu/CNN_hyperparams_gpu_best.ckpt
+05-08 21:19 ('dropout_keep:', 0.2, 'l2 coef:', 0.0, 'lr:', 0.1, 'Best val loss', 0.8768965)
+05-08 21:20 Saving best model in ./CNN_hyperparams_gpu/CNN_hyperparams_gpu_best.ckpt
+05-08 21:21 Saving best model in ./CNN_hyperparams_gpu/CNN_hyperparams_gpu_best.ckpt
+05-08 21:24 Saving best model in ./CNN_hyperparams_gpu/CNN_hyperparams_gpu_best.ckpt
+05-08 21:25 ('dropout_keep:', 0.2, 'l2 coef:', 0.0, 'lr:', 0.001, 'Best val loss', 0.59681535)
+05-08 21:26 Saving best model in ./CNN_hyperparams_gpu/CNN_hyperparams_gpu_best.ckpt
+05-08 21:27 Saving best model in ./CNN_hyperparams_gpu/CNN_hyperparams_gpu_best.ckpt
+05-08 21:29 Saving best model in ./CNN_hyperparams_gpu/CNN_hyperparams_gpu_best.ckpt
+05-08 21:30 Saving best model in ./CNN_hyperparams_gpu/CNN_hyperparams_gpu_best.ckpt
+05-08 21:30 ('dropout_keep:', 0.5, 'l2 coef:', 0.001, 'lr:', 0.1, 'Best val loss', 0.60494179)
+05-08 21:32 Saving best model in ./CNN_hyperparams_gpu/CNN_hyperparams_gpu_best.ckpt
+05-08 21:33 Saving best model in ./CNN_hyperparams_gpu/CNN_hyperparams_gpu_best.ckpt
+05-08 21:35 Saving best model in ./CNN_hyperparams_gpu/CNN_hyperparams_gpu_best.ckpt
+05-08 21:36 ('dropout_keep:', 0.5, 'l2 coef:', 0.001, 'lr:', 0.001, 'Best val loss', 0.59939116)
+05-08 21:37 Saving best model in ./CNN_hyperparams_gpu/CNN_hyperparams_gpu_best.ckpt
+05-08 21:39 Saving best model in ./CNN_hyperparams_gpu/CNN_hyperparams_gpu_best.ckpt
+05-08 21:42 Saving best model in ./CNN_hyperparams_gpu/CNN_hyperparams_gpu_best.ckpt
+05-08 21:42 ('dropout_keep:', 0.5, 'l2 coef:', 1e-06, 'lr:', 0.1, 'Best val loss', 0.60380954)
+05-08 21:43 Saving best model in ./CNN_hyperparams_gpu/CNN_hyperparams_gpu_best.ckpt
+05-08 21:44 Saving best model in ./CNN_hyperparams_gpu/CNN_hyperparams_gpu_best.ckpt
+05-08 21:46 Saving best model in ./CNN_hyperparams_gpu/CNN_hyperparams_gpu_best.ckpt
+05-08 21:47 ('dropout_keep:', 0.5, 'l2 coef:', 1e-06, 'lr:', 0.001, 'Best val loss', 0.59919375)
+05-08 21:48 Saving best model in ./CNN_hyperparams_gpu/CNN_hyperparams_gpu_best.ckpt
+05-08 21:50 Saving best model in ./CNN_hyperparams_gpu/CNN_hyperparams_gpu_best.ckpt
+05-08 21:53 ('dropout_keep:', 0.5, 'l2 coef:', 0.0, 'lr:', 0.1, 'Best val loss', 0.70201552)
+05-08 21:54 Saving best model in ./CNN_hyperparams_gpu/CNN_hyperparams_gpu_best.ckpt
+05-08 21:55 Saving best model in ./CNN_hyperparams_gpu/CNN_hyperparams_gpu_best.ckpt
+05-08 21:56 Saving best model in ./CNN_hyperparams_gpu/CNN_hyperparams_gpu_best.ckpt
+05-08 21:59 ('dropout_keep:', 0.5, 'l2 coef:', 0.0, 'lr:', 0.001, 'Best val loss', 0.65467244)
+05-08 22:00 Saving best model in ./CNN_hyperparams_gpu/CNN_hyperparams_gpu_best.ckpt
+05-08 22:03 Saving best model in ./CNN_hyperparams_gpu/CNN_hyperparams_gpu_best.ckpt
+05-08 22:04 ('dropout_keep:', 0.8, 'l2 coef:', 0.001, 'lr:', 0.1, 'Best val loss', 0.63387412)
+05-08 22:05 Saving best model in ./CNN_hyperparams_gpu/CNN_hyperparams_gpu_best.ckpt
+05-08 22:06 Saving best model in ./CNN_hyperparams_gpu/CNN_hyperparams_gpu_best.ckpt
+05-08 22:10 Saving best model in ./CNN_hyperparams_gpu/CNN_hyperparams_gpu_best.ckpt
+05-08 22:10 ('dropout_keep:', 0.8, 'l2 coef:', 0.001, 'lr:', 0.001, 'Best val loss', 0.77188808)
+05-08 22:11 Saving best model in ./CNN_hyperparams_gpu/CNN_hyperparams_gpu_best.ckpt
+05-08 22:14 Saving best model in ./CNN_hyperparams_gpu/CNN_hyperparams_gpu_best.ckpt
+05-08 22:15 ('dropout_keep:', 0.8, 'l2 coef:', 1e-06, 'lr:', 0.1, 'Best val loss', 0.72508657)
+05-08 22:16 Saving best model in ./CNN_hyperparams_gpu/CNN_hyperparams_gpu_best.ckpt
+05-08 22:18 Saving best model in ./CNN_hyperparams_gpu/CNN_hyperparams_gpu_best.ckpt
+05-08 22:21 ('dropout_keep:', 0.8, 'l2 coef:', 1e-06, 'lr:', 0.001, 'Best val loss', 0.69481754)
+05-08 22:22 Saving best model in ./CNN_hyperparams_gpu/CNN_hyperparams_gpu_best.ckpt
+05-08 22:24 Saving best model in ./CNN_hyperparams_gpu/CNN_hyperparams_gpu_best.ckpt
+05-08 22:27 ('dropout_keep:', 0.8, 'l2 coef:', 0.0, 'lr:', 0.1, 'Best val loss', 0.69482458)
+05-08 22:28 Saving best model in ./CNN_hyperparams_gpu/CNN_hyperparams_gpu_best.ckpt
+05-08 22:29 Saving best model in ./CNN_hyperparams_gpu/CNN_hyperparams_gpu_best.ckpt
+05-08 22:32 ('dropout_keep:', 0.8, 'l2 coef:', 0.0, 'lr:', 0.001, 'Best val loss', 0.71249342)
+05-08 22:32 Finished with iterations.
+05-08 22:32 Writing to csv
+05-08 22:32 Finished

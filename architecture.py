@@ -22,8 +22,8 @@ class RNN:
     
     def __init__(self, X, Y, size_params, **kwargs):
         self.X = tf.squeeze(X, [2])
-        print "X", self.X
         self.Y = Y
+        self.model_name = size_params['model_name']
         self.unroll_length = size_params['unroll_length']
         self.batch_size = size_params['batch_size']
         self.cell = tf.contrib.rnn.GRUCell(size_params['memory_dim'])
@@ -35,7 +35,7 @@ class RNN:
         self.logits = self.make_output_prediction(size_params['hidden_fc'], size_params['out'])
         self.keep_prob = tf.placeholder(tf.float32)
         
-        tf.add_to_collection(name+'_final_states', self.final_state)
+        tf.add_to_collection(self.model_name+'_final_states', self.final_state)
         
     def make_recurrent_graph(self):
         x_seq_windows = int(self.X.shape[1])/self.unroll_length
@@ -46,8 +46,6 @@ class RNN:
         ## simpler version
         #X_inp_list_corrected = [tf.squeeze(inp_, [1]) for inp_ in tf.split(axis=1, num_or_size_splits=int(self.X.shape[1]), value=self.X)]
 
-        print "input list length", len(X_inp_list_corrected)
-        print "input list first elt", X_inp_list_corrected[0]
         all_outputs = []
         all_final_states = []
         with tf.variable_scope("rnn") as scope:
@@ -72,7 +70,7 @@ class RNN:
         batch, h = self.final_state.shape
         rnn_out_size = int(h)
         
-        flattened_out_states = tf.reshape(self.final_states, [-1, rnn_out_size])
+        flattened_out_states = tf.reshape(self.final_state, [-1, rnn_out_size])
         W1 = tf.Variable(tf.truncated_normal([rnn_out_size, hidden_fc]), name="W1", trainable=True)
         B1 = tf.Variable(tf.zeros([1, hidden_fc]), name="B1", trainable=True)
         hidden1 = tf.nn.tanh(tf.add(tf.matmul(flattened_out_states, W1), B1))
@@ -83,8 +81,8 @@ class RNN:
         out_layer = tf.add(tf.matmul(hidden1, W2), B2)
         self.fc_layers = [hidden1, out_layer]
         self.classification_py = tf.nn.softmax(out_layer, name="classification_py")
-        tf.add_to_collection(name+'_hidden_outlayer', out_layer)
-        tf.add_to_collection(name+'_classification_py', self.classification_py)
+        tf.add_to_collection(self.model_name+'_hidden_outlayer', out_layer)
+        tf.add_to_collection(self.model_name+'_classification_py', self.classification_py)
         return out_layer
     
     def l2_loss(self):

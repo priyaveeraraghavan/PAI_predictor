@@ -1,8 +1,15 @@
-import matplotlib
+# imports
+import math
+import matplotlib.pyplot as plt
 import numpy as np
+import os.path
+from os.path import join,dirname
+import time
+import tensorflow as tf
+from batchhelper import BatchGenerator
 
 #this is pretty much ripped straight from pset 1. Need to formulate it for our architecture
-
+%matplotlib inline
 def plot_filter(units):
     filters = units.shape[3]
     plt.figure(1, figsize=(30,20))
@@ -14,27 +21,47 @@ def plot_filter(units):
         plt.imshow(np.transpose(units[0,:,:,i]), interpolation="nearest", cmap="afmhot")
 
 
-# We will get the convolutional layer activations for a specific sample
-test_image = test_data[:1]
-
+# Loading in the best model to visualize filters
 # h_conv1, h_conv2 are the outputs of your convolutional layers
 # ex. h_conv1 = tf.nn.relu(conv2d(x, W) + b)
-img_filters1, img_filters2 = sess.run([h_conv1,h_conv2], feed_dict={train_x: test_image})
+best_model_file = 'CNN_v4_best.ckpt.'
+model_name = 'CNN_v4'
+sess = tf.Session()
+new_saver = tf.train.import_meta_graph(best_model_file + '.meta')
+new_saver.restore(sess, tf.train.latest_checkpoint(dirname(best_model_file)))
+py = tf.get_collection('_CNN_v4_py')[0]
+cost = tf.get_collection('cost')[0]
+conv1 = tf.get_collection('_'.join(model_name, 'conv1'))
+conv2 = tf.get_collection('_'.join(model_name, 'conv2'))
 
-# Show the original image
-plt.imshow(np.transpose(np.reshape(test_image, [x_dim, y_dim])), interpolation="nearest")
+# We will get the convolutional layer activations for a specific sample
+# Load in data
+test_file = 'first_ten_out.csv'
+batch_size = 10
+input_length = 22000
+num_splits = 10
+full_samples = np.loadtxt(test_file, delimiter=',', skiprows=1, dtype=str)[0:10]
+test_batch_generator = BatchGenerator(batch_size, test_file, input_length, num_splits)
+teX, teY = test_batch_generator.next_batch(test_file)
+print(teX.shape)
+
+# Pick a particular sample to look at filters for
+samp = 0
+teX_samp = teX[samp,1]
+teY_samp = teY[samp,2]
+
+img_filters1, img_filters2 = sess.run([conv1, conv2], feed_dict={X: teX_samp, Y: teY_samp})
 
 # Show the activations of the first convolutional filters for the first test sample
 plot_filter(img_filters1)
 
 # Show the activations of the second convolutional filters for the first test sample
-#plot_filter(img_filters2)
+plot_filter(img_filters2)
 
 #Visualization Filter experiment
-
-def getActivations(layer,stimuli):
-     units = sess.run(layer,feed_dict={train_x: test_image})
+def getActivations(layer, samp_seq, samp_label):
+     units = sess.run(layer,feed_dict={X: samp_seq, Y: samp_label})
      plot_filter(units)
-#getActivations(h_conv1, test_image)
-getActivations(h_conv2, test_image)
+getActivations(conv1, teX_samp, teY_samp)
+getActivations(conv2, teX_samp, teY_samp)
 #plt.save_fig("orig_img1.png", bbox_inches='tight')

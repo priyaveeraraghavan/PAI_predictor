@@ -24,13 +24,13 @@ def plot_filter(units):
 # Loading in the best model to visualize filters
 # h_conv1, h_conv2 are the outputs of your convolutional layers
 # ex. h_conv1 = tf.nn.relu(conv2d(x, W) + b)
-best_model_file = 'CNN_v4_best.ckpt.'
+best_model_file = 'CNN_v4_best.ckpt'
 model_name = 'CNN_v4'
 sess = tf.Session()
 new_saver = tf.train.import_meta_graph(best_model_file + '.meta')
-new_saver.restore(sess, tf.train.latest_checkpoint(dirname(best_model_file)))
-conv1 = tf.get_collection('_'.join(model_name, 'conv1'))
-conv2 = tf.get_collection('_'.join(model_name, 'conv2'))
+new_saver.restore(sess, tf.train.latest_checkpoint('./'))
+conv1 = tf.get_collection('_'.join([model_name, 'conv1']))
+conv2 = tf.get_collection('_'.join([model_name, 'conv2']))
 
 # We will get the convolutional layer activations for a specific sample
 # Load in data

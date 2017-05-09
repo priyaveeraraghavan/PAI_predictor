@@ -34,7 +34,7 @@ conv2 = tf.get_collection('_'.join([model_name, 'conv2']))
 
 # We will get the convolutional layer activations for a specific sample
 # Load in data
-test_file = 'first_ten_out.csv'
+test_file = 'all_gis_islandviewer_iv4aa_data_half.gz'
 batch_size = 10
 input_length = 22000
 num_splits = 10

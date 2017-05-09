@@ -39,11 +39,15 @@ class BatchGenerator:
             one_hot_x : encoded one hot X input size (batch_size x [X dims])
             batch_y : labels batch  size (batch_size, num_classes)
         """
-        self.load_file(current_file)
-        rand = np.random.choice(self.unused_indices, self.batch_size, replace=False)
-        self.unused_indices = list(set(self.unused_indices) - set(rand))
-        batch = self.filtered_input[rand, 1]
-        labels = self.filtered_input[rand, 2]
+        #trying to think about what is going wrong, re-added this line back
+        if len(self.unused_indices) >= self.batch_size:
+            self.load_file(current_file)
+            rand = np.random.choice(self.unused_indices, self.batch_size, replace=False)
+            self.unused_indices = list(set(self.unused_indices) - set(rand))
+            batch = self.filtered_input[rand, 1]
+            labels = self.filtered_input[rand, 2]
+        else:
+          #something something end batch
 
         split_length = self.input_length / self.num_splits
 

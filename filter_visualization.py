@@ -29,8 +29,6 @@ model_name = 'CNN_v4'
 sess = tf.Session()
 new_saver = tf.train.import_meta_graph(best_model_file + '.meta')
 new_saver.restore(sess, tf.train.latest_checkpoint(dirname(best_model_file)))
-py = tf.get_collection('_CNN_v4_py')[0]
-cost = tf.get_collection('cost')[0]
 conv1 = tf.get_collection('_'.join(model_name, 'conv1'))
 conv2 = tf.get_collection('_'.join(model_name, 'conv2'))
 

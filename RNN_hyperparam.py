@@ -36,12 +36,12 @@ training_params =  { 'dropout_keep_prob' : 1.0,
 
 perform=[]
 
-for _dropout_keep in [1e-3,0.2,0.5,0.8]:
+for _dropout_keep in [1e-3, 0.2, 0.5,0.8]:
     training_params['dropout_keep_prob'] = _dropout_keep
     for _l2_coef in [1e-06,0.0]:
         training_params['l2'] = _l2_coef
         model_params['l2'] = _l2_coef
-        for _lr in [1e-1,1e-3,1e-5]:
+        for _lr in [1e-1, 1e-3,1e-5]:
             training_params['lr'] = _lr
             _best_cost = training(model_name, model_type, model_params, training_params)
             msg = 'dropout_keep:',_dropout_keep, 'l2 coef:',_l2_coef, 'lr:', _lr, 'Best val loss',_best_cost

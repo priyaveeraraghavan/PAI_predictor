@@ -191,8 +191,10 @@ def training(model_name, model_type, model_params, training_params):
         # check if this is a superior model
         if valid_cost < best_cost:
             tf.logging.info("Saving best model in %s" % best_model_file)
-            saver.save(sess, best_model_file)
+
             best_cost = valid_cost
+            tf.add_to_collection('cost', cost)
+            saver.save(sess, best_model_file)
             
         # save all models
         saver.save(sess, "".join([model_file, "_epoch", str(epoch), ".ckpt"]))

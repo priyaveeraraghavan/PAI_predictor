@@ -176,6 +176,7 @@ def training(model_name, model_type, model_params, training_params):
         feed_dict[model.keep_prob] = 1.0
         if rnn:
             feed_dict[model.initial_state] = model.zero_state.eval(session=sess)
+        print model.classification_py
         valid_cost, py = sess.run([cost, model.classification_py], feed_dict = feed_dict)
         #print py, valid_y
         outcomes = [int(round(x)) for x in py[:,0]]

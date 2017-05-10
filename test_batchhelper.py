@@ -54,8 +54,6 @@ class Test_BatchGenerator:
 
 
         split_length = self.input_length / self.num_splits
-        print split_length * self.num_splits
-        print len(batch[0])
 
         assert self.num_splits * split_length == len(batch[0])
 
@@ -74,5 +72,6 @@ class Test_BatchGenerator:
             axis=0)
 
         rand2 = np.random.choice(range(batch_y.shape[0]), batch_y.shape[0], replace=False)
+
 
         return one_hot_x[rand2], batch_y[rand2]

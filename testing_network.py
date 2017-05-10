@@ -45,19 +45,24 @@ def testing(teX, teY, best_model_file):
         new_graph = tf.Graph()
         new_saver = tf.train.import_meta_graph(best_model_file + '.meta')
         new_saver.restore(sess, tf.train.latest_checkpoint(dirname(best_model_file)))
-        X = tf.get_collection('CNN_v2__X')[0]
-        Y = tf.get_collection('CNN_v2__Y')[0]
+        X = tf.placeholder("float", [None, 2200, 1, 4])
+        Y = tf.placeholder("float", [None, 2])
         py = tf.get_collection('CNN_v2__py')[0]
         cost = tf.get_collection('cost')[0]
+        keep_prob = tf.placeholder(tf.float32)
         print X
         print Y
         print py
         print cost
+        print keep_prob
 
         ops = [cost, py]
 
+        print type(teX[0][0])
+        print type(teY[0][0])
 
-        teX_cost, teX_prob = sess.run(ops, feed_dict={X: teX, Y: teY})
+
+        _, teX_cost, teX_prob = sess.run([cost, py], feed_dict={X: teX, Y: teY, keep_prob:1.0})
     """
     #need to actually give in data for teX and teY
     #assuming have to create dictionary for testing_params like you have for training_params ?

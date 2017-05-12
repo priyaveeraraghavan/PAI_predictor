@@ -90,8 +90,8 @@ test_file = '/home/Liz/all_gis_islandviewer_iv4ad_data.csv.gz'
 
 # Load in best model file
 #best_model_file = join('/home/Liz/CNN_hyperparams_gpu/CNN_hyperparams_gpu_best.ckpt')
-best_model_file = '/home/Liz/CNN_hyperparams_gpu_2/CNN_hyperparams_gpu_2_best.ckpt'
-model_name = 'CNN_v2'
+best_model_file = '/home/Liz/CNN_hyperparams_gpu_3/CNN_hyperparams_gpu_3_best.ckpt'
+model_name = 'CNN_hyperparams_gpu_3'
 # Load the data
 full_samples = np.loadtxt(test_file, delimiter=',', skiprows=1, dtype=str)[0:10]
 #print full_samples

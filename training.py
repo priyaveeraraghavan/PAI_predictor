@@ -77,6 +77,7 @@ def training(model_name, model_type, model_params, training_params):
     
     #with tf.device('/gpu:0'):
     model, cost = model_function(X, Y, model_params)
+    tf.add_to_collection("_".join([model.model_name, '_cost']), cost)
     print "Model", model.model_name
     # Training Procedure
     #global_step = tf.get_variable('global_step', [],
@@ -188,13 +189,16 @@ def training(model_name, model_type, model_params, training_params):
         #print correctness
         error_rate = float(sum(outcome_errors))/len(outcome_errors)
 
-        
+        print py
+        print py.shape
         # check if this is a superior model
         if valid_cost < best_cost:
             tf.logging.info("Saving best model in %s" % best_model_file)
 
             best_cost = valid_cost
-            tf.add_to_collection('cost', cost)
+            print best_cost
+            print cost
+            print cost.shape
             saver.save(sess, best_model_file)
             
         # save all models

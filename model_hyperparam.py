@@ -8,15 +8,15 @@ import logging
 logging.basicConfig(level=logging.DEBUG,
                     format='%(asctime)s %(message)s',
                     datefmt='%m-%d %H:%M',
-                    filename='~model_hyperparam_cloud2.log',
+                    filename='~model_hyperparam_cloud3.log',
                     filemode='w')
 logging.info('Started module.')
 
 model_type = "basic_CNN"
-model_name = "CNN_hyperparams_gpu_2"
+model_name = "CNN_hyperparams_gpu_3"
 logging.info(model_type)
 logging.info(model_name)
-model_params = { 'model_name' : 'CNN_v2',
+model_params = { 'model_name' : 'CNN_hyperparams_gpu_3',
                  'input_shape' : [ 22000, 1, 4],
                  'splits': 10,
                  'convolutional_size_params' : [["conv1", [1, 10, 32], 'conv'],
@@ -55,5 +55,5 @@ p =  pd.DataFrame(perform, columns=['dropout_keep','l2_coeff','lr','val_loss']).
 
 print p
 logging.info('Writing to csv')
-p.to_csv('~model_hyperparams_cloud2.csv')
+p.to_csv('~model_hyperparams_cloud3.csv')
 logging.info('Finished')

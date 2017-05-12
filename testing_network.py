@@ -40,20 +40,30 @@ def testing(teX, teY, best_model_file):
     # X = tf.get_collection('X')[0]
     # Y = tf.get_collection('Y')[0]
     #
+    tf.reset_default_graph()
     with tf.Session() as sess:
         # Load the saved model
-        new_graph = tf.Graph()
         new_saver = tf.train.import_meta_graph(best_model_file + '.meta')
+
         new_saver.restore(sess, tf.train.latest_checkpoint(dirname(best_model_file)))
-        X = tf.placeholder("float", [None, 2200, 1, 4])
-        Y = tf.placeholder("float", [None, 2])
-        py = tf.get_collection('CNN_v2__py')[0]
-        cost = tf.get_collection('cost')[0]
+        #X = tf.placeholder("float", [None, 22000, 1, 4])
+        #Y = tf.placeholder("float", [None, 2])
+        #X = tf.get_collection('CNN_v2__X')[0]
+        #Y = tf.get_collection('CNN_v2__Y')[0]
+
+        X = tf.get_collection("_".join([model_name, '_X']))[0]
+        Y = tf.get_collection("_".join([model_name, '_Y']))[0]
+        py = tf.get_collection("_".join([model_name, '_py']))[0]
+        cost = tf.get_collection("_".join([model_name, '_cost']))[0]
         keep_prob = tf.placeholder(tf.float32)
         print X
+        print X.shape
         print Y
+        print Y.shape
         print py
+        print py.shape
         print cost
+        print cost.shape
         print keep_prob
 
         ops = [cost, py]
@@ -61,16 +71,14 @@ def testing(teX, teY, best_model_file):
         print type(teX[0][0])
         print type(teY[0][0])
 
+        feed_dict={}
+        feed_dict[X] = teX
+        feed_dict[Y] = teY
+        feed_dict[keep_prob] = 1.0
 
-        _, teX_cost, teX_prob = sess.run([cost, py], feed_dict={X: teX, Y: teY, keep_prob:1.0})
-    """
-    #need to actually give in data for teX and teY
-    #assuming have to create dictionary for testing_params like you have for training_params ?
-    ops = [cost, py]
-    feed_dict ={X: teX, Y: teY}
 
-    teX_cost, teX_prob = sess.run(ops, feed_dict)
-    """
+        teX_cost, teX_prob = sess.run(ops, feed_dict=feed_dict)
+
     return teX_cost, teX_prob
 
 batch_size = 10
@@ -83,7 +91,7 @@ test_file = '/home/Liz/all_gis_islandviewer_iv4ad_data.csv.gz'
 # Load in best model file
 #best_model_file = join('/home/Liz/CNN_hyperparams_gpu/CNN_hyperparams_gpu_best.ckpt')
 best_model_file = '/home/Liz/CNN_hyperparams_gpu_2/CNN_hyperparams_gpu_2_best.ckpt'
-
+model_name = 'CNN_v2'
 # Load the data
 full_samples = np.loadtxt(test_file, delimiter=',', skiprows=1, dtype=str)[0:10]
 #print full_samples

@@ -1,0 +1,7 @@
+model_checkpoint_path: "CNN_hyperparams_gpu_3_epoch5.ckpt"
+all_model_checkpoint_paths: "CNN_hyperparams_gpu_3_epoch1.ckpt"
+all_model_checkpoint_paths: "CNN_hyperparams_gpu_3_epoch2.ckpt"
+all_model_checkpoint_paths: "CNN_hyperparams_gpu_3_epoch3.ckpt"
+all_model_checkpoint_paths: "CNN_hyperparams_gpu_3_best.ckpt"
+all_model_checkpoint_paths: "CNN_hyperparams_gpu_3_epoch4.ckpt"
+all_model_checkpoint_paths: "CNN_hyperparams_gpu_3_epoch5.ckpt"

@@ -7,7 +7,6 @@ from os.path import join,dirname
 import time
 import tensorflow as tf
 from test_batchhelper import Test_BatchGenerator
-from architecture import basic_CNN_model
 
 #this is pretty much ripped straight from pset 1. Need to formulate it for our architecture
 %matplotlib inline
@@ -25,8 +24,10 @@ def plot_filter(units):
 # Loading in the best model to visualize filters
 # h_conv1, h_conv2 are the outputs of your convolutional layers
 # ex. h_conv1 = tf.nn.relu(conv2d(x, W) + b)
-best_model_file = 'CNN_v4_best.ckpt'
-model_name = 'CNN_v4'
+tf.reset_default_graph()
+
+best_model_file = 'CNN_hyperparams_gpu_2_best.ckpt'
+model_name = 'CNN_v2'
 sess = tf.Session()
 new_saver = tf.train.import_meta_graph(best_model_file + '.meta')
 new_saver.restore(sess, tf.train.latest_checkpoint('./'))
@@ -51,14 +52,14 @@ teX_samp = np.expand_dims(teX_samp, axis=0)
 teY_samp = teY[samp]
 teY_samp = np.expand_dims(teY_samp, axis=0)
 
-# feed_dict={}
-# feed_dict[X] = teX_samp
-# feed_dict[Y] = teY_samp
-# feed_dict[keep_prob] = 1.0
-X = tf.placeholder("float", [None, 2200, 1, 4])
-Y = tf.placeholder("float", [None, 2])
+X = tf.get_collection("_".join([model_name, '_X']))[0]
+Y = tf.get_collection("_".join([model_name, '_Y']))[0]
 keep_prob = tf.placeholder(tf.float32)
-img_filters1, img_filters2 = sess.run([conv1, conv2], feed_dict={X: teX_samp, Y:teY_samp, keep_prob:1.0})
+feed_dict={}
+feed_dict[X] = teX_samp
+feed_dict[Y] = teY_samp
+feed_dict[keep_prob] = 1.0
+img_filters1, img_filters2 = sess.run([conv1, conv2], feed_dict=feed_dict)
 
 # Show the activations of the first convolutional filters for the first test sample
 plot_filter(img_filters1)
@@ -67,13 +68,13 @@ plot_filter(img_filters1)
 plot_filter(img_filters2)
 
 #Visualization Filter experiment
-def getActivations(layer, samp_seq, samp_label):
-  feed_dict={}
-  feed_dict[model.X] = samp_seq
-  feed_dict[model.Y] = samp_label
-  feed_dict[model.keep_prob] = 1.0
-  units = sess.run(layer,feed_dict=feed_dict)
-  plot_filter(units)
-getActivations(conv1, teX_samp, teY_samp)
-getActivations(conv2, teX_samp, teY_samp)
+# def getActivations(layer, samp_seq, samp_label):
+#   feed_dict={}
+#   feed_dict[model.X] = samp_seq
+#   feed_dict[model.Y] = samp_label
+#   feed_dict[model.keep_prob] = 1.0
+#   units = sess.run(layer,feed_dict=feed_dict)
+#   plot_filter(units)
+# getActivations(img_filters1, teX_samp, teY_samp)
+#getActivations(img_filters2, teX_samp, teY_samp)
 #plt.save_fig("orig_img1.png", bbox_inches='tight')

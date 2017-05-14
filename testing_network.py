@@ -120,9 +120,8 @@ logging.info('test acc %s' % test_acc)
 
 logging.info('test auROC %s' % auROC)
 
-prob_PAI = teX_prob[:, 1]
-prob_notPAI = teX_prob[:, 0]
-print teX_prob
+prob_PAI = teX_prob[:, 0]
+prob_notPAI = teX_prob[:, 1]
 
 #teX_prob flipped: [prob not a PAI, prob a PAI]
 output = np.concatenate([np.expand_dims(teY_flat, axis=1), np.expand_dims(prob_notPAI,axis=1), np.expand_dims(prob_PAI,axis=1)], axis=1)

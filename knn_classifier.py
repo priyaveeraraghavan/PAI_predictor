@@ -18,7 +18,7 @@ def classify_knn(train_batch_generator, valid_batch_generator, n_neighbors):
     b_flattened = np.concatenate(b_seqs, axis=0)
 #    b_flattened = np.concatenate([[x, y, z, w] for x, y, z, w in zip(batch_x[0], batch_x[1], batch_x[2], batch_x[3])])
     y_flattened = [-1 if x== 0 else 1 for x in batch_y[:,0]]
-    
+    print hi
     knn = KNeighborsClassifier(n_neighbors=n_neighbors)
 
 #    batch_x, batch_y = train_batch_generator.next_batch()    
@@ -37,6 +37,7 @@ def classify_knn(train_batch_generator, valid_batch_generator, n_neighbors):
             y_prob)
 
 
+
 # Classification                                                                                                                           
 train_file = ['/afs/csail.mit.edu/u/p/priyav/PAI_data/final_data/all_gis_islandviewer_iv4aa_data.csv.gz']
 valid_file = ['/afs/csail.mit.edu/u/p/priyav/PAI_data/final_data/all_gis_islandviewer_iv4ag_data.csv.gz']
@@ -46,6 +47,7 @@ train_batch_generator = BatchGenerator(int(sys.argv[2]), train_file, 22000, 1)
 valid_batch_generator = BatchGenerator(int(sys.argv[3]), valid_file, 22000, 1)
 
 knn, y_valid_flattened, y_prob = classify_knn(train_batch_generator, valid_batch_generator, 5)
+
 
 output = np.concatenate([y_valid_flattened, y_prob], axis=1)
 np.savetxt(sys.argv[1], output, fmt="%.3f", header='True_Label,%s,%s' % (str(knn.classes_[0]), str(knn.classes_[1])))

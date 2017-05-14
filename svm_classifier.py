@@ -53,5 +53,6 @@ valid_batch_generator = BatchGenerator(int(sys.argv[3]), valid_file, 22000, 1)
 
 svc, y_valid_flattened, y_prob = classify_svm(train_batch_generator, valid_batch_generator, 'rbf')
 
+
 output = np.concatenate([y_valid_flattened, y_prob], axis=1)
 np.savetxt(sys.argv[1], output, fmt="%.3f", header='True_Label,%s,%s' % (str(svc.classes_[0]), str(svc.classes_[1])))

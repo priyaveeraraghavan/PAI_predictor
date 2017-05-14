@@ -32,6 +32,7 @@ class BatchGenerator:
         filtered = in2[in2[:,3] == str(self.input_length)] ## weirdly needs to be a string
         self.filtered_input = filtered
         self.unused_indices = list(xrange(0, self.filtered_input.shape[0]))
+
         
     def next_batch(self):
         """Get a one-hot encoded batch of batch_size.
@@ -55,7 +56,9 @@ class BatchGenerator:
             labels_top = self.filtered_input[self.unused_indices, 2]
             
             try:
-                next_file = self.current_file_pointer.next() 
+
+                next_file = self.current_file_pointer.next()
+
                 self.load_file(next_file)
                 
                 rand = np.random.choice(self.unused_indices, self.batch_size - len(batch_top), replace=False)

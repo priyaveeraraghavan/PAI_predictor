@@ -1,7 +1,7 @@
 import numpy as np
 
 
-class BatchGenerator:
+class Test_BatchGenerator:
     def __init__(self, batch_size, filename, input_length, num_splits):
         """Creates a batch generator with a given batch size from files.
 
@@ -28,9 +28,12 @@ class BatchGenerator:
         inp = np.loadtxt(current_file, delimiter=',', skiprows=1, dtype=str)
         lens = np.expand_dims(map(lambda x: int(len(x)), inp[:, 1]), axis=1)
         in2 = np.concatenate([inp[:], lens], axis=1)
+
         filtered = in2[in2[:, 3] == str(self.input_length)]  ## weirdly needs to be a string
+        #print filtered.shape[0]
         self.filtered_input = filtered
         self.unused_indices = list(xrange(0, self.filtered_input.shape[0]))
+
 
     def next_batch(self, current_file):
         """Get a one-hot encoded batch of batch_size.
@@ -40,18 +43,19 @@ class BatchGenerator:
             batch_y : labels batch  size (batch_size, num_classes)
         """
         #trying to think about what is going wrong, re-added this line back
-        if len(self.unused_indices) >= self.batch_size:
-            self.load_file(current_file)
-            rand = np.random.choice(self.unused_indices, self.batch_size, replace=False)
-            self.unused_indices = list(set(self.unused_indices) - set(rand))
-            batch = self.filtered_input[rand, 1]
-            labels = self.filtered_input[rand, 2]
-        else:
-          #something something end batch
+        #print self.unused_indices
+        #print self.batch_size
+
+        self.load_file(current_file)
+        rand = np.random.choice(self.unused_indices, self.batch_size, replace=False)
+        self.unused_indices = list(set(self.unused_indices) - set(rand))
+        batch = self.filtered_input[rand, 1]
+        labels = self.filtered_input[rand, 2]
+
 
         split_length = self.input_length / self.num_splits
 
-        assert self.num_splits * split_length == len(batch)
+        assert self.num_splits * split_length == len(batch[0])
 
         batch_y = np.concatenate(np.tile(map(lambda x: np.expand_dims(
             np.array([abs(float(x) - 1.0 / self.num_splits), abs(float(abs(1 - int(x))) - 1.0 / self.num_splits)]),
@@ -68,5 +72,6 @@ class BatchGenerator:
             axis=0)
 
         rand2 = np.random.choice(range(batch_y.shape[0]), batch_y.shape[0], replace=False)
+
 
         return one_hot_x[rand2], batch_y[rand2]

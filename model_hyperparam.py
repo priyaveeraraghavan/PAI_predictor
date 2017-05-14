@@ -8,15 +8,15 @@ import logging
 logging.basicConfig(level=logging.DEBUG,
                     format='%(asctime)s %(message)s',
                     datefmt='%m-%d %H:%M',
-                    filename='~model_hyperparam_cloud.log',
+                    filename='~model_hyperparam_final.log',
                     filemode='w')
 logging.info('Started module.')
 
 model_type = "basic_CNN"
-model_name = "CNN_hyperparams_gpu"
+model_name = "CNN_hyperparams_final"
 logging.info(model_type)
 logging.info(model_name)
-model_params = { 'model_name' : 'CNN_v2',
+model_params = { 'model_name' : 'CNN_hyperparams_final',
                  'input_shape' : [ 22000, 1, 4],
                  'splits': 10,
                  'convolutional_size_params' : [["conv1", [1, 10, 32], 'conv'],
@@ -38,9 +38,9 @@ training_params =  { 'dropout_keep_prob' : 1.0,
 
 perform=[]
 
-for _dropout_keep in [0.2,0.5,0.8]:
+for _dropout_keep in [0.5,0.8]:
     training_params['dropout_keep_prob'] = _dropout_keep
-    for _l2_coef in [1e-03,1e-06,0.0]:
+    for _l2_coef in [1e-03,1e-06]:
         training_params['l2'] = _l2_coef
         for _lr in [1e-1,1e-3]:
             training_params['lr'] = _lr
@@ -55,5 +55,5 @@ p =  pd.DataFrame(perform, columns=['dropout_keep','l2_coeff','lr','val_loss']).
 
 print p
 logging.info('Writing to csv')
-p.to_csv('~model_hyperparams_cloud.csv')
+p.to_csv('~model_hyperparams_final.csv')
 logging.info('Finished')

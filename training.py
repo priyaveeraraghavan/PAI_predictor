@@ -4,6 +4,7 @@ from architecture import basic_CNN_model
 import os
 import tensorflow as tf
 import numpy as np
+import csv
 
 def training(model_name, model_type, model_params, training_params):
     """Trains a model given the specifications.
@@ -77,6 +78,7 @@ def training(model_name, model_type, model_params, training_params):
     
     #with tf.device('/gpu:0'):
     model, cost = model_function(X, Y, model_params)
+
     print "Model", model.model_name
     # Training Procedure
     #global_step = tf.get_variable('global_step', [],
@@ -176,6 +178,7 @@ def training(model_name, model_type, model_params, training_params):
         feed_dict[model.keep_prob] = 1.0
         if rnn:
             feed_dict[model.initial_state] = model.zero_state.eval(session=sess)
+        #print model.classification_py
         valid_cost, py = sess.run([cost, model.classification_py], feed_dict = feed_dict)
         #print py, valid_y
         outcomes = [int(round(x)) for x in py[:,0]]
@@ -187,16 +190,23 @@ def training(model_name, model_type, model_params, training_params):
         #print correctness
         error_rate = float(sum(outcome_errors))/len(outcome_errors)
 
-        
+
         # check if this is a superior model
         if valid_cost < best_cost:
             tf.logging.info("Saving best model in %s" % best_model_file)
-            saver.save(sess, best_model_file)
+
             best_cost = valid_cost
+            tf.add_to_collection("_".join([model.model_name, '_cost']), cost)
+
+            saver.save(sess, best_model_file)
             
         # save all models
+        info = []
+        info.append([epoch, epoch_cost, valid_cost, error_rate, correctness])
         saver.save(sess, "".join([model_file, "_epoch", str(epoch), ".ckpt"]))
         print "Epoch: %d - Training: %.3f - Validation %.3f - Best %.3f - Error Rate %.3f - Correctness %.3f" % (epoch, epoch_cost, valid_cost, best_cost, error_rate, correctness)
-        #tf.logging.info("Epoch: %d - Training: %.3f - Validation %.3f - Best %.3f" % (epoch, epoch_cost, valid_cost, best_cost))
-        
+        tf.logging.info("Epoch: %d - Training: %.3f - Validation %.3f - Best %.3f - Error Rate %.3f - Correctness %.3f" % (epoch, epoch_cost, valid_cost, best_cost, error_rate, correctness))
+
+
+
     return best_cost

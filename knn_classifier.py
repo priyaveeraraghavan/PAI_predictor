@@ -18,7 +18,7 @@ def classify_knn(train_batch_generator, valid_batch_generator, n_neighbors):
     b_flattened = np.concatenate(b_seqs, axis=0)
 #    b_flattened = np.concatenate([[x, y, z, w] for x, y, z, w in zip(batch_x[0], batch_x[1], batch_x[2], batch_x[3])])
     y_flattened = [-1 if x== 0 else 1 for x in batch_y[:,0]]
-    
+    print hi
     knn = KNeighborsClassifier(n_neighbors=n_neighbors)
 
 #    batch_x, batch_y = train_batch_generator.next_batch()    
@@ -32,6 +32,7 @@ def classify_knn(train_batch_generator, valid_batch_generator, n_neighbors):
     y_valid_flattened = [-1 if x== 0 else 1 for x in valid_y[:,0]]
 
     y_pred = knn.predict(b_valid_flattened)
+    print y_pred
     y_prob = knn.predict_proba(b_valid_flattened)
     correct_list = [1 if x==y else 0 for x, y in zip(y_valid_flattened, y_pred)]
     return (np.reshape(np.array(correct_list), (len(correct_list), 1)), 
@@ -41,8 +42,8 @@ def classify_knn(train_batch_generator, valid_batch_generator, n_neighbors):
 
 
 # Classification
-train_file = ['/afs/csail.mit.edu/u/p/priyav/PAI_data/final_data/all_gis_islandviewer_iv4aa_data.csv.gz']
-valid_file = ['/afs/csail.mit.edu/u/p/priyav/PAI_data/final_data/all_gis_islandviewer_iv4ag_data.csv.gz']
+train_file = ['/Users/Liz/Documents/PAI_predictor/data/all_gis_islandviewer_iv4aa_data.csv.gz']
+valid_file = ['/Users/Liz/Documents/PAI_predictor/data/all_gis_islandviewer_iv4ag_data.csv.gz']
 
 train_batch_generator = BatchGenerator(5000, train_file, 22000, 1)
 valid_batch_generator = BatchGenerator(500, valid_file, 22000, 1)
@@ -54,4 +55,4 @@ print y_pred
 print y_log_prob
 
 output = np.concatenate([accuracy_list, y_valid_flattened, y_pred, y_log_prob], axis=1)
-np.savetxt(sys.argv[1], output, fmt="%.3f")
+np.savetxt('/Users/Liz/Downloads/knn_out.txt', output, fmt="%.3f")

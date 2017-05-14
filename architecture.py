@@ -107,6 +107,7 @@ class CNN:
         print "made classification layer"
         tf.add_to_collection("_".join([self.model_name, '_X']), self.X)
         tf.add_to_collection("_".join([self.model_name, '_Y']), self.Y)
+        tf.add_to_collection("_".join([self.model_name, '_keep_prob']), self.keep_prob)
 
     def make_conv_layers(self, convolutional_size_params):
         """ Takes size parameters for an arbitrary number of convolutional layers and returns properly connected conv layers.

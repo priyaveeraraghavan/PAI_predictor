@@ -42,8 +42,8 @@ def classify_svm(train_batch_generator, valid_batch_generator, kernel_type):
 
 
 # Classification
-train_file = ['/afs/csail.mit.edu/u/p/priyav/PAI_data/final_data/all_gis_islandviewer_iv4aa_data.csv.gz']
-valid_file = ['/afs/csail.mit.edu/u/p/priyav/PAI_data/final_data/all_gis_islandviewer_iv4ag_data.csv.gz']
+train_file = ['/home/Liz/all_gis_islandviewer_iv4aa_data.csv.gz']
+valid_file = ['/home/Liz/all_gis_islandviewer_iv4ag_data.csv.gz']
 
 train_batch_generator = BatchGenerator(5000, train_file, 22000, 1)
 valid_batch_generator = BatchGenerator(500, valid_file, 22000, 1)
@@ -55,4 +55,4 @@ print y_pred
 print y_log_prob
 
 output = np.concatenate([accuracy_list, y_valid_flattened, y_pred, y_log_prob], axis=1)
-np.savetxt(sys.argv[1], output, fmt="%.3f")
+np.savetxt(svm_classifier_linear.out, output, fmt="%.3f")

@@ -1,0 +1,7 @@
+model_checkpoint_path: "CNN_hyperparams_final_epoch5.ckpt"
+all_model_checkpoint_paths: "CNN_hyperparams_final_epoch1.ckpt"
+all_model_checkpoint_paths: "CNN_hyperparams_final_epoch2.ckpt"
+all_model_checkpoint_paths: "CNN_hyperparams_final_epoch3.ckpt"
+all_model_checkpoint_paths: "CNN_hyperparams_final_epoch4.ckpt"
+all_model_checkpoint_paths: "CNN_hyperparams_final_best.ckpt"
+all_model_checkpoint_paths: "CNN_hyperparams_final_epoch5.ckpt"

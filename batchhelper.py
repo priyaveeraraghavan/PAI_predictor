@@ -41,13 +41,16 @@ class BatchGenerator:
             one_hot_x : encoded one hot X input size (batch_size x [X dims])
             batch_y : labels batch  size (batch_size, num_classes)
         """
-        if len(self.unused_indices) >= self.batch_size:
+        print "unused indices!, batchsize", len(self.unused_indices), self.batch_size
+        if len(self.unused_indices) >= int(self.batch_size):
             rand = np.random.choice(self.unused_indices, self.batch_size, replace=False)
             self.unused_indices = list(set(self.unused_indices) - set(rand))
             batch = self.filtered_input[rand,1]
             labels = self.filtered_input[rand,2]
-
+            print "batch", len(batch)
+            print "labels", len(labels)
         else:
+            print "too few indicies"
             # if there aren't enough examples left in the batch, take the unused examples plus some from the next file
             batch_top = self.filtered_input[self.unused_indices, 1]
             labels_top = self.filtered_input[self.unused_indices, 2]

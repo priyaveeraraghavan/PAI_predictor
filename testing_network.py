@@ -5,6 +5,7 @@ import tensorflow as tf, sys, numpy as np
 from os.path import join,dirname,basename,exists,realpath
 from os import makedirs
 from sklearn.metrics import roc_auc_score
+import sklearn.metrics
 import logging
 
 logging.basicConfig(level=logging.DEBUG,
@@ -59,7 +60,7 @@ def testing(teX, teY, best_model_file):
 
 
 tf.reset_default_graph()
-batch_size = 10
+batch_size = 1000
 epochs = 5
 input_length = 22000
 num_splits = 10
@@ -76,26 +77,39 @@ full_samples = np.loadtxt(test_file, delimiter=',', skiprows=1, dtype=str)[0:10]
 #print full_samples
 test_batch_generator = Test_BatchGenerator(batch_size, test_file, input_length, num_splits)
 teX, teY = test_batch_generator.next_batch(test_file)
-
-
+print teY[:,0]
+teY_flat = [-1 if x==0.1 else 1 for x in teY[:,0]]
 teX_cost, teX_prob  = testing(teX, teY, best_model_file)
 
-teY_binary = np.round(np.expm1(teY))
+#print teY
 
+teY_binary = np.round((teY))
+#print teY_binary
 
+teX_prob_binary = np.round((teX_prob))
+#print teX_prob_binary
 # Evaluating the performance based on majority
-true_label = full_samples[0][2]
+true_labels = full_samples[:,2]
 test_slice_probs = teX_prob
-if (sum(i > 0.5 for i in test_slice_probs) > 5).all():
-    test_label = 1.0
-else:
-    test_label = 0.0
-print true_label
-print true_label == test_label
+test_labels = []
+for samp in range(len(true_labels)):
+    start = samp * num_splits
+    end = (samp+1) * num_splits
+    count = 0
+    for split in test_slice_probs[start:end]:
+        if split.all() >= 0.5:
+            count += 1
+    if count >= 5:
+        test_labels.append('1')
+    else:
+        test_labels.append('0')
+#print len(true_labels)
+#print len(test_labels)
+
 
 # Evaluate the performance
 
-test_acc = np.mean(np.argmax(teY, axis=1) == np.argmax(teX_prob, axis=1))
+test_acc = np.mean(np.argmax(teY_binary, axis=1) == np.argmax(teX_prob, axis=1))
 print test_acc
 auROC = roc_auc_score(teY_binary, teX_prob)
 print auROC
@@ -106,9 +120,15 @@ logging.info('test acc %s' % test_acc)
 
 logging.info('test auROC %s' % auROC)
 
+prob_PAI = teX_prob[:, 1]
+prob_notPAI = teX_prob[:, 0]
+print teX_prob
 
-logging.info(true_label == test_label)
+#teX_prob flipped: [prob not a PAI, prob a PAI]
+output = np.concatenate([np.expand_dims(teY_flat, axis=1), np.expand_dims(prob_notPAI,axis=1), np.expand_dims(prob_PAI,axis=1)], axis=1)
+print output
 logging.info('Finished')
+np.savetxt('~prob_predictions.txt', output, header='True Label,-1,1', fmt="%.3f")
 
 
 

@@ -19,6 +19,7 @@ def getX(x,pos,wind,padding):
     #dimensions of x should be [2200, 4]
     out = []
     print x
+    print pos
     for _pos in pos:
         t_o = x[max(0, _pos - wind):min(len(x),_pos+wind+1),:]
         if wind > _pos:
@@ -34,14 +35,25 @@ def getActivatingSeq(best_model_file, batch_X):
     new_saver = tf.train.import_meta_graph(best_model_file+'.meta')
     new_saver.restore(sess, tf.train.latest_checkpoint(dirname(best_model_file)))
     X = tf.get_collection("_".join([model_name, '_X']))[0]
-    conv2 = tf.get_collection('_'.join([model_name, 'conv2']))[0]
 
-    l1_act = np.swapaxes(np.swapaxes(sess.run(conv2, \
-                                    feed_dict={X: batch_X}).squeeze(),0,2),1,2)
+    Y = tf.get_collection("_".join([model_name, '_Y']))[0]
+    py = tf.get_collection("_".join([model_name, '_py']))[0]
+    cost = tf.get_collection("_".join([model_name, '_cost']))[0]
+    conv1 = tf.get_collection('_'.join([model_name, 'conv1']))[0]
+    conv2 = tf.get_collection('_'.join([model_name, 'conv2']))[0]
+    keep_prob = tf.get_collection("_".join([model_name, '_keep_prob']))[0]
+    feed_dict={}
+    feed_dict[X] = batch_X
+    feed_dict[Y] = batch_Y
+    feed_dict[keep_prob] = 1.0
+
+
+    l1_act = np.swapaxes(np.swapaxes(sess.run(conv2, feed_dict=feed_dict).squeeze(),0,2),1,2)
+    print l1_act
     l1_act_max = l1_act.reshape(32,-1).max(axis=1)
 
-    print l1_act
-    print l1_act_max
+    #print l1_act
+    #print l1_act_max
     print np.nonzero(l1_act)
     return l1_act, l1_act_max
 
@@ -56,6 +68,7 @@ test_file = '/home/Liz/all_gis_islandviewer_iv4aa_data.csv.gz'
 x_padding = [0,0,0,0]
 
 best_model_file = join('motif_disc', '/home/Liz/CNN_hyperparams_final/CNN_hyperparams_final_best.ckpt')
+
 model_name = 'CNN_hyperparams_final'
 # Load the data
 full_samples = np.loadtxt(test_file, delimiter=',', skiprows=1, dtype=str)[0:10]
@@ -83,9 +96,11 @@ with open(join('/home/Liz/CNN_hyperparams_final/','model.seqs'),'w') as f:
             # The filter is considered "Activated" if the output is more than half of the
             # maximum activation for this filter
             t_act_pos = np.where(_l1_act_samp > l1_act_max[filter_idx] * 0.5)[0]
+
             if len(t_act_pos)>0:
                 #i don't think 11/2 is right for our code
                 t_filter_act_list += getX(t_x,t_act_pos, 5, x_padding)
+
 
         # Output all the activating sequences
         for x in t_filter_act_list:

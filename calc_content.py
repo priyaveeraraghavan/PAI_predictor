@@ -1,6 +1,6 @@
 import numpy as np
 
-data_file = 'C:/Users/Sharon/Documents/MIT/Senior Year/6.802/Final Project/PAI_predictor/all_gis_islandviewer_iv4aa_data.csv'
+data_file = '/Users/Liz/Documents/PAI_Predictor/data/all_gis_islandviewer_iv4ae_data.csv.gz'
 all_samples = np.loadtxt(data_file, delimiter=',', skiprows=1, dtype=str)
 
 pos_samps = all_samples[all_samples[:,2] == '1'] #positive samples
@@ -18,6 +18,7 @@ for sample in range(len(pos_samps)):
             gc += 1.0
         elif base == 'N':
             ncount += 1.0
+            print ncount
     gc_per = gc / len_seq
     n_per = ncount / len_seq
     pos_gc_content.append(gc_per)
@@ -26,8 +27,8 @@ for sample in range(len(pos_samps)):
 #Calculating average GC content and N content across all positive samples
 avg_pos_gc = np.mean(pos_gc_content)
 avg_pos_n = np.mean(pos_n_content)
-print avg_pos_gc
-print avg_pos_n
+print "Pos GC", avg_pos_gc
+print "Pos N", avg_pos_n
 
 
 #Calculating GC content and N content for negative samples
@@ -70,5 +71,5 @@ for sample in range(len(pos_samps)):
 #Calculating average GC content and N content across all samples
 avg_pos_gc = np.mean(pos_gc_content)
 avg_pos_n = np.mean(pos_n_content)
-print avg_neg_gc
-print avg_neg_n
+print "Neg GC", avg_neg_gc
+print "Neg N", avg_neg_n

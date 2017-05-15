@@ -1,0 +1,112 @@
+05-14 22:06 Started module.
+05-14 22:06 basic_CNN
+05-14 22:06 CNN_new_arch
+05-14 22:08 Saving best model in ./CNN_new_arch/CNN_new_arch_best.ckpt
+05-14 22:08 Epoch: 1 - Training: 0.541 - Validation 0.855 - Best 0.855 - Error Rate 0.420 - Correctness 55.293
+05-14 22:10 Epoch: 2 - Training: 0.471 - Validation 0.960 - Best 0.855 - Error Rate 0.500 - Correctness 50.000
+05-14 22:12 Epoch: 3 - Training: 0.463 - Validation 1.390 - Best 0.855 - Error Rate 0.740 - Correctness 33.816
+05-14 22:15 Epoch: 4 - Training: 0.451 - Validation 0.971 - Best 0.855 - Error Rate 0.500 - Correctness 50.000
+05-14 22:17 Epoch: 5 - Training: 0.469 - Validation 0.943 - Best 0.855 - Error Rate 0.500 - Correctness 50.000
+05-14 22:19 Epoch: 6 - Training: 0.467 - Validation 1.098 - Best 0.855 - Error Rate 0.660 - Correctness 40.871
+05-14 22:21 Saving best model in ./CNN_new_arch/CNN_new_arch_best.ckpt
+05-14 22:21 Epoch: 7 - Training: 0.453 - Validation 0.710 - Best 0.710 - Error Rate 0.340 - Correctness 60.103
+05-14 22:23 Epoch: 8 - Training: 0.449 - Validation 1.015 - Best 0.710 - Error Rate 0.500 - Correctness 50.000
+05-14 22:26 Saving best model in ./CNN_new_arch/CNN_new_arch_best.ckpt
+05-14 22:26 Epoch: 9 - Training: 0.450 - Validation 0.697 - Best 0.697 - Error Rate 0.340 - Correctness 59.678
+05-14 22:28 Epoch: 10 - Training: 0.461 - Validation 1.256 - Best 0.697 - Error Rate 0.660 - Correctness 39.234
+05-14 22:30 Epoch: 11 - Training: 0.452 - Validation 0.847 - Best 0.697 - Error Rate 0.420 - Correctness 55.225
+05-14 22:32 Epoch: 12 - Training: 0.473 - Validation 0.772 - Best 0.697 - Error Rate 0.420 - Correctness 54.356
+05-14 22:34 Epoch: 13 - Training: 0.465 - Validation 1.313 - Best 0.697 - Error Rate 0.660 - Correctness 38.759
+05-14 22:37 Epoch: 14 - Training: 0.473 - Validation 0.980 - Best 0.697 - Error Rate 0.580 - Correctness 45.544
+05-14 22:39 Epoch: 15 - Training: 0.449 - Validation 1.183 - Best 0.697 - Error Rate 0.580 - Correctness 44.336
+05-14 22:41 Epoch: 16 - Training: 0.453 - Validation 0.846 - Best 0.697 - Error Rate 0.420 - Correctness 55.220
+05-14 22:43 Epoch: 17 - Training: 0.471 - Validation 1.115 - Best 0.697 - Error Rate 0.740 - Correctness 37.741
+05-14 22:45 Epoch: 18 - Training: 0.468 - Validation 1.332 - Best 0.697 - Error Rate 0.660 - Correctness 38.612
+05-14 22:48 Epoch: 19 - Training: 0.447 - Validation 1.256 - Best 0.697 - Error Rate 0.740 - Correctness 35.501
+05-14 22:50 Epoch: 20 - Training: 0.451 - Validation 1.022 - Best 0.697 - Error Rate 0.660 - Correctness 41.871
+05-14 22:52 Epoch: 21 - Training: 0.457 - Validation 1.071 - Best 0.697 - Error Rate 0.500 - Correctness 50.000
+05-14 22:54 Epoch: 22 - Training: 0.475 - Validation 0.834 - Best 0.697 - Error Rate 0.420 - Correctness 55.101
+05-14 22:56 Saving best model in ./CNN_new_arch/CNN_new_arch_best.ckpt
+05-14 22:56 Epoch: 23 - Training: 0.469 - Validation 0.640 - Best 0.640 - Error Rate 0.260 - Correctness 67.995
+05-14 22:59 Epoch: 24 - Training: 0.461 - Validation 1.347 - Best 0.640 - Error Rate 0.660 - Correctness 38.501
+05-14 23:01 Epoch: 25 - Training: 0.446 - Validation 0.980 - Best 0.640 - Error Rate 0.500 - Correctness 50.000
+05-14 23:03 Epoch: 26 - Training: 0.449 - Validation 1.044 - Best 0.640 - Error Rate 0.660 - Correctness 41.558
+05-14 23:05 Epoch: 27 - Training: 0.445 - Validation 0.767 - Best 0.640 - Error Rate 0.420 - Correctness 54.287
+05-14 23:07 Epoch: 28 - Training: 0.447 - Validation 1.300 - Best 0.640 - Error Rate 0.580 - Correctness 43.863
+05-14 23:10 Epoch: 29 - Training: 0.458 - Validation 1.065 - Best 0.640 - Error Rate 0.580 - Correctness 44.959
+05-14 23:12 Saving best model in ./CNN_new_arch/CNN_new_arch_best.ckpt
+05-14 23:12 Epoch: 30 - Training: 0.476 - Validation 0.473 - Best 0.473 - Error Rate 0.180 - Correctness 71.575
+05-14 23:14 Epoch: 31 - Training: 0.470 - Validation 0.775 - Best 0.473 - Error Rate 0.420 - Correctness 54.402
+05-14 23:16 Epoch: 32 - Training: 0.472 - Validation 1.293 - Best 0.473 - Error Rate 0.660 - Correctness 38.921
+05-14 23:18 Epoch: 33 - Training: 0.448 - Validation 0.712 - Best 0.473 - Error Rate 0.340 - Correctness 60.177
+05-14 23:21 Epoch: 34 - Training: 0.451 - Validation 0.742 - Best 0.473 - Error Rate 0.340 - Correctness 60.959
+05-14 23:23 Epoch: 35 - Training: 0.462 - Validation 1.809 - Best 0.473 - Error Rate 0.820 - Correctness 25.249
+05-14 23:25 Epoch: 36 - Training: 0.468 - Validation 0.607 - Best 0.473 - Error Rate 0.260 - Correctness 66.379
+05-14 23:27 Epoch: 37 - Training: 0.469 - Validation 1.429 - Best 0.473 - Error Rate 0.900 - Correctness 26.786
+05-14 23:29 Epoch: 38 - Training: 0.459 - Validation 1.000 - Best 0.473 - Error Rate 0.580 - Correctness 45.397
+05-14 23:32 Epoch: 39 - Training: 0.464 - Validation 0.995 - Best 0.473 - Error Rate 0.500 - Correctness 50.000
+05-14 23:34 Epoch: 40 - Training: 0.445 - Validation 0.918 - Best 0.473 - Error Rate 0.420 - Correctness 55.788
+05-14 23:36 Epoch: 41 - Training: 0.446 - Validation 0.871 - Best 0.473 - Error Rate 0.420 - Correctness 55.440
+05-14 23:38 Epoch: 42 - Training: 0.465 - Validation 1.391 - Best 0.473 - Error Rate 0.660 - Correctness 38.187
+05-14 23:40 Epoch: 43 - Training: 0.465 - Validation 1.339 - Best 0.473 - Error Rate 0.660 - Correctness 38.563
+05-14 23:43 Epoch: 44 - Training: 0.441 - Validation 0.713 - Best 0.473 - Error Rate 0.340 - Correctness 60.183
+05-14 23:45 Epoch: 45 - Training: 0.453 - Validation 1.058 - Best 0.473 - Error Rate 0.500 - Correctness 50.000
+05-14 23:47 Epoch: 46 - Training: 0.462 - Validation 0.688 - Best 0.473 - Error Rate 0.340 - Correctness 59.328
+05-14 23:49 Epoch: 47 - Training: 0.438 - Validation 0.800 - Best 0.473 - Error Rate 0.340 - Correctness 62.056
+05-14 23:51 Epoch: 48 - Training: 0.462 - Validation 0.898 - Best 0.473 - Error Rate 0.500 - Correctness 50.000
+05-14 23:54 Epoch: 49 - Training: 0.456 - Validation 1.183 - Best 0.473 - Error Rate 0.580 - Correctness 44.337
+05-14 23:56 Epoch: 50 - Training: 0.457 - Validation 0.748 - Best 0.473 - Error Rate 0.340 - Correctness 61.087
+05-14 23:58 Epoch: 51 - Training: 0.455 - Validation 1.056 - Best 0.473 - Error Rate 0.580 - Correctness 45.016
+05-15 00:00 Epoch: 52 - Training: 0.473 - Validation 1.044 - Best 0.473 - Error Rate 0.500 - Correctness 50.000
+05-15 00:02 Epoch: 53 - Training: 0.456 - Validation 1.418 - Best 0.473 - Error Rate 0.660 - Correctness 38.004
+05-15 00:05 Epoch: 54 - Training: 0.467 - Validation 0.991 - Best 0.473 - Error Rate 0.500 - Correctness 50.000
+05-15 00:07 Epoch: 55 - Training: 0.472 - Validation 1.088 - Best 0.473 - Error Rate 0.580 - Correctness 44.825
+05-15 00:09 Epoch: 56 - Training: 0.458 - Validation 1.055 - Best 0.473 - Error Rate 0.500 - Correctness 50.000
+05-15 00:11 Epoch: 57 - Training: 0.472 - Validation 1.114 - Best 0.473 - Error Rate 0.580 - Correctness 44.680
+05-15 00:13 Epoch: 58 - Training: 0.470 - Validation 0.942 - Best 0.473 - Error Rate 0.580 - Correctness 45.855
+05-15 00:16 Epoch: 59 - Training: 0.464 - Validation 0.968 - Best 0.473 - Error Rate 0.500 - Correctness 50.000
+05-15 00:18 Epoch: 60 - Training: 0.471 - Validation 0.862 - Best 0.473 - Error Rate 0.420 - Correctness 55.360
+05-15 00:20 Epoch: 61 - Training: 0.464 - Validation 0.836 - Best 0.473 - Error Rate 0.420 - Correctness 55.122
+05-15 00:22 Epoch: 62 - Training: 0.440 - Validation 1.236 - Best 0.473 - Error Rate 0.660 - Correctness 39.419
+05-15 00:24 Epoch: 63 - Training: 0.465 - Validation 0.991 - Best 0.473 - Error Rate 0.500 - Correctness 50.000
+05-15 00:27 Epoch: 64 - Training: 0.462 - Validation 0.932 - Best 0.473 - Error Rate 0.500 - Correctness 50.000
+05-15 00:29 Epoch: 65 - Training: 0.461 - Validation 1.254 - Best 0.473 - Error Rate 0.580 - Correctness 44.035
+05-15 00:31 Epoch: 66 - Training: 0.458 - Validation 0.938 - Best 0.473 - Error Rate 0.420 - Correctness 55.917
+05-15 00:33 Epoch: 67 - Training: 0.463 - Validation 1.036 - Best 0.473 - Error Rate 0.500 - Correctness 50.000
+05-15 00:35 Epoch: 68 - Training: 0.462 - Validation 0.945 - Best 0.473 - Error Rate 0.420 - Correctness 55.961
+05-15 00:38 Epoch: 69 - Training: 0.441 - Validation 1.042 - Best 0.473 - Error Rate 0.500 - Correctness 50.000
+05-15 00:40 Epoch: 70 - Training: 0.453 - Validation 1.360 - Best 0.473 - Error Rate 0.660 - Correctness 38.402
+05-15 00:42 Epoch: 71 - Training: 0.462 - Validation 1.132 - Best 0.473 - Error Rate 0.580 - Correctness 44.585
+05-15 00:44 Epoch: 72 - Training: 0.468 - Validation 1.071 - Best 0.473 - Error Rate 0.660 - Correctness 41.211
+05-15 00:46 Epoch: 73 - Training: 0.459 - Validation 1.251 - Best 0.473 - Error Rate 0.660 - Correctness 39.281
+05-15 00:49 Epoch: 74 - Training: 0.456 - Validation 0.969 - Best 0.473 - Error Rate 0.500 - Correctness 50.000
+05-15 00:51 Epoch: 75 - Training: 0.467 - Validation 0.837 - Best 0.473 - Error Rate 0.500 - Correctness 50.000
+05-15 00:53 Epoch: 76 - Training: 0.437 - Validation 0.721 - Best 0.473 - Error Rate 0.340 - Correctness 60.432
+05-15 00:55 Epoch: 77 - Training: 0.445 - Validation 0.781 - Best 0.473 - Error Rate 0.340 - Correctness 61.749
+05-15 00:57 Epoch: 78 - Training: 0.427 - Validation 0.899 - Best 0.473 - Error Rate 0.420 - Correctness 55.655
+05-15 01:00 Epoch: 79 - Training: 0.451 - Validation 0.811 - Best 0.473 - Error Rate 0.420 - Correctness 54.859
+05-15 01:02 Epoch: 80 - Training: 0.452 - Validation 1.292 - Best 0.473 - Error Rate 0.660 - Correctness 38.931
+05-15 01:04 Epoch: 81 - Training: 0.447 - Validation 1.116 - Best 0.473 - Error Rate 0.580 - Correctness 44.669
+05-15 01:06 Epoch: 82 - Training: 0.466 - Validation 1.083 - Best 0.473 - Error Rate 0.580 - Correctness 44.855
+05-15 01:08 Epoch: 83 - Training: 0.444 - Validation 1.004 - Best 0.473 - Error Rate 0.500 - Correctness 50.000
+05-15 01:11 Epoch: 84 - Training: 0.469 - Validation 1.226 - Best 0.473 - Error Rate 0.580 - Correctness 44.147
+05-15 01:13 Epoch: 85 - Training: 0.459 - Validation 1.223 - Best 0.473 - Error Rate 0.660 - Correctness 39.533
+05-15 01:15 Epoch: 86 - Training: 0.473 - Validation 1.045 - Best 0.473 - Error Rate 0.500 - Correctness 50.000
+05-15 01:17 Epoch: 87 - Training: 0.473 - Validation 1.074 - Best 0.473 - Error Rate 0.580 - Correctness 44.908
+05-15 01:19 Epoch: 88 - Training: 0.456 - Validation 1.283 - Best 0.473 - Error Rate 0.580 - Correctness 43.926
+05-15 01:22 Epoch: 89 - Training: 0.457 - Validation 0.774 - Best 0.473 - Error Rate 0.340 - Correctness 61.609
+05-15 01:24 Epoch: 90 - Training: 0.463 - Validation 0.889 - Best 0.473 - Error Rate 0.420 - Correctness 55.577
+05-15 01:26 Epoch: 91 - Training: 0.452 - Validation 0.826 - Best 0.473 - Error Rate 0.420 - Correctness 55.019
+05-15 01:28 Epoch: 92 - Training: 0.471 - Validation 1.130 - Best 0.473 - Error Rate 0.580 - Correctness 44.597
+05-15 01:30 Epoch: 93 - Training: 0.457 - Validation 1.019 - Best 0.473 - Error Rate 0.500 - Correctness 50.000
+05-15 01:33 Epoch: 94 - Training: 0.450 - Validation 0.976 - Best 0.473 - Error Rate 0.500 - Correctness 50.000
+05-15 01:35 Epoch: 95 - Training: 0.467 - Validation 1.069 - Best 0.473 - Error Rate 0.580 - Correctness 44.939
+05-15 01:37 Epoch: 96 - Training: 0.458 - Validation 1.154 - Best 0.473 - Error Rate 0.580 - Correctness 44.473
+05-15 01:39 Epoch: 97 - Training: 0.456 - Validation 0.941 - Best 0.473 - Error Rate 0.500 - Correctness 50.000
+05-15 01:41 Epoch: 98 - Training: 0.475 - Validation 1.403 - Best 0.473 - Error Rate 0.660 - Correctness 38.105
+05-15 01:44 Epoch: 99 - Training: 0.464 - Validation 1.549 - Best 0.473 - Error Rate 0.740 - Correctness 32.222
+05-15 01:46 Epoch: 100 - Training: 0.446 - Validation 1.000 - Best 0.473 - Error Rate 0.500 - Correctness 50.000
+05-15 01:46 ('dropout_keep:', 0.5, 'l2 coef:', 1e-05, 'lr:', 0.1, 'Best val loss', 0.47310778)
+05-15 01:46 Finished with iterations.
+05-15 01:46 Writing to csv
+05-15 01:46 Finished

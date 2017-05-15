@@ -1,0 +1,5 @@
+05-15 01:53 Started module.
+05-15 01:53 Restoring parameters from /home/Liz/CNN_new_arch/CNN_new_arch_epoch100.ckpt
+05-15 01:53 test acc 0.48
+05-15 01:53 test auROC 0.5
+05-15 01:53 Finished

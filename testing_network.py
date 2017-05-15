@@ -12,7 +12,7 @@ import visualizing_filter as vf
 logging.basicConfig(level=logging.DEBUG,
                     format='%(asctime)s %(message)s',
                     datefmt='%m-%d %H:%M',
-                    filename='~testing_CNN_hyperparams_final.log',
+                    filename='~testing_CNN_new.log',
                     filemode='w')
 logging.info('Started module.')
 
@@ -44,7 +44,7 @@ def testing(teX, teY, best_model_file):
     py = tf.get_collection("_".join([model_name, '_py']))[0]
     cost = tf.get_collection("_".join([model_name, '_cost']))[0]
     conv1 = tf.get_collection('_'.join([model_name, 'conv1']))[0]
-    conv2 = tf.get_collection('_'.join([model_name, 'conv2']))[0]
+    #conv2 = tf.get_collection('_'.join([model_name, 'conv2']))[0]
     keep_prob = tf.get_collection("_".join([model_name, '_keep_prob']))[0]
 
     ops = [cost, py]
@@ -62,7 +62,7 @@ def testing(teX, teY, best_model_file):
 
 
 tf.reset_default_graph()
-batch_size = 1000
+batch_size = 100
 epochs = 5
 input_length = 22000
 num_splits = 10
@@ -72,8 +72,8 @@ test_file = '/home/Liz/all_gis_islandviewer_iv4ad_data.csv.gz'
 
 # Load in best model file
 #best_model_file = join('/home/Liz/CNN_hyperparams_gpu/CNN_hyperparams_gpu_best.ckpt')
-best_model_file = '/home/Liz/CNN_hyperparams_final/CNN_hyperparams_final_best.ckpt'
-model_name = 'CNN_hyperparams_final'
+best_model_file = '/home/Liz/CNN_new_arch/CNN_new_arch_best.ckpt'
+model_name = 'CNN_new_arch'
 # Load the data
 full_samples = np.loadtxt(test_file, delimiter=',', skiprows=1, dtype=str)[0:10]
 #print full_samples
@@ -129,8 +129,8 @@ prob_notPAI = teX_prob[:, 1]
 output = np.concatenate([np.expand_dims(teY_flat, axis=1), np.expand_dims(prob_notPAI,axis=1), np.expand_dims(prob_PAI,axis=1)], axis=1)
 print output
 logging.info('Finished')
+<<<<<<< HEAD
 np.savetxt('~prob_predictions.txt', output, header='True Label,-1,1', fmt="%.3f")
 """
-
 
 

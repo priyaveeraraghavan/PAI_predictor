@@ -7,6 +7,7 @@ from os import makedirs
 from sklearn.metrics import roc_auc_score
 import sklearn.metrics
 import logging
+import visualizing_filter as vf 
 
 logging.basicConfig(level=logging.DEBUG,
                     format='%(asctime)s %(message)s',
@@ -19,7 +20,7 @@ testing_params =  { 'dropout_keep_prob' : 1.0,
                      'max_examples' : 10000,
                       'epochs' : 5,
                       'lr' : 0.01,
-                      'test_files' : ['/home/Liz/all_gis_islandviewer_iv4ad_data.csv.gz']}
+                      'test_files' : ['/afs/csail.mit.edu/u/p/priyav/PAI_data/final_data/all_gis_islandviewer_iv4ad_data.csv.gz']}
 
 def testing(teX, teY, best_model_file):
     ################################################################################
@@ -56,6 +57,7 @@ def testing(teX, teY, best_model_file):
 
     teX_cost, teX_prob = sess.run(ops, feed_dict=feed_dict)
 
+    excitation = vf.visualize_conv(sess, teX, conv1, [0, 1, 2, 3])
     return teX_cost, teX_prob
 
 
@@ -82,7 +84,7 @@ teY_flat = [-1 if x==0.1 else 1 for x in teY[:,0]]
 teX_cost, teX_prob  = testing(teX, teY, best_model_file)
 
 #print teY
-
+"""
 teY_binary = np.round((teY))
 #print teY_binary
 
@@ -128,6 +130,7 @@ output = np.concatenate([np.expand_dims(teY_flat, axis=1), np.expand_dims(prob_n
 print output
 logging.info('Finished')
 np.savetxt('~prob_predictions.txt', output, header='True Label,-1,1', fmt="%.3f")
+"""
 
 
 
